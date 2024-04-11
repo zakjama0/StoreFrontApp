@@ -19,7 +19,8 @@ public class Order {
     @Column
     private List<OrderedItem> orderedItems;
 
-    @Column
+    @ManyToOne
+    @JoinColumn(name = "customer_id")
     private Customer customer;
 
     public Order(){
