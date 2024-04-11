@@ -19,25 +19,23 @@ public class Review {
     @Column(name = "comment")
     private String comment;
 
-    @Column
+    @OneToMany(mappedBy = "review")
+    @JoinColumn(name = "customer_id")
     private Customer customer;
 
     @OneToMany(mappedBy = "review")
     @JoinColumn(name = "item_id")
     private Item item;
 
-    @JoinColumn(name = "customer_id")
-//    @JsonIgnoreProperties({"review", "comment", "rating"})
-    private int review;
-
     public Review() {
     }
 
-    public Review(int rating, String comment, Item item, Customer customer) {
+    public Review(Long id, int rating, String comment, Customer customer, Item item) {
+        this.id = id;
         this.rating = rating;
         this.comment = comment;
+        this.customer = customer;
         this.item = item;
-        this.customer =customer;
     }
 
     public Long getId() {
@@ -78,14 +76,6 @@ public class Review {
 
     public void setItem(Item item) {
         this.item = item;
-    }
-
-    public int getReview() {
-        return review;
-    }
-
-    public void setReview(int review) {
-        this.review = review;
     }
 }
 
