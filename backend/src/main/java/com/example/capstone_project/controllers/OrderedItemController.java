@@ -1,4 +1,74 @@
 package com.example.capstone_project.controllers;
 
+import com.example.capstone_project.models.Order;
+import com.example.capstone_project.models.OrderedItem;
+import com.example.capstone_project.services.OrderedItemService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+import java.util.Optional;
+import java.util.List;
+
+
+@RestController
+@RequestMapping("ordered-items")
 public class OrderedItemController {
+
+    @Autowired
+    OrderedItemService orderedItemService;
+
+    @GetMapping
+    public ResponseEntity<List<OrderedItem>> getAllOrderedItems(){
+        List<OrderedItem> orderedItems = orderedItemService.findAllOrderedItems();
+        return new ResponseEntity<>(orderedItems, HttpStatus.OK);
+    }
+
+    //    Get by orderId
+    @GetMapping(value = "/{id}/orders")
+    public ResponseEntity<OrderedItem> getOrderedItemsByOrderId(@PathVariable Long id){
+        Optional<OrderedItem> foundOrderedItems = orderedItemService.findOrderedItemsbyOrderId(id);
+        if(foundOrderedItems.isPresent()){
+            return new ResponseEntity<>(foundOrderedItems.get(), HttpStatus.OK);
+        }
+        return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
+    }
+
+//     Get by itemId
+    @GetMapping(value = "/{id}/items")
+    public ResponseEntity<OrderedItem> getOrderedItemsByItemId(@PathVariable Long id){
+        Optional<OrderedItem> foundOrderedItemsbyItem = orderedItemService.foundOrderedItemsbyItemId(id);
+        if(foundOrderedItemsbyItem.isPresent()){
+            return new ResponseEntity<>(foundOrderedItemsbyItem.get(), HttpStatus.OK);
+        }
+        return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
+    }
+
+    @PatchMapping(value = "/{id}")
+    public ResponseEntity<OrderedItem> updateOrderedItem(@PathVariable Long id, @RequestBody int orderedQuantity) {
+        Optional<OrderedItem> ordereditemOptional = orderedItemService.findOrderedItemsbyOrderId(id);
+        if (ordereditemOptional.isPresent()) {
+            OrderedItem updatedOrderedItem = orderedItemService.updateOrderedItemById(id, orderedQuantity);
+            return new ResponseEntity<>(updatedOrderedItem, HttpStatus.OK);
+
+        }
+        return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
+    }
+
+    @DeleteMapping(value = "/{id}")
+    public ResponseEntity<OrderedItem> removeOrderedItem(@PathVariable Long id){
+        Optional<OrderedItem> deletedOrderedItem = orderedItemService.removeOrderedItem(id);
+        if(deletedOrderedItem.isPresent()){
+            return new ResponseEntity<>(deletedOrderedItem.get(), HttpStatus.OK);
+        }
+        return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
+    }
+
+
+
 }
+
+
+
