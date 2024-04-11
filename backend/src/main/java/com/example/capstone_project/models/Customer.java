@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 
 import java.util.List;
 
+@Entity(name = "customers")
 public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,10 +20,15 @@ public class Customer {
     @OneToMany(mappedBy = "customer")
     private List<Order> orders;
 
-    public Customer (String name, String email, List<Order> orders ){
-       this.name = name;
-       this.email = email;
-       this.orders = orders;
+    @OneToMany(mappedBy = "customer")
+    private List<Review> reviews;
+
+    public Customer(long id, String name, String email, List<Order> orders, List<Review> reviews) {
+        this.id = id;
+        this.name = name;
+        this.email = email;
+        this.orders = orders;
+        this.reviews = reviews;
     }
 
     public long getId() {
@@ -55,5 +61,13 @@ public class Customer {
 
     public void setOrders(List<Order> orders) {
         this.orders = orders;
+    }
+
+    public List<Review> getReviews() {
+        return reviews;
+    }
+
+    public void setReviews(List<Review> reviews) {
+        this.reviews = reviews;
     }
 }

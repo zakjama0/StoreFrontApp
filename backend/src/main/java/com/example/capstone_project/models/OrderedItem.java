@@ -11,8 +11,11 @@ public class OrderedItem {
     @Column
     private long id;
 
+    @Column
+    private int orderedQuantity;
+
     @ManyToOne
-    @JoinColumn(name = "order_id")
+    @JoinColumn(name = "order_id", nullable = false)
     private Order order;
 
     @ManyToOne
@@ -22,8 +25,9 @@ public class OrderedItem {
     public OrderedItem() {
     }
 
-    public OrderedItem(long id, Order order, Item item) {
+    public OrderedItem(long id, int orderedQuantity, Order order, Item item) {
         this.id = id;
+        this.orderedQuantity = orderedQuantity;
         this.order = order;
         this.item = item;
     }
@@ -34,6 +38,14 @@ public class OrderedItem {
 
     public void setId(long id) {
         this.id = id;
+    }
+
+    public int getOrderedQuantity() {
+        return orderedQuantity;
+    }
+
+    public void setOrderedQuantity(int orderedQuantity) {
+        this.orderedQuantity = orderedQuantity;
     }
 
     public Order getOrder() {

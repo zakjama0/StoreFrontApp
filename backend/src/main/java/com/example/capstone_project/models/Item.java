@@ -27,19 +27,23 @@ public class Item {
     @Column
     private int unitPrice;
 
+    @Column
+    private String description;
+
     @OneToMany(mappedBy = "item")
     private List<OrderedItem> orderedItems;
 
     public Item (){
     }
 
-    public Item(long id, String name, String picture, Category category, int quantity, int unitPrice, List<OrderedItem> orderedItems) {
+    public Item(long id, String name, String picture, Category category, int quantity, int unitPrice, String description, List<OrderedItem> orderedItems) {
         this.id = id;
         this.name = name;
         this.picture = picture;
         this.category = category;
         this.quantity = quantity;
         this.unitPrice = unitPrice;
+        this.description = description;
         this.orderedItems = orderedItems;
     }
 
@@ -89,6 +93,14 @@ public class Item {
 
     public void setUnitPrice(int unitPrice) {
         this.unitPrice = unitPrice;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public List<OrderedItem> getOrderedItems() {

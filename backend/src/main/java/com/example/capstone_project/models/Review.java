@@ -19,11 +19,11 @@ public class Review {
     @Column(name = "comment")
     private String comment;
 
-    @OneToMany(mappedBy = "review")
+    @ManyToOne
     @JoinColumn(name = "customer_id")
     private Customer customer;
 
-    @OneToMany(mappedBy = "review")
+    @ManyToOne
     @JoinColumn(name = "item_id")
     private Item item;
 
