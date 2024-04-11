@@ -1,4 +1,7 @@
 package com.example.capstone_project.repositories;
 
-public class CustomerRepository {
+import com.example.capstone_project.models.Customer;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface CustomerRepository extends JpaRepository<Customer, Long> {
 }
