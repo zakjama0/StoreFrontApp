@@ -16,7 +16,7 @@ public class Order {
     @Column
     private String address;
 
-    @Column
+    @OneToMany(mappedBy = "order")
     private List<OrderedItem> orderedItems;
 
     @ManyToOne
@@ -26,7 +26,8 @@ public class Order {
     public Order(){
     }
 
-    public Order (String address, List<OrderedItem> orderedItems, Customer customer){
+    public Order(long id, String address, List<OrderedItem> orderedItems, Customer customer) {
+        this.id = id;
         this.address = address;
         this.orderedItems = orderedItems;
         this.customer = customer;

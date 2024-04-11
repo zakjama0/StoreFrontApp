@@ -2,6 +2,8 @@ package com.example.capstone_project.models;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table(name = "items")
 public class Item {
@@ -25,15 +27,20 @@ public class Item {
     @Column
     private int unitPrice;
 
+    @OneToMany(mappedBy = "item")
+    private List<OrderedItem> orderedItems;
 
     public Item (){
     }
 
-    public Item (String name, String picture, Category category, int quanity, int unitPrice){
+    public Item(long id, String name, String picture, Category category, int quantity, int unitPrice, List<OrderedItem> orderedItems) {
+        this.id = id;
         this.name = name;
+        this.picture = picture;
         this.category = category;
-        this.quantity = quanity;
+        this.quantity = quantity;
         this.unitPrice = unitPrice;
+        this.orderedItems = orderedItems;
     }
 
     public long getId() {
@@ -82,5 +89,13 @@ public class Item {
 
     public void setUnitPrice(int unitPrice) {
         this.unitPrice = unitPrice;
+    }
+
+    public List<OrderedItem> getOrderedItems() {
+        return orderedItems;
+    }
+
+    public void setOrderedItems(List<OrderedItem> orderedItems) {
+        this.orderedItems = orderedItems;
     }
 }

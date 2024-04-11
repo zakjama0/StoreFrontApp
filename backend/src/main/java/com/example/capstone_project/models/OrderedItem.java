@@ -1,9 +1,9 @@
 package com.example.capstone_project.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 
-@Entity
-@Table(name="ordered_item")
+@Entity(name = "ordered_items")
 public class OrderedItem {
 
     @Id
@@ -11,13 +11,21 @@ public class OrderedItem {
     @Column
     private long id;
 
-    @OneToMany(mappedBy = "orders")
-    private long orderId;
+    @ManyToOne
+    @JoinColumn(name = "order_id")
+    private Order order;
 
-    @OneToMany(mappedBy = "items")
-    private long itemId;
+    @ManyToOne
+    @JoinColumn(name = "item_id")
+    private Item item;
 
     public OrderedItem() {
+    }
+
+    public OrderedItem(long id, Order order, Item item) {
+        this.id = id;
+        this.order = order;
+        this.item = item;
     }
 
     public long getId() {
@@ -28,19 +36,19 @@ public class OrderedItem {
         this.id = id;
     }
 
-    public long getOrderId() {
-        return orderId;
+    public Order getOrder() {
+        return order;
     }
 
-    public void setOrderId(long orderId) {
-        this.orderId = orderId;
+    public void setOrder(Order order) {
+        this.order = order;
     }
 
-    public long getItemId() {
-        return itemId;
+    public Item getItem() {
+        return item;
     }
 
-    public void setItemId(long itemId) {
-        this.itemId = itemId;
+    public void setItem(Item item) {
+        this.item = item;
     }
 }
