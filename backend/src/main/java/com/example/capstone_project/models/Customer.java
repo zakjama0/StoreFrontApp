@@ -23,8 +23,10 @@ public class Customer {
     @OneToMany(mappedBy = "customer")
     private List<Review> reviews;
 
-    public Customer(long id, String name, String email, List<Order> orders, List<Review> reviews) {
-        this.id = id;
+    public Customer(){
+    }
+
+    public Customer(String name, String email, List<Order> orders, List<Review> reviews) {
         this.name = name;
         this.email = email;
         this.orders = orders;

@@ -5,17 +5,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f37bcd00-b72a-422d-8a9a-f6a1ab6b8248" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/capstone_project/models/CustomerDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/capstone_project/models/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/capstone_project/models/Customer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/capstone_project/models/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/capstone_project/models/Item.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/capstone_project/models/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/capstone_project/models/Order.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/capstone_project/models/OrderedItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/capstone_project/models/OrderedItem.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/capstone_project/models/Review.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/capstone_project/models/Review.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/capstone_project/services/CustomerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/capstone_project/services/CustomerService.java" afterDir="false" />
+    </list>
+    <list id="cc00ec53-63b5-4015-8eb6-2384b12ed253" name="Changes by blah" comment="">
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/capstone_project/models/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/capstone_project/models/Customer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -32,6 +41,14 @@
     &quot;accountId&quot;: &quot;1b09bc8c-fc2e-4fee-b2b8-8d6cdaef1f00&quot;
   }
 }</component>
+  <component name="LineStatusTrackerManager">
+    <file path="$PROJECT_DIR$/src/main/java/com/example/capstone_project/models/Customer.java">
+      <ranges>
+        <range start1="24" end1="24" start2="24" end2="27" changelist="cc00ec53-63b5-4015-8eb6-2384b12ed253" />
+        <range start1="25" end1="27" start2="28" end2="29" changelist="f37bcd00-b72a-422d-8a9a-f6a1ab6b8248" />
+      </ranges>
+    </file>
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -48,11 +65,17 @@
     "Application.CapstoneProjectApplication.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "review&&customer",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "/Users/blah/Documents/bnta_work/full_stack_project/StoreFrontApp/backend"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.example.capstone_project.services" />
+      <recent name="com.example.capstone_project.models" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
