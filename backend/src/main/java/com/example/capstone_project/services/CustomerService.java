@@ -23,7 +23,8 @@ public class CustomerService {
     }
 
     public Customer saveCustomer(Customer customer){
-        return customerRepository.save(customer);
+        Customer newCustomer = new Customer(customer.getName(), customer.getEmail());
+        return customerRepository.save(newCustomer);
     }
 
     public Optional<Customer> updateCustomer(Long id, CustomerDTO customerDTO){

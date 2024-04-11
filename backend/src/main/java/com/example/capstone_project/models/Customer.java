@@ -2,6 +2,7 @@ package com.example.capstone_project.models;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity(name = "customers")
@@ -26,11 +27,11 @@ public class Customer {
     public Customer(){
     }
 
-    public Customer(String name, String email, List<Order> orders, List<Review> reviews) {
+    public Customer(String name, String email) {
         this.name = name;
         this.email = email;
-        this.orders = orders;
-        this.reviews = reviews;
+        this.orders = new ArrayList<>();
+        this.reviews = new ArrayList<>();
     }
 
     public long getId() {

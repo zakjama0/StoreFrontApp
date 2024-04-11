@@ -1,7 +1,6 @@
 package com.example.capstone_project.services;
 
-import com.example.capstone_project.models.Review;
-import com.example.capstone_project.models.ReviewDTO;
+import com.example.capstone_project.models.*;
 import com.example.capstone_project.repositories.CustomerRepository;
 import com.example.capstone_project.repositories.ItemRepository;
 import com.example.capstone_project.repositories.ReviewRepository;
@@ -15,6 +14,11 @@ import java.util.Optional;
 public class ReviewService {
     @Autowired
     ReviewRepository reviewRepository;
+    @Autowired
+    CustomerRepository customerRepository;
+
+    @Autowired
+    ItemRepository itemRepository;
     public List<Review> getAllReviews(){
         return reviewRepository.findAll();
     }
@@ -27,11 +31,22 @@ public class ReviewService {
     public List<Review> getReviewsByCustomerId (Long id){
         return reviewRepository.findByCustomerId(id);
     }
-    public Review saveReview (Review review){
-        return reviewRepository.save(review);
+    public Review saveReview (NewReviewDTO newReviewDTO){
+        Optional<Customer> customer = customerRepository.findById(newReviewDTO.getCustomerId());
+        if(customer.isEmpty()){
+            return null;
+        }
+
+        Optional<Item> item = itemRepository.findById(newReviewDTO.getItemId());
+        if(item.isEmpty()){
+            return null;
+        }
+
+        Review newReview = new Review(newReviewDTO.getRating(), newReviewDTO.getComment(), customer.get(), item.get());
+        return reviewRepository.save(newReview);
     }
 
-    public Optional<Review> updateReview(Long id, ReviewDTO reviewDTO){
+    public Optional<Review> updateReview(Long id, UpdateReviewDTO reviewDTO){
         Optional<Review> reviewToUpdate = reviewRepository.findById(id);
         if(reviewToUpdate.isPresent()) {
             reviewToUpdate.get().setRating(reviewDTO.getRating());

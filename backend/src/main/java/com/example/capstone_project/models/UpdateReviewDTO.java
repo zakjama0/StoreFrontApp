@@ -1,14 +1,14 @@
 package com.example.capstone_project.models;
 
-public class ReviewDTO {
+public class UpdateReviewDTO {
     private int rating;
 
     private String comment;
 
-    public ReviewDTO() {
+    public UpdateReviewDTO() {
     }
 
-    public ReviewDTO(int rating, String comment) {
+    public UpdateReviewDTO(int rating, String comment) {
         this.rating = rating;
         this.comment = comment;
     }

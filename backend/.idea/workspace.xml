@@ -5,25 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f37bcd00-b72a-422d-8a9a-f6a1ab6b8248" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/capstone_project/models/ReviewDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/capstone_project/models/NewReviewDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/capstone_project/controllers/ReviewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/capstone_project/controllers/ReviewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/capstone_project/repositories/CustomerRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/capstone_project/repositories/CustomerRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/capstone_project/repositories/ReviewRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/capstone_project/repositories/ReviewRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/capstone_project/models/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/capstone_project/models/Customer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/capstone_project/models/ReviewDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/capstone_project/models/UpdateReviewDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/capstone_project/services/CustomerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/capstone_project/services/CustomerService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/capstone_project/services/ReviewService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/capstone_project/services/ReviewService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/capstone_project/controllers/CustomerController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/capstone_project/controllers/CustomerController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/capstone_project/controllers/ReviewController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/capstone_project/controllers/ReviewController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/capstone_project/models/Customer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/capstone_project/models/Customer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/capstone_project/models/Review.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/capstone_project/models/Review.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/capstone_project/repositories/ReviewRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/capstone_project/repositories/ReviewRepository.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/capstone_project/services/CustomerService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/capstone_project/services/CustomerService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/capstone_project/services/ReviewService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/capstone_project/services/ReviewService.class" afterDir="false" />
     </list>
-    <list id="cc00ec53-63b5-4015-8eb6-2384b12ed253" name="Changes by blah" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/capstone_project/controllers/CustomerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/capstone_project/controllers/CustomerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/capstone_project/models/Review.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/capstone_project/models/Review.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/capstone_project/services/CustomerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/capstone_project/services/CustomerService.java" afterDir="false" />
+    <list id="f9c6d1f1-4a5e-4437-bd3b-b7f6e7d3c588" name="Changes by blah" comment="">
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/capstone_project/controllers/ReviewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/capstone_project/controllers/ReviewController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,13 +47,12 @@
   }
 }</component>
   <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/src/main/java/com/example/capstone_project/services/CustomerService.java">
+    <file path="$PROJECT_DIR$/src/main/java/com/example/capstone_project/controllers/ReviewController.java">
       <ranges>
-        <range start1="6" end1="6" start2="6" end2="7" changelist="f37bcd00-b72a-422d-8a9a-f6a1ab6b8248" />
-        <range start1="9" end1="10" start2="10" end2="11" changelist="f37bcd00-b72a-422d-8a9a-f6a1ab6b8248" />
-        <range start1="15" end1="15" start2="16" end2="23" changelist="cc00ec53-63b5-4015-8eb6-2384b12ed253" />
-        <range start1="20" end1="33" start2="28" end2="35" changelist="cc00ec53-63b5-4015-8eb6-2384b12ed253" />
-        <range start1="35" end1="39" start2="37" end2="37" changelist="cc00ec53-63b5-4015-8eb6-2384b12ed253" />
+        <range start1="2" end1="2" start2="2" end2="3" changelist="f37bcd00-b72a-422d-8a9a-f6a1ab6b8248" />
+        <range start1="3" end1="4" start2="4" end2="5" changelist="f37bcd00-b72a-422d-8a9a-f6a1ab6b8248" />
+        <range start1="45" end1="47" start2="46" end2="51" changelist="f9c6d1f1-4a5e-4437-bd3b-b7f6e7d3c588" />
+        <range start1="51" end1="52" start2="55" end2="56" changelist="f37bcd00-b72a-422d-8a9a-f6a1ab6b8248" />
       </ranges>
     </file>
   </component>
@@ -79,6 +72,7 @@
     "Application.CapstoneProjectApplication.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "customer",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "/Users/blah/Documents/bnta_work/full_stack_project/StoreFrontApp/backend"

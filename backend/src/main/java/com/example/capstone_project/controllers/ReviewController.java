@@ -1,7 +1,8 @@
 package com.example.capstone_project.controllers;
 
+import com.example.capstone_project.models.NewReviewDTO;
 import com.example.capstone_project.models.Review;
-import com.example.capstone_project.models.ReviewDTO;
+import com.example.capstone_project.models.UpdateReviewDTO;
 import com.example.capstone_project.services.ReviewService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -43,13 +44,16 @@ public class ReviewController {
     }
 
     @PostMapping
-    public ResponseEntity<Review> addReview (@RequestBody Review review){
-        Review newReview = reviewService.saveReview(review);
+    public ResponseEntity<Review> addReview (@RequestBody NewReviewDTO newReviewDTO){
+        Review newReview = reviewService.saveReview(newReviewDTO);
+        if(newReview == null){
+            return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
+        }
         return new ResponseEntity<>(newReview, HttpStatus.CREATED);
     }
 
     @PutMapping(value = "/{id}")
-    public ResponseEntity<Review> updateReview(@PathVariable Long id, @RequestBody ReviewDTO reviewDTO){
+    public ResponseEntity<Review> updateReview(@PathVariable Long id, @RequestBody UpdateReviewDTO reviewDTO){
         Optional<Review> updatedReview = reviewService.updateReview(id, reviewDTO);
         if(updatedReview.isPresent()){
             return new ResponseEntity<>(updatedReview.get(), HttpStatus.OK);
