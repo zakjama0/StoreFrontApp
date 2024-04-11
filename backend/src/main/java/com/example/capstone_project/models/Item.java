@@ -2,6 +2,7 @@ package com.example.capstone_project.models;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -36,14 +37,14 @@ public class Item {
     public Item (){
     }
 
-    public Item(String name, String picture, Category category, int quantity, int unitPrice, String description, List<OrderedItem> orderedItems) {
+    public Item(String name, String picture, Category category, int quantity, int unitPrice, String description) {
         this.name = name;
         this.picture = picture;
         this.category = category;
         this.quantity = quantity;
         this.unitPrice = unitPrice;
         this.description = description;
-        this.orderedItems = orderedItems;
+        this.orderedItems = new ArrayList<>();
     }
 
     public long getId() {
