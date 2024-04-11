@@ -70,8 +70,4 @@ public class Customer {
     public void setReviews(List<Review> reviews) {
         this.reviews = reviews;
     }
-
-    public void addUpdatedAddressToCustomer(Order order) {
-        this.orders.add(order);
-    }
 }
