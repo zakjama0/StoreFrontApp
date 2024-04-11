@@ -1,5 +1,6 @@
 package com.example.capstone_project.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 
 import java.util.ArrayList;
@@ -22,6 +23,7 @@ public class Order {
 
     @ManyToOne
     @JoinColumn(name = "customer_id")
+    @JsonIgnoreProperties({"orders"})
     private Customer customer;
 
     @Column
