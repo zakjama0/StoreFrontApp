@@ -30,7 +30,7 @@ public class Review {
     public Review() {
     }
 
-    public Review( int rating, String comment, Customer customer, Item item) {
+    public Review(int rating, String comment, Customer customer, Item item) {
         this.rating = rating;
         this.comment = comment;
         this.customer = customer;

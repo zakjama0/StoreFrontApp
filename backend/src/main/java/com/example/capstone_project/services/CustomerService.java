@@ -4,37 +4,35 @@ import com.example.capstone_project.models.Customer;
 import com.example.capstone_project.models.CustomerDTO;
 import com.example.capstone_project.repositories.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
-
+@Service
 public class CustomerService {
 
     @Autowired
     CustomerRepository customerRepository;
 
-
-    public Customer saveCustomer(Customer customer){
-        return customerRepository.save(customer);
+    public List<Customer> getAllCustomers (){
+        return customerRepository.findAll();
     }
 
     public Optional<Customer> getCustomerById (long id){
         return customerRepository.findById(id);
     }
 
-    public List<Customer> getAllCustomers (){
-        return customerRepository.findAll();
+    public Customer saveCustomer(Customer customer){
+        return customerRepository.save(customer);
     }
 
-    public Customer updateCustomer(Long id, CustomerDTO customerDTO){
-        Customer customerToUpdate = customerRepository.findById(id).get();
-        customerToUpdate.setName(customerDTO.getName());
-        customerToUpdate.setEmail(customerDTO.getEmail());
-        customerRepository.save(customerToUpdate);
+    public Optional<Customer> updateCustomer(Long id, CustomerDTO customerDTO){
+        Optional<Customer> customerToUpdate = customerRepository.findById(id);
+        if(customerToUpdate.isPresent()) {
+            customerToUpdate.get().setName(customerDTO.getName());
+            customerToUpdate.get().setEmail(customerDTO.getEmail());
+            customerRepository.save(customerToUpdate.get());
+        }
         return customerToUpdate;
     }
-
-
-
-
 }
