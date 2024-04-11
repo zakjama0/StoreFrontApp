@@ -36,8 +36,7 @@ public class Item {
     public Item (){
     }
 
-    public Item(long id, String name, String picture, Category category, int quantity, int unitPrice, String description, List<OrderedItem> orderedItems) {
-        this.id = id;
+    public Item(String name, String picture, Category category, int quantity, int unitPrice, String description, List<OrderedItem> orderedItems) {
         this.name = name;
         this.picture = picture;
         this.category = category;
