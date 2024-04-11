@@ -1,6 +1,8 @@
 package com.example.capstone_project.components;
 
+import com.example.capstone_project.models.Category;
 import com.example.capstone_project.models.Customer;
+import com.example.capstone_project.models.Item;
 import com.example.capstone_project.repositories.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
@@ -45,6 +47,18 @@ public class DataLoader implements ApplicationRunner {
         customerRepository.save(customer3);
         customerRepository.save(customer4);
         customerRepository.save(customer5);
+
+        Item item1 = new Item("Tadiwa's Cup", "", Category.HOME_AND_KITCHEN, 50, 300, "A cup");
+        Item item2 = new Item("Zak's Iron", "", Category.HOME_AND_KITCHEN, 25, 20000, "A iron");
+        Item item3 = new Item("Saba's Electric Scooter", "", Category.ELECTRONICS, 10, 27900, "Saba's height adjusted electric scooter");
+        Item item4 = new Item("Marvellous' Eyeliner", "", Category.BEAUTY_AND_WELLNESS, 100, 1299, "Marvellous' eyeliner");
+        Item item5 = new Item("Surrounded By Idiots", "", Category.BOOKS, 1, 999, "Book that described Birindar's capstone project experience.");
+
+        itemRepository.save(item1);
+        itemRepository.save(item2);
+        itemRepository.save(item3);
+        itemRepository.save(item4);
+        itemRepository.save(item5);
     }
 
 }
