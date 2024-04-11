@@ -10,6 +10,7 @@ public class NewOrderDTO {
     public NewOrderDTO(OrderStatus orderStatus, Long customerId, ArrayList<OrderedItem> orderedItems){
         this.orderStatus = orderStatus;
         this.orderedItems= new ArrayList<>();
+        this.customerId = customerId;
     }
 
 

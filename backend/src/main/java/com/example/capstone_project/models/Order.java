@@ -29,8 +29,7 @@ public class Order {
     public Order(){
     }
 
-    public Order(long id, String address, List<OrderedItem> orderedItems, Customer customer, OrderStatus orderStatus) {
-        this.id = id;
+    public Order(String address, List<OrderedItem> orderedItems, Customer customer, OrderStatus orderStatus) {
         this.address = address;
         this.orderedItems = orderedItems;
         this.customer = customer;
@@ -76,4 +75,6 @@ public class Order {
     public void setOrderStatus(OrderStatus orderStatus) {
         this.orderStatus = orderStatus;
     }
+
+
 }
