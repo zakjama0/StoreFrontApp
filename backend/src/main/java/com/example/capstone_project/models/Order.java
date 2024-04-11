@@ -2,6 +2,7 @@ package com.example.capstone_project.models;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -34,6 +35,12 @@ public class Order {
         this.orderedItems = orderedItems;
         this.customer = customer;
         this.orderStatus = orderStatus;
+    }
+
+    public Order(OrderStatus orderStatus, Customer customer) {
+        this.orderStatus = orderStatus;
+        this.customer = customer;
+        this.orderedItems = new ArrayList<>();
     }
 
     public long getId() {

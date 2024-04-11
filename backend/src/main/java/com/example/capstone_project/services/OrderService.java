@@ -1,9 +1,6 @@
 package com.example.capstone_project.services;
 
-import com.example.capstone_project.models.Customer;
-import com.example.capstone_project.models.NewOrderDTO;
-import com.example.capstone_project.models.Order;
-import com.example.capstone_project.models.OrderedItem;
+import com.example.capstone_project.models.*;
 import com.example.capstone_project.repositories.CustomerRepository;
 import com.example.capstone_project.repositories.OrderRepository;
 import com.example.capstone_project.repositories.OrderedItemRepository;
@@ -39,18 +36,22 @@ public class OrderService {
         return orderRepository.findById(id);
     }
 
-    public Optional<Order> updateOrderStatus(Long orderId, Long customerId) {
-        Optional<Order> order = orderRepository.findById(orderId);
-        if (order.isEmpty()) {
-            return Optional.empty();
+    public Order updateOrderStatus(NewOrderDTO newOrderDTO, Long id) {
+        Order orderToUpdate = orderRepository.findById(id).get();
+        OrderStatus orderStatusToUpdate = newOrderDTO.getOrderStatus();
+        orderToUpdate.setOrderStatus(orderStatusToUpdate);
+        orderRepository.save(orderToUpdate);
+        return orderToUpdate;
+    }
+
+    public Order saveOrder(NewOrderDTO newOrderDTO) {
+        Optional <Customer> customer = customerRepository.findById(newOrderDTO.getCustomerId());
+        if (customer.isEmpty()){
+            return null;
         }
 
-        Optional<Customer> customer = customerRepository.findById(customerId);
-        if (customer.isEmpty()) {
-            return Optional.empty();
-        }
-
-        orderRepository.save(order.get());
+        Order order = new Order(OrderStatus.PENDING, customer.get());
+        orderRepository.save(order);
         return order;
     }
 }
