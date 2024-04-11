@@ -7,10 +7,10 @@ public class NewOrderDTO {
     private Long customerId;
     private ArrayList<OrderedItem> orderedItems;
 
-    public NewOrderDTO(OrderStatus orderStatus, Long customerId, ArrayList<OrderedItem> orderedItems){
+    public NewOrderDTO(OrderStatus orderStatus, Long customerId){
         this.orderStatus = orderStatus;
-        this.orderedItems= new ArrayList<>();
         this.customerId = customerId;
+        this.orderedItems= new ArrayList<>();
     }
 
 
