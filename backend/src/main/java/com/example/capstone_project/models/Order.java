@@ -23,14 +23,18 @@ public class Order {
     @JoinColumn(name = "customer_id")
     private Customer customer;
 
+    @Column
+    private OrderStatus orderStatus;
+
     public Order(){
     }
 
-    public Order(long id, String address, List<OrderedItem> orderedItems, Customer customer) {
+    public Order(long id, String address, List<OrderedItem> orderedItems, Customer customer, OrderStatus orderStatus) {
         this.id = id;
         this.address = address;
         this.orderedItems = orderedItems;
         this.customer = customer;
+        this.orderStatus = orderStatus;
     }
 
     public long getId() {
@@ -63,5 +67,13 @@ public class Order {
 
     public void setCustomer(Customer customer) {
         this.customer = customer;
+    }
+
+    public OrderStatus getOrderStatus() {
+        return orderStatus;
+    }
+
+    public void setOrderStatus(OrderStatus orderStatus) {
+        this.orderStatus = orderStatus;
     }
 }
