@@ -1,9 +1,6 @@
 package com.example.capstone_project.models;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.util.List;
 
@@ -19,7 +16,7 @@ public class Customer {
     @Column
     private String email;
 
-    @Column
+    @OneToMany(mappedBy = "customer")
     private List<Order> orders;
 
     public Customer (String name, String email, List<Order> orders ){
