@@ -26,9 +26,9 @@ public class OrderedItem {
     }
 
     public OrderedItem(Order order, Item item, int orderedQuantity) {
-        this.orderedQuantity = orderedQuantity;
         this.order = order;
         this.item = item;
+        this.orderedQuantity = orderedQuantity;
     }
 
 
