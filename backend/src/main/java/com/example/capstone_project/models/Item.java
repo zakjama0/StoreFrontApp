@@ -115,7 +115,7 @@ public class Item {
     }
 
     public void addToOrderedItems(int quantityToRemove){
-        this.quantity -= this.quantity -= quantityToRemove;
+        this.quantity -= quantityToRemove;
     }
 }
 
