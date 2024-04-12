@@ -40,6 +40,7 @@ public class OrderService {
     }
 
     public Order saveOrder(NewOrderDTO newOrderDTO) {
+
         Optional <Customer> customer = customerRepository.findById(newOrderDTO.getCustomerId());
         if (customer.isEmpty()){
             return null;

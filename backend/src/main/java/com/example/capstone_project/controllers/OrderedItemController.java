@@ -1,6 +1,5 @@
 package com.example.capstone_project.controllers;
 
-import com.example.capstone_project.models.Order;
 import com.example.capstone_project.models.OrderedItem;
 import com.example.capstone_project.services.OrderedItemService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,11 +9,9 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.List;
-
 
 @RestController
-@RequestMapping("ordered-items")
+@RequestMapping("/ordered-items")
 public class OrderedItemController {
 
     @Autowired
@@ -39,9 +36,9 @@ public class OrderedItemController {
 //     Get by itemId
     @GetMapping(value = "/{id}/items")
     public ResponseEntity<OrderedItem> getOrderedItemsByItemId(@PathVariable Long id){
-        Optional<OrderedItem> foundOrderedItemsbyItem = orderedItemService.foundOrderedItemsbyItemId(id);
-        if(foundOrderedItemsbyItem.isPresent()){
-            return new ResponseEntity<>(foundOrderedItemsbyItem.get(), HttpStatus.OK);
+        Optional<OrderedItem> foundOrderedItemsByItem = orderedItemService.foundOrderedItemsbyItemId(id);
+        if(foundOrderedItemsByItem.isPresent()){
+            return new ResponseEntity<>(foundOrderedItemsByItem.get(), HttpStatus.OK);
         }
         return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
     }
@@ -65,9 +62,6 @@ public class OrderedItemController {
         }
         return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
     }
-
-
-
 }
 
 

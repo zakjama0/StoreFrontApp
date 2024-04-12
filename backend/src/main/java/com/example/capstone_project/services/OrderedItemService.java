@@ -26,11 +26,14 @@ public class OrderedItemService {
     }
 
     public OrderedItem updateOrderedItemById(Long id, int orderedQuantity) {
+
         OrderedItem orderedItemToUpdate = orderedItemRepository.findById(id).orElse(null);
+
         if (orderedItemToUpdate != null) {
             orderedItemToUpdate.setOrderedQuantity(orderedQuantity);
             return orderedItemRepository.save(orderedItemToUpdate);
         }
+
         return null;
     }
 
