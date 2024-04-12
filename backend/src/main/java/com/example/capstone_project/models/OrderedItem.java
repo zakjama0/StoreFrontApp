@@ -25,12 +25,13 @@ public class OrderedItem {
     public OrderedItem() {
     }
 
-    public OrderedItem(long id, int orderedQuantity, Order order, Item item) {
-        this.id = id;
-        this.orderedQuantity = orderedQuantity;
+    public OrderedItem(Order order, Item item, int orderedQuantity) {
         this.order = order;
         this.item = item;
+        this.orderedQuantity = orderedQuantity;
     }
+
+
 
     public long getId() {
         return id;
