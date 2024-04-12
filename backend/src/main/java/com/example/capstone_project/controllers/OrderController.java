@@ -48,6 +48,16 @@ public class OrderController {
         return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
     }
 
+    @GetMapping(value = "/order-cost/{id}")
+    public ResponseEntity<Integer> calculateOrderCost(@PathVariable long id){
+        Optional<Order> optionalOrder = orderService.getById(id);
+        if(optionalOrder.isPresent()){
+            Integer orderCost = optionalOrder.get().calculateOrderCost();
+            return new ResponseEntity<>(orderCost, HttpStatus.OK);
+        }
+        return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
+    }
+
     @PostMapping
     public ResponseEntity<Order> addOrder(@RequestBody NewOrderDTO newOrderDTO){
         Optional<Customer> customer = customerService.getCustomerById(newOrderDTO.getCustomerId());

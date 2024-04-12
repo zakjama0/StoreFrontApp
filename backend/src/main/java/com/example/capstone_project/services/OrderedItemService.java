@@ -22,18 +22,21 @@ public class OrderedItemService {
     @Autowired
     ItemRepository itemRepository;
 
-    public List<OrderedItem> findAllOrderedItems() {
-        return orderedItemRepository.findAll();
-    }
-
-    public Optional<OrderedItem> findOrderedItemsByOrderId(Long id) {
-            return orderedItemRepository.findById(id);
-        }
-
-    public Optional<OrderedItem> foundOrderedItemsByItemId(Long id) {
+    public Optional<OrderedItem> getById(Long id){
         return orderedItemRepository.findById(id);
     }
 
+    public List<OrderedItem> getAllOrderedItems() {
+        return orderedItemRepository.findAll();
+    }
+
+    public List<OrderedItem> getOrderedItemsByOrderId(Long orderId) {
+            return orderedItemRepository.findOrderedItemsByOrderId(orderId);
+    }
+
+    public List<OrderedItem> getOrderedItemsByItemId(Long itemId) {
+        return orderedItemRepository.findOrderedItemsByItemId(itemId);
+    }
 
    @Transactional
     public OrderedItem updateOrderedItemById(NewOrderedItemDTO newOrderedItemDTO, Long id) throws Exception{
@@ -54,10 +57,21 @@ public class OrderedItemService {
        return orderedItemToUpdate;
     }
 
-    public Optional<OrderedItem> removeOrderedItem (Long id) {
-        Optional<OrderedItem> message = orderedItemRepository.findById(id);
+    public Optional<OrderedItem> removeOrderedItem(Long id) {
+
+        Optional<OrderedItem> orderedItem = orderedItemRepository.findById(id);
+
+        if(orderedItem.isEmpty()){
+            return null;
+        }
+
+        Item item = orderedItem.get().getItem();
+        int quantity = orderedItem.get().getOrderedQuantity();
+
+        item.addToOrderedItems(-quantity);
+        itemRepository.save(item);
         orderedItemRepository.deleteById(id);
-        return message;
+        return orderedItem;
     }
 
     @Transactional
