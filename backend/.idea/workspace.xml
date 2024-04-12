@@ -5,8 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f37bcd00-b72a-422d-8a9a-f6a1ab6b8248" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/capstone_project/services/OrderedItemService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/capstone_project/services/OrderedItemService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/capstone_project/controllers/OrderedItemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/capstone_project/controllers/OrderedItemController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/capstone_project/components/DataLoader.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/capstone_project/components/DataLoader.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/capstone_project/controllers/ItemController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/capstone_project/controllers/OrderedItemController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/capstone_project/controllers/ReviewController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/capstone_project/models/Item.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/capstone_project/models/Item.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/capstone_project/models/OrderedItem.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/capstone_project/models/OrderedItem.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/capstone_project/repositories/ItemRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/capstone_project/repositories/ItemRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/capstone_project/services/ItemService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/capstone_project/services/OrderedItemService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/capstone_project/services/ReviewService.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

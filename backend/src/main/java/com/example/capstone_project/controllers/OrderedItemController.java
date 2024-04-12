@@ -85,14 +85,21 @@ public class OrderedItemController {
     }
 
     @PatchMapping(value = "/{id}")
-    public ResponseEntity<OrderedItem> updateOrderedItem(@PathVariable Long id, @RequestBody int orderedQuantity) {
-        Optional<OrderedItem> ordereditemOptional = orderedItemService.findOrderedItemsbyOrderId(id);
-        if (ordereditemOptional.isPresent()) {
-            OrderedItem updatedOrderedItem = orderedItemService.updateOrderedItemById(id, orderedQuantity);
-            return new ResponseEntity<>(updatedOrderedItem, HttpStatus.OK);
-
+    public ResponseEntity<OrderedItem> updateOrderedItem(@RequestBody NewOrderedItemDTO newOrderedItemDTO, @PathVariable Long id){
+        Optional<OrderedItem> orderedItemToUpdate = orderedItemService.findOrderedItemsbyOrderId(id);
+        if (orderedItemToUpdate.isEmpty()){
+            return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
         }
-        return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
+        try {
+            OrderedItem newOrderedItem = orderedItemService.updateOrderedItemById(newOrderedItemDTO, id);
+            return new ResponseEntity<>(newOrderedItem, HttpStatus.OK);
+        } catch (CantUpdateOrderException exception) {
+            return new ResponseEntity<>(null, HttpStatus.CONFLICT);
+        } catch (NotEnoughStockException exception) {
+            return new ResponseEntity<>(null, HttpStatus.CONFLICT);
+        } catch (Exception exception) {
+            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 
     @DeleteMapping(value = "/{id}")
