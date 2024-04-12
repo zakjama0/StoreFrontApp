@@ -34,8 +34,8 @@ public class ReviewService {
         return reviewRepository.findByItemId(id);
     }
 
-    public List<Review> getReviewsByCustomerId (Long id){
-        return reviewRepository.findByCustomerId(id);
+    public List<Review> getReviewsByCustomerId (Long customerId){
+        return reviewRepository.findByCustomerId(customerId);
     }
 
     public Review saveReview (NewReviewDTO newReviewDTO){
