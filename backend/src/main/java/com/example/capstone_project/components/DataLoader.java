@@ -111,6 +111,9 @@ public class DataLoader implements ApplicationRunner {
         NewOrderDTO newOrderDTO1 = new NewOrderDTO(OrderStatus.PENDING, 1L);
         Order order1 = orderService.saveOrder(newOrderDTO1);
 
+        NewOrderDTO newOrderDTO2 = new NewOrderDTO(OrderStatus.PENDING, 1L);
+        Order order2 = orderService.saveOrder(newOrderDTO1);
+
     }
 
 }
