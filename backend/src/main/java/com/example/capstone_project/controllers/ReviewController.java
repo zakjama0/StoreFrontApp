@@ -39,9 +39,12 @@ public class ReviewController {
         List<Review> reviews = reviewService.getReviewsByItemId(id);
         return new ResponseEntity<>(reviews, HttpStatus.OK);
     }
-    @GetMapping(value = "/customer/{id}")
-    public ResponseEntity<List<Review>> getReviewsByCustomerId(@PathVariable Long id){
-        List<Review> reviews = reviewService.getReviewsByCustomerId(id);
+    @GetMapping("/customer/{customerId}")
+    public ResponseEntity<List<Review>> getReviewsByCustomerId(@PathVariable Long customerId) {
+        List<Review> reviews = reviewService.getReviewsByCustomerId(customerId);
+        if (reviews.isEmpty()) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
         return new ResponseEntity<>(reviews, HttpStatus.OK);
     }
 
