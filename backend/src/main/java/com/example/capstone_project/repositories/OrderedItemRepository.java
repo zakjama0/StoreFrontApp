@@ -9,9 +9,9 @@ import java.util.List;
 
 public interface OrderedItemRepository extends JpaRepository<OrderedItem, Long> {
 
-    @Query("SELECT oe FROM OrderedItem oe WHERE oe.order.id = :orderId")
+//    @Query("SELECT o FROM OrderedItem o WHERE o.order.id = :orderId")
     List<OrderedItem> findOrderedItemsByOrderId(Long orderId);
 
-    @Query("SELECT oe FROM OrderedItem oe WHERE oe.item.id = :itemId")
+//    @Query("SELECT o FROM OrderedItem o WHERE o.item.id = :itemId")
     List<OrderedItem> findOrderedItemsByItemId(Long itemId);
 }
