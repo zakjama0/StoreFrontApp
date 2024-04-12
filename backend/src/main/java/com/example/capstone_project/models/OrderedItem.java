@@ -14,10 +14,12 @@ public class OrderedItem {
     @Column
     private int orderedQuantity;
 
+    @JsonIgnoreProperties ({"orderedItems"})
     @ManyToOne
     @JoinColumn(name = "order_id", nullable = false)
     private Order order;
 
+    @JsonIgnoreProperties ({"orderedItems"})
     @ManyToOne
     @JoinColumn(name = "item_id")
     private Item item;
