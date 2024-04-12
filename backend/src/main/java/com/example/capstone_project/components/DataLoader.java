@@ -62,9 +62,11 @@ public class DataLoader implements ApplicationRunner {
         itemRepository.save(item4);
         itemRepository.save(item5);
 
+        Review review = new Review(4, "Great cup.", customer2, item1);
+        reviewRepository.save(review);
+
         NewOrderDTO newOrderDTO1 = new NewOrderDTO(OrderStatus.PENDING, 1L);
         Order order1 = orderService.saveOrder(newOrderDTO1);
-//        OrderedItem orderedItem1 = orderedItem
 
     }
 
