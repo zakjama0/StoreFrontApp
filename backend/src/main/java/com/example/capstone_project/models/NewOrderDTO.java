@@ -13,6 +13,12 @@ public class NewOrderDTO {
         this.orderedItems= new ArrayList<>();
     }
 
+    public NewOrderDTO() {
+    }
+
+    public NewOrderDTO(Long customerId) {
+        this.customerId = customerId;
+    }
 
     public OrderStatus getOrderStatus() {
         return orderStatus;

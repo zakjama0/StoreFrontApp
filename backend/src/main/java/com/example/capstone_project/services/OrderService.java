@@ -26,11 +26,6 @@ public class OrderService {
         return orderRepository.findAll();
     }
 
-    public Order addOrder(NewOrderDTO newOrderDTO) {
-
-
-        return null;
-    }
 
     public Optional<Order> getById(Long id) {
         return orderRepository.findById(id);
@@ -54,4 +49,5 @@ public class OrderService {
         orderRepository.save(order);
         return order;
     }
+
 }
