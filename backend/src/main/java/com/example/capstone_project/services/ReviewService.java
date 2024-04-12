@@ -67,4 +67,8 @@ public class ReviewService {
     public void deleteReview(Long id){
         reviewRepository.deleteById(id);
     }
+
+    public Double getAvgRatingByItemId (Long itemId) {
+        return reviewRepository.findAvgRatingByItemId(itemId);
+    }
 }
