@@ -18,9 +18,11 @@ public class Order {
     @Column
     private String address;
 
+    @JsonIgnoreProperties ({"order"})
     @OneToMany(mappedBy = "order")
     private List<OrderedItem> orderedItems;
 
+    @JsonIgnoreProperties ({"orders"})
     @ManyToOne
     @JoinColumn(name = "customer_id")
     private Customer customer;
@@ -82,5 +84,13 @@ public class Order {
 
     public void setOrderStatus(OrderStatus orderStatus) {
         this.orderStatus = orderStatus;
+    }
+
+    public int calculateOrderCost(){
+        int totalCost = 0;
+        for(OrderedItem orderedItem : this.orderedItems){
+            totalCost += orderedItem.getItem().getUnitPrice() * orderedItem.getOrderedQuantity();
+        }
+        return totalCost;
     }
 }

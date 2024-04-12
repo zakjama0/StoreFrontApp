@@ -33,33 +33,27 @@ public class OrderedItemController {
 
     @GetMapping
     public ResponseEntity<List<OrderedItem>> getAllOrderedItems(){
-        List<OrderedItem> orderedItems = orderedItemService.findAllOrderedItems();
+        List<OrderedItem> orderedItems = orderedItemService.getAllOrderedItems();
         return new ResponseEntity<>(orderedItems, HttpStatus.OK);
     }
 
     //    Get by orderId
-    @GetMapping(value = "/{id}/orders")
-    public ResponseEntity<OrderedItem> getOrderedItemsByOrderId(@PathVariable Long id){
-        Optional<OrderedItem> foundOrderedItems = orderedItemService.findOrderedItemsByOrderId(id);
-        if(foundOrderedItems.isPresent()){
-            return new ResponseEntity<>(foundOrderedItems.get(), HttpStatus.OK);
-        }
-        return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
+    @GetMapping(value = "/order/{id}")
+    public ResponseEntity<List<OrderedItem>> getOrderedItemsByOrderId(@PathVariable Long id){
+        List<OrderedItem> foundOrderedItems = orderedItemService.getOrderedItemsByOrderId(id);
+        return new ResponseEntity<>(foundOrderedItems, HttpStatus.OK);
     }
 
 //     Get by itemId
-    @GetMapping(value = "/{id}/items")
-    public ResponseEntity<OrderedItem> getOrderedItemsByItemId(@PathVariable Long id){
-        Optional<OrderedItem> foundOrderedItemsByItem = orderedItemService.foundOrderedItemsByItemId(id);
-        if(foundOrderedItemsByItem.isPresent()){
-            return new ResponseEntity<>(foundOrderedItemsByItem.get(), HttpStatus.OK);
-        }
-        return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
+    @GetMapping(value = "/item/{id}")
+    public ResponseEntity<List<OrderedItem>> getOrderedItemsByItemId(@PathVariable Long id){
+        List<OrderedItem> foundOrderedItemsByItem = orderedItemService.getOrderedItemsByItemId(id);
+        return new ResponseEntity<>(foundOrderedItemsByItem, HttpStatus.OK);
     }
 
 
     @PostMapping
-    public ResponseEntity<OrderedItem> postOrderItem(@RequestBody NewOrderedItemDTO newOrderedItemDTO){
+    public ResponseEntity<OrderedItem> postOrderedItem(@RequestBody NewOrderedItemDTO newOrderedItemDTO){
         Optional<Order> orderOptional = orderService.getById(newOrderedItemDTO.getOrderId());
         if (orderOptional.isEmpty()){
             return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
@@ -86,7 +80,7 @@ public class OrderedItemController {
 
     @PatchMapping(value = "/{id}")
     public ResponseEntity<OrderedItem> updateOrderedItem(@RequestBody NewOrderedItemDTO newOrderedItemDTO, @PathVariable Long id){
-        Optional<OrderedItem> orderedItemToUpdate = orderedItemService.findOrderedItemsByOrderId(id);
+        Optional<OrderedItem> orderedItemToUpdate = orderedItemService.getById(id);
         if (orderedItemToUpdate.isEmpty()){
             return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
         }
