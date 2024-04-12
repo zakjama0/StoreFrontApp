@@ -34,13 +34,23 @@ public class OrderedItemService {
         return orderedItemRepository.findById(id);
     }
 
-    public OrderedItem updateOrderedItemById(Long id, int orderedQuantity) {
-        OrderedItem orderedItemToUpdate = orderedItemRepository.findById(id).orElse(null);
-        if (orderedItemToUpdate != null) {
-            orderedItemToUpdate.setOrderedQuantity(orderedQuantity);
-            return orderedItemRepository.save(orderedItemToUpdate);
+   @Transactional
+    public OrderedItem updateOrderedItemById(NewOrderedItemDTO newOrderedItemDTO, Long id) throws Exception{
+        OrderedItem orderedItemToUpdate = orderedItemRepository.findById(id).get();
+        Item item = orderedItemToUpdate.getItem();
+        Order order = orderedItemToUpdate.getOrder();
+        if (newOrderedItemDTO.getOrderQuantity() > (item.getQuantity() + orderedItemToUpdate.getOrderedQuantity())){
+            throw new NotEnoughStockException("Not enough in stock");
         }
-        return null;
+       if(order.getOrderStatus() == OrderStatus.OUT_FOR_DELIVERY || order.getOrderStatus() == OrderStatus.DELIVERED || order.getOrderStatus() == OrderStatus.CANCELLED){
+           throw new CantUpdateOrderException("Cannot change order");
+       }
+
+       item.addToOrderedItems(newOrderedItemDTO.getOrderQuantity()- orderedItemToUpdate.getOrderedQuantity());
+       orderedItemToUpdate.setOrderedQuantity(newOrderedItemDTO.getOrderQuantity());
+       itemRepository.save(item);
+       orderedItemRepository.save(orderedItemToUpdate);
+       return orderedItemToUpdate;
     }
 
     public Optional<OrderedItem> removeOrderedItem (Long id) {
@@ -55,7 +65,7 @@ public class OrderedItemService {
         Order order = orderRepository.findById(newOrderedItemDTO.getOrderId()).get();
 
         if(newOrderedItemDTO.getOrderQuantity() > item.getQuantity()){
-            throw new NotEnoughStockException("Not enough stock");
+            throw new NotEnoughStockException("Not enough in stock");
         }
         if(order.getOrderStatus() == OrderStatus.OUT_FOR_DELIVERY || order.getOrderStatus() == OrderStatus.DELIVERED || order.getOrderStatus() == OrderStatus.CANCELLED){
             throw new CantUpdateOrderException("Cannot change order");
@@ -67,7 +77,7 @@ public class OrderedItemService {
         itemRepository.save(item);
         orderedItemRepository.save(orderedItem);
         return orderedItem;
-
     }
+
 }
 
