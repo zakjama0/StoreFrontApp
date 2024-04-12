@@ -48,12 +48,12 @@ public class OrderController {
         return new ResponseEntity<>(newOrder, HttpStatus.CREATED);
     }
 
-    @PatchMapping(value = "/{id}")
-    public ResponseEntity<Order> updateOrder(@RequestBody NewOrderDTO newOrderDTO, @PathVariable Long id){
+    @PatchMapping(value = "/admin/{id}")
+    public ResponseEntity<Order> updateOrderStatus(@RequestBody NewOrderDTO newOrderDTO, @PathVariable Long id){
         Optional<Order> orderToUpdate = orderService.getById(id);
         if(orderToUpdate.isPresent()) {
-            Order newOrder = orderService.updateOrderStatus(newOrderDTO, id);
-            return new ResponseEntity<>(newOrder, HttpStatus.OK);
+            Order updatedOrder = orderService.updateOrderStatus(newOrderDTO, id);
+            return new ResponseEntity<>(updatedOrder, HttpStatus.OK);
         }
         return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
     }
