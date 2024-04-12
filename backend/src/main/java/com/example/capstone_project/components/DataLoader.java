@@ -2,6 +2,7 @@ package com.example.capstone_project.components;
 
 import com.example.capstone_project.models.*;
 import com.example.capstone_project.repositories.*;
+import com.example.capstone_project.services.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
@@ -26,6 +27,9 @@ public class DataLoader implements ApplicationRunner {
 
     @Autowired
     ReviewRepository reviewRepository;
+
+    @Autowired
+    OrderService orderService;
 
     public DataLoader(){
 
@@ -59,6 +63,8 @@ public class DataLoader implements ApplicationRunner {
         itemRepository.save(item5);
 
         NewOrderDTO newOrderDTO1 = new NewOrderDTO(OrderStatus.PENDING, 1L);
+        Order order1 = orderService.saveOrder(newOrderDTO1);
+//        OrderedItem orderedItem1 = orderedItem
 
     }
 
