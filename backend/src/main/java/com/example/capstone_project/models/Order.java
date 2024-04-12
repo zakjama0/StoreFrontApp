@@ -23,7 +23,6 @@ public class Order {
 
     @ManyToOne
     @JoinColumn(name = "customer_id")
-    @JsonIgnoreProperties({"orders"})
     private Customer customer;
 
     @Column
@@ -84,6 +83,4 @@ public class Order {
     public void setOrderStatus(OrderStatus orderStatus) {
         this.orderStatus = orderStatus;
     }
-
-
 }

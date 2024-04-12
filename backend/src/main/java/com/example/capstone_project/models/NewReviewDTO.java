@@ -1,9 +1,13 @@
 package com.example.capstone_project.models;
 
 public class NewReviewDTO {
+
     private Long itemId;
+
     private Long customerId;
+
     private int rating;
+
     private String comment;
 
     public NewReviewDTO() {

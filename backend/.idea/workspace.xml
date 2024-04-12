@@ -6,7 +6,15 @@
   <component name="ChangeListManager">
     <list default="true" id="f37bcd00-b72a-422d-8a9a-f6a1ab6b8248" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/capstone_project/models/OrderedItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/capstone_project/models/OrderedItem.java" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/capstone_project/models/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/capstone_project/models/Customer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/capstone_project/models/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/capstone_project/models/Order.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/capstone_project/models/Customer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/capstone_project/models/Customer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/capstone_project/models/NewOrderDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/capstone_project/models/NewOrderDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/capstone_project/models/Order.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/capstone_project/models/Order.class" afterDir="false" />
+>>>>>>> cff31d65b1c3d46b995408cad00804151f288fbe
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,6 +54,7 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
+<<<<<<< HEAD
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.CapstoneProjectApplication.executor": "Run",
@@ -54,13 +63,43 @@
     "git-widget-placeholder": "error__handling__and__transactional__method",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "/Users/birindar/Documents/bnta_work/week_11/capstone_project/StoreFrontApp/backend"
+=======
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.CapstoneProjectApplication.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;formatting&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/marvellous/Documents/bnta_work/CAPSTONE/StoreFrontApp/backend&quot;
+>>>>>>> cff31d65b1c3d46b995408cad00804151f288fbe
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.example.capstone_project.services" />
       <recent name="com.example.capstone_project.models" />
     </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="CapstoneProjectApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.capstone_project.CapstoneProjectApplication" />
+      <module name="capstone_project" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.capstone_project.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.CapstoneProjectApplication" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">

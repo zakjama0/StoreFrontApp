@@ -1,5 +1,6 @@
 package com.example.capstone_project.controllers;
 
+
 import com.example.capstone_project.exceptions.CantUpdateOrderException;
 import com.example.capstone_project.exceptions.NotEnoughStockException;
 import com.example.capstone_project.models.Item;
@@ -16,11 +17,9 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.List;
-
 
 @RestController
-@RequestMapping("ordered-items")
+@RequestMapping("/ordered-items")
 public class OrderedItemController {
 
     @Autowired
@@ -41,7 +40,7 @@ public class OrderedItemController {
     //    Get by orderId
     @GetMapping(value = "/{id}/orders")
     public ResponseEntity<OrderedItem> getOrderedItemsByOrderId(@PathVariable Long id){
-        Optional<OrderedItem> foundOrderedItems = orderedItemService.findOrderedItemsbyOrderId(id);
+        Optional<OrderedItem> foundOrderedItems = orderedItemService.findOrderedItemsByOrderId(id);
         if(foundOrderedItems.isPresent()){
             return new ResponseEntity<>(foundOrderedItems.get(), HttpStatus.OK);
         }
@@ -51,12 +50,13 @@ public class OrderedItemController {
 //     Get by itemId
     @GetMapping(value = "/{id}/items")
     public ResponseEntity<OrderedItem> getOrderedItemsByItemId(@PathVariable Long id){
-        Optional<OrderedItem> foundOrderedItemsbyItem = orderedItemService.foundOrderedItemsbyItemId(id);
-        if(foundOrderedItemsbyItem.isPresent()){
-            return new ResponseEntity<>(foundOrderedItemsbyItem.get(), HttpStatus.OK);
+        Optional<OrderedItem> foundOrderedItemsByItem = orderedItemService.foundOrderedItemsByItemId(id);
+        if(foundOrderedItemsByItem.isPresent()){
+            return new ResponseEntity<>(foundOrderedItemsByItem.get(), HttpStatus.OK);
         }
         return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
     }
+
 
     @PostMapping
     public ResponseEntity<OrderedItem> postOrderItem(@RequestBody NewOrderedItemDTO newOrderedItemDTO){
@@ -86,7 +86,7 @@ public class OrderedItemController {
 
     @PatchMapping(value = "/{id}")
     public ResponseEntity<OrderedItem> updateOrderedItem(@RequestBody NewOrderedItemDTO newOrderedItemDTO, @PathVariable Long id){
-        Optional<OrderedItem> orderedItemToUpdate = orderedItemService.findOrderedItemsbyOrderId(id);
+        Optional<OrderedItem> orderedItemToUpdate = orderedItemService.findOrderedItemsByOrderId(id);
         if (orderedItemToUpdate.isEmpty()){
             return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
         }
@@ -110,9 +110,6 @@ public class OrderedItemController {
         }
         return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
     }
-
-
-
 }
 
 
