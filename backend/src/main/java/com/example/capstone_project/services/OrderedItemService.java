@@ -57,10 +57,21 @@ public class OrderedItemService {
        return orderedItemToUpdate;
     }
 
-    public Optional<OrderedItem> removeOrderedItem (Long id) {
-        Optional<OrderedItem> message = orderedItemRepository.findById(id);
+    public Optional<OrderedItem> removeOrderedItem(Long id) {
+
+        Optional<OrderedItem> orderedItem = orderedItemRepository.findById(id);
+
+        if(orderedItem.isEmpty()){
+            return null;
+        }
+
+        Item item = orderedItem.get().getItem();
+        int quantity = orderedItem.get().getOrderedQuantity();
+
+        item.addToOrderedItems(-quantity);
+        itemRepository.save(item);
         orderedItemRepository.deleteById(id);
-        return message;
+        return orderedItem;
     }
 
     @Transactional
