@@ -22,16 +22,20 @@ public class OrderedItemService {
     @Autowired
     ItemRepository itemRepository;
 
+    public Optional<OrderedItem> getById(Long id){
+        return orderedItemRepository.findById(id);
+    }
+
     public List<OrderedItem> findAllOrderedItems() {
         return orderedItemRepository.findAll();
     }
 
-    public Optional<OrderedItem> findOrderedItemsByOrderId(Long id) {
-            return orderedItemRepository.findById(id);
-        }
+    public List<OrderedItem> findOrderedItemsByOrderId(Long id) {
+            return orderedItemRepository.findOrderedItemsByOrderId(id);
+    }
 
-    public Optional<OrderedItem> foundOrderedItemsByItemId(Long id) {
-        return orderedItemRepository.findById(id);
+    public List<OrderedItem> foundOrderedItemsByItemId(Long id) {
+        return orderedItemRepository.findOrderedItemsByItemId(id);
     }
 
 
