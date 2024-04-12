@@ -28,6 +28,10 @@ public class OrderService {
         return orderRepository.findById(id);
     }
 
+    public List<Order> getOrdersByCustomerId(Long id){
+        return orderRepository.findOrdersByCustomerId(id);
+    }
+
     public Order updateOrderStatus(NewOrderDTO newOrderDTO, Long id) {
         Order orderToUpdate = orderRepository.findById(id).get();
         OrderStatus orderStatusToUpdate = newOrderDTO.getOrderStatus();
