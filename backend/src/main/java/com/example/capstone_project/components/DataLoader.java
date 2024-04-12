@@ -3,6 +3,7 @@ package com.example.capstone_project.components;
 import com.example.capstone_project.models.*;
 import com.example.capstone_project.repositories.*;
 import com.example.capstone_project.services.OrderService;
+import com.example.capstone_project.services.OrderedItemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
@@ -31,6 +32,9 @@ public class DataLoader implements ApplicationRunner {
 
     @Autowired
     OrderService orderService;
+
+    @Autowired
+    OrderedItemService orderedItemService;
 
     public DataLoader(){
 
@@ -109,11 +113,19 @@ public class DataLoader implements ApplicationRunner {
         reviewRepository.save(review5);
 
         NewOrderDTO newOrderDTO1 = new NewOrderDTO(OrderStatus.PENDING, 1L);
-        Order order1 = orderService.saveOrder(newOrderDTO1);
-
         NewOrderDTO newOrderDTO2 = new NewOrderDTO(OrderStatus.PENDING, 1L);
-        Order order2 = orderService.saveOrder(newOrderDTO1);
+        NewOrderDTO newOrderDTO3 = new NewOrderDTO(OrderStatus.PENDING, 2L);
+        NewOrderDTO newOrderDTO4 = new NewOrderDTO(OrderStatus.PENDING, 3L);
+        NewOrderDTO newOrderDTO5 = new NewOrderDTO(OrderStatus.PENDING, 4L);
+        NewOrderDTO newOrderDTO6 = new NewOrderDTO(OrderStatus.PENDING, 5L);
+        NewOrderDTO newOrderDTO7 = new NewOrderDTO(OrderStatus.PENDING, 6L);
 
+        Order order1 = orderService.saveOrder(newOrderDTO1);
+        Order order2 = orderService.saveOrder(newOrderDTO2);
+        Order order3 = orderService.saveOrder(newOrderDTO3);
+        Order order4 = orderService.saveOrder(newOrderDTO4);
+        Order order5 = orderService.saveOrder(newOrderDTO5);
+        Order order6 = orderService.saveOrder(newOrderDTO6);
     }
 
 }

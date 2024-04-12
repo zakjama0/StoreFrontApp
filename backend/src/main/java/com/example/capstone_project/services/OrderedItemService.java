@@ -47,7 +47,7 @@ public class OrderedItemService {
            throw new CantUpdateOrderException("Cannot change order");
        }
 
-       item.addToOrderedItems(newOrderedItemDTO.getOrderQuantity()- orderedItemToUpdate.getOrderedQuantity());
+       item.addToOrderedItems(newOrderedItemDTO.getOrderQuantity() - orderedItemToUpdate.getOrderedQuantity());
        orderedItemToUpdate.setOrderedQuantity(newOrderedItemDTO.getOrderQuantity());
        itemRepository.save(item);
        orderedItemRepository.save(orderedItemToUpdate);
