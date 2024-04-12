@@ -15,6 +15,7 @@ import java.util.Optional;
 @RestController
 @RequestMapping(value = "/reviews")
 public class ReviewController {
+
     @Autowired
     ReviewService reviewService;
 
@@ -23,6 +24,7 @@ public class ReviewController {
         List<Review> reviews = reviewService.getAllReviews();
         return new ResponseEntity<>(reviews, HttpStatus.OK);
     }
+
     @GetMapping(value = "/{id}")
     public ResponseEntity<Review> getReviewById(@PathVariable Long id){
         Optional<Review> review = reviewService.getReviewById(id);

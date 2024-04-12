@@ -77,9 +77,3 @@ public class Review {
         this.item = item;
     }
 }
-
-//SETTER AND GETTERS
-
-
-
-
