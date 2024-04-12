@@ -40,20 +40,14 @@ public class OrderedItemController {
     //    Get by orderId
     @GetMapping(value = "/{id}/orders")
     public ResponseEntity<OrderedItem> getOrderedItemsByOrderId(@PathVariable Long id){
-        Optional<OrderedItem> foundOrderedItems = orderedItemService.findOrderedItemsByOrderId(id);
-        if(foundOrderedItems.isPresent()){
-            return new ResponseEntity<>(foundOrderedItems.get(), HttpStatus.OK);
-        }
+        List<OrderedItem> foundOrderedItems = orderedItemService.findOrderedItemsByOrderId(id);
         return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
     }
 
 //     Get by itemId
     @GetMapping(value = "/{id}/items")
     public ResponseEntity<OrderedItem> getOrderedItemsByItemId(@PathVariable Long id){
-        Optional<OrderedItem> foundOrderedItemsByItem = orderedItemService.foundOrderedItemsByItemId(id);
-        if(foundOrderedItemsByItem.isPresent()){
-            return new ResponseEntity<>(foundOrderedItemsByItem.get(), HttpStatus.OK);
-        }
+        List<OrderedItem> foundOrderedItemsByItem = orderedItemService.foundOrderedItemsByItemId(id);
         return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
     }
 
@@ -86,7 +80,7 @@ public class OrderedItemController {
 
     @PatchMapping(value = "/{id}")
     public ResponseEntity<OrderedItem> updateOrderedItem(@RequestBody NewOrderedItemDTO newOrderedItemDTO, @PathVariable Long id){
-        Optional<OrderedItem> orderedItemToUpdate = orderedItemService.findOrderedItemsByOrderId(id);
+        Optional<OrderedItem> orderedItemToUpdate = orderedItemService.getById(id);
         if (orderedItemToUpdate.isEmpty()){
             return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
         }
