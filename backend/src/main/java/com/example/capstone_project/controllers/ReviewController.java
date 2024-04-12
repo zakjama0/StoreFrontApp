@@ -15,6 +15,7 @@ import java.util.Optional;
 @RestController
 @RequestMapping(value = "/reviews")
 public class ReviewController {
+
     @Autowired
     ReviewService reviewService;
 
@@ -23,6 +24,7 @@ public class ReviewController {
         List<Review> reviews = reviewService.getAllReviews();
         return new ResponseEntity<>(reviews, HttpStatus.OK);
     }
+
     @GetMapping(value = "/{id}")
     public ResponseEntity<Review> getReviewById(@PathVariable Long id){
         Optional<Review> review = reviewService.getReviewById(id);
@@ -41,6 +43,17 @@ public class ReviewController {
     public ResponseEntity<List<Review>> getReviewsByCustomerId(@PathVariable Long id){
         List<Review> reviews = reviewService.getReviewsByCustomerId(id);
         return new ResponseEntity<>(reviews, HttpStatus.OK);
+    }
+
+    @GetMapping("/avgRatingByItem/{itemId}")
+    public ResponseEntity<Double> getAvgRatingByItem(@PathVariable Long itemId) {
+        Double avgRating = reviewService.getAvgRatingByItemId(itemId);
+
+        if (avgRating != null) {
+            return new ResponseEntity<>(avgRating, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
     }
 
     @PostMapping

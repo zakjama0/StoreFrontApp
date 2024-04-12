@@ -3,21 +3,28 @@ package com.example.capstone_project.models;
 import java.util.ArrayList;
 
 public class NewOrderDTO {
-    private OrderStatus orderStatus;
-    private Long customerId;
-    private ArrayList<OrderedItem> orderedItems;
 
-    public NewOrderDTO(OrderStatus orderStatus, Long customerId){
-        this.orderStatus = orderStatus;
-        this.customerId = customerId;
-        this.orderedItems= new ArrayList<>();
-    }
+    private OrderStatus orderStatus;
+
+    private Long customerId;
+
+    private ArrayList<OrderedItem> orderedItems;
 
     public NewOrderDTO() {
     }
 
     public NewOrderDTO(Long customerId) {
         this.customerId = customerId;
+    }
+
+    public NewOrderDTO(OrderStatus orderStatus) {
+        this.orderStatus = orderStatus;
+    }
+
+    public NewOrderDTO(OrderStatus orderStatus, Long customerId){
+        this.orderStatus = orderStatus;
+        this.customerId = customerId;
+        this.orderedItems= new ArrayList<>();
     }
 
     public OrderStatus getOrderStatus() {

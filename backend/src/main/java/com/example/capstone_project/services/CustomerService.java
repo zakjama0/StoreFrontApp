@@ -28,12 +28,15 @@ public class CustomerService {
     }
 
     public Optional<Customer> updateCustomer(Long id, CustomerDTO customerDTO){
+
         Optional<Customer> customerToUpdate = customerRepository.findById(id);
+
         if(customerToUpdate.isPresent()) {
             customerToUpdate.get().setName(customerDTO.getName());
             customerToUpdate.get().setEmail(customerDTO.getEmail());
             customerRepository.save(customerToUpdate.get());
         }
+
         return customerToUpdate;
     }
 }

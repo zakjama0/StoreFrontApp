@@ -38,6 +38,16 @@ public class OrderController {
         return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
     }
 
+    @GetMapping(value = "/customer/{id}")
+    public ResponseEntity<List<Order>> getOrdersByCustomerId(@PathVariable Long id){
+        Optional<Customer> customer = customerService.getCustomerById(id);
+        if(customer.isPresent()){
+            List<Order> orders = orderService.getOrdersByCustomerId(id);
+            return new ResponseEntity<>(orders, HttpStatus.OK);
+        }
+        return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
+    }
+
     @PostMapping
     public ResponseEntity<Order> addOrder(@RequestBody NewOrderDTO newOrderDTO){
         Optional<Customer> customer = customerService.getCustomerById(newOrderDTO.getCustomerId());
@@ -48,12 +58,12 @@ public class OrderController {
         return new ResponseEntity<>(newOrder, HttpStatus.CREATED);
     }
 
-    @PatchMapping(value = "/{id}")
-    public ResponseEntity<Order> updateOrder(@RequestBody NewOrderDTO newOrderDTO, @PathVariable Long id){
+    @PatchMapping(value = "/admin/{id}")
+    public ResponseEntity<Order> updateOrderStatus(@RequestBody NewOrderDTO newOrderDTO, @PathVariable Long id){
         Optional<Order> orderToUpdate = orderService.getById(id);
         if(orderToUpdate.isPresent()) {
-            Order newOrder = orderService.updateOrderStatus(newOrderDTO, id);
-            return new ResponseEntity<>(newOrder, HttpStatus.OK);
+            Order updatedOrder = orderService.updateOrderStatus(newOrderDTO, id);
+            return new ResponseEntity<>(updatedOrder, HttpStatus.OK);
         }
         return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
     }

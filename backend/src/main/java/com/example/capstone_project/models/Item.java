@@ -8,6 +8,7 @@ import java.util.List;
 @Entity
 @Table(name = "items")
 public class Item {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
@@ -110,4 +111,10 @@ public class Item {
     public void setOrderedItems(List<OrderedItem> orderedItems) {
         this.orderedItems = orderedItems;
     }
+
+    public void addToOrderedItems(int quantityToRemove){
+        this.quantity -= this.quantity -= quantityToRemove;
+    }
 }
+
+

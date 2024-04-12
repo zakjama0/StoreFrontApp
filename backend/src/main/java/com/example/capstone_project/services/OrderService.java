@@ -14,9 +14,6 @@ import java.util.Optional;
 public class OrderService {
 
     @Autowired
-    OrderedItemRepository orderedItemRepository;
-
-    @Autowired
     CustomerRepository customerRepository;
 
     @Autowired
@@ -31,6 +28,10 @@ public class OrderService {
         return orderRepository.findById(id);
     }
 
+    public List<Order> getOrdersByCustomerId(Long id){
+        return orderRepository.findOrdersByCustomerId(id);
+    }
+
     public Order updateOrderStatus(NewOrderDTO newOrderDTO, Long id) {
         Order orderToUpdate = orderRepository.findById(id).get();
         OrderStatus orderStatusToUpdate = newOrderDTO.getOrderStatus();
@@ -40,6 +41,7 @@ public class OrderService {
     }
 
     public Order saveOrder(NewOrderDTO newOrderDTO) {
+
         Optional <Customer> customer = customerRepository.findById(newOrderDTO.getCustomerId());
         if (customer.isEmpty()){
             return null;

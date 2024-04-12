@@ -12,26 +12,34 @@ import java.util.Optional;
 
 @Service
 public class ReviewService {
+
     @Autowired
     ReviewRepository reviewRepository;
+
     @Autowired
     CustomerRepository customerRepository;
 
     @Autowired
     ItemRepository itemRepository;
+
     public List<Review> getAllReviews(){
         return reviewRepository.findAll();
     }
+
     public Optional<Review> getReviewById (Long id){
         return reviewRepository.findById(id);
     }
+
     public List<Review> getReviewsByItemId (Long id){
         return reviewRepository.findByItemId(id);
     }
+
     public List<Review> getReviewsByCustomerId (Long id){
         return reviewRepository.findByCustomerId(id);
     }
+
     public Review saveReview (NewReviewDTO newReviewDTO){
+
         Optional<Customer> customer = customerRepository.findById(newReviewDTO.getCustomerId());
         if(customer.isEmpty()){
             return null;
@@ -55,7 +63,12 @@ public class ReviewService {
         }
         return reviewToUpdate;
     }
+
     public void deleteReview(Long id){
         reviewRepository.deleteById(id);
+    }
+
+    public Double getAvgRatingByItemId (Long itemId) {
+        return reviewRepository.findAvgRatingByItemId(itemId);
     }
 }
