@@ -57,5 +57,8 @@ public class OrderController {
         }
         return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
     }
+
+//    @PatchMapping(value = "/admin/{id}")
+//    public ResponseEntity<Order> updateOrderStatus
 }
 
