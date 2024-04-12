@@ -26,7 +26,7 @@ public class OrderedItemController {
     //    Get by orderId
     @GetMapping(value = "/{id}/orders")
     public ResponseEntity<OrderedItem> getOrderedItemsByOrderId(@PathVariable Long id){
-        Optional<OrderedItem> foundOrderedItems = orderedItemService.findOrderedItemsbyOrderId(id);
+        Optional<OrderedItem> foundOrderedItems = orderedItemService.findOrderedItemsByOrderId(id);
         if(foundOrderedItems.isPresent()){
             return new ResponseEntity<>(foundOrderedItems.get(), HttpStatus.OK);
         }
@@ -36,7 +36,7 @@ public class OrderedItemController {
 //     Get by itemId
     @GetMapping(value = "/{id}/items")
     public ResponseEntity<OrderedItem> getOrderedItemsByItemId(@PathVariable Long id){
-        Optional<OrderedItem> foundOrderedItemsByItem = orderedItemService.foundOrderedItemsbyItemId(id);
+        Optional<OrderedItem> foundOrderedItemsByItem = orderedItemService.foundOrderedItemsByItemId(id);
         if(foundOrderedItemsByItem.isPresent()){
             return new ResponseEntity<>(foundOrderedItemsByItem.get(), HttpStatus.OK);
         }
@@ -45,7 +45,7 @@ public class OrderedItemController {
 
     @PatchMapping(value = "/{id}")
     public ResponseEntity<OrderedItem> updateOrderedItem(@PathVariable Long id, @RequestBody int orderedQuantity) {
-        Optional<OrderedItem> ordereditemOptional = orderedItemService.findOrderedItemsbyOrderId(id);
+        Optional<OrderedItem> ordereditemOptional = orderedItemService.findOrderedItemsByOrderId(id);
         if (ordereditemOptional.isPresent()) {
             OrderedItem updatedOrderedItem = orderedItemService.updateOrderedItemById(id, orderedQuantity);
             return new ResponseEntity<>(updatedOrderedItem, HttpStatus.OK);

@@ -14,9 +14,6 @@ import java.util.Optional;
 public class OrderService {
 
     @Autowired
-    OrderedItemRepository orderedItemRepository;
-
-    @Autowired
     CustomerRepository customerRepository;
 
     @Autowired
