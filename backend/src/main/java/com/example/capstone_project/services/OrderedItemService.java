@@ -30,14 +30,13 @@ public class OrderedItemService {
         return orderedItemRepository.findAll();
     }
 
-    public List<OrderedItem> getOrderedItemsByOrderId(Long id) {
-            return orderedItemRepository.findOrderedItemsByOrderId(id);
+    public List<OrderedItem> getOrderedItemsByOrderId(Long orderId) {
+            return orderedItemRepository.findOrderedItemsByOrderId(orderId);
     }
 
-    public List<OrderedItem> getOrderedItemsByItemId(Long id) {
-        return orderedItemRepository.findOrderedItemsByItemId(id);
+    public List<OrderedItem> getOrderedItemsByItemId(Long itemId) {
+        return orderedItemRepository.findOrderedItemsByItemId(itemId);
     }
-
 
    @Transactional
     public OrderedItem updateOrderedItemById(NewOrderedItemDTO newOrderedItemDTO, Long id) throws Exception{
