@@ -68,7 +68,7 @@ public class ReviewController {
         return new ResponseEntity<>(newReview, HttpStatus.CREATED);
     }
 
-    @PutMapping(value = "/{id}")
+    @PatchMapping(value = "/{id}")
     public ResponseEntity<Review> updateReview(@PathVariable Long id, @RequestBody UpdateReviewDTO reviewDTO){
         Optional<Review> updatedReview = reviewService.updateReview(id, reviewDTO);
         if(updatedReview.isPresent()){

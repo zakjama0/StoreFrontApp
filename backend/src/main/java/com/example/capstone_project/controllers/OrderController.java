@@ -48,7 +48,7 @@ public class OrderController {
         return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
     }
 
-    @GetMapping(value = "/{id}/order-cost")
+    @GetMapping(value = "/order-cost/{id}")
     public ResponseEntity<Integer> calculateOrderCost(@PathVariable long id){
         Optional<Order> optionalOrder = orderService.getById(id);
         if(optionalOrder.isPresent()){
