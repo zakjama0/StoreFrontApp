@@ -38,6 +38,16 @@ public class OrderController {
         return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
     }
 
+    @GetMapping(value = "/customer/{id}")
+    public ResponseEntity<List<Order>> getOrdersByCustomerId(@PathVariable Long id){
+        Optional<Customer> customer = customerService.getCustomerById(id);
+        if(customer.isPresent()){
+            List<Order> orders = orderService.getOrdersByCustomerId(id);
+            return new ResponseEntity<>(orders, HttpStatus.OK);
+        }
+        return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
+    }
+
     @PostMapping
     public ResponseEntity<Order> addOrder(@RequestBody NewOrderDTO newOrderDTO){
         Optional<Customer> customer = customerService.getCustomerById(newOrderDTO.getCustomerId());
