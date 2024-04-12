@@ -3,6 +3,7 @@ package com.example.capstone_project.components;
 import com.example.capstone_project.models.Category;
 import com.example.capstone_project.models.Customer;
 import com.example.capstone_project.models.Item;
+import com.example.capstone_project.models.Review;
 import com.example.capstone_project.repositories.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
@@ -53,12 +54,29 @@ public class DataLoader implements ApplicationRunner {
         Item item3 = new Item("Saba's Electric Scooter", "", Category.ELECTRONICS, 10, 27900, "Saba's height adjusted electric scooter");
         Item item4 = new Item("Marvellous' Eyeliner", "", Category.BEAUTY_AND_WELLNESS, 100, 1299, "Marvellous' eyeliner");
         Item item5 = new Item("Surrounded By Idiots", "", Category.BOOKS, 1, 999, "Book that described Birindar's capstone project experience.");
+        Item item6 = new Item("Tadiwa's Wig", "", Category.BEAUTY_AND_WELLNESS, 50, 999, "Wigs that will make you look beautiful");
+        Item item7 = new Item("Time of my Life", "", Category.BOOKS, 1, 1229, "Book that described Saba's capstone project experience.");
+        Item item8 = new Item("Birimdar's second screen", "", Category.ELECTRONICS, 1, 9999, "To help with your programming problems");
+        Item item9 = new Item("Zakaria's Leather Jacket", "", Category.FASHION, 1, 799, "Ready for NY fashion week");
+        Item item10 = new Item("Fifa 2025", "", Category.VIDEO_GAMES, 1, 3999, "No different from the past year");
 
         itemRepository.save(item1);
         itemRepository.save(item2);
         itemRepository.save(item3);
         itemRepository.save(item4);
         itemRepository.save(item5);
+        itemRepository.save(item6);
+        itemRepository.save(item7);
+        itemRepository.save(item8);
+        itemRepository.save(item9);
+        itemRepository.save(item10);
     }
 
+    Review review1 = new Review(4, "Amazing Wig, feels really authentic", 1, 6);
+    Review review2 = new Review(3, "Great game!", 4, 10);
+    Review review3 = new Review(5, "Looks great on the eyes", 5, 4);
+
+    reviewRepository.save(review1);
+    reviewRepository.save(review2);
+    reviewRepository.save(review3);
 }
