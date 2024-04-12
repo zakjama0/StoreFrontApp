@@ -26,15 +26,15 @@ public class OrderedItemService {
         return orderedItemRepository.findById(id);
     }
 
-    public List<OrderedItem> findAllOrderedItems() {
+    public List<OrderedItem> getAllOrderedItems() {
         return orderedItemRepository.findAll();
     }
 
-    public List<OrderedItem> findOrderedItemsByOrderId(Long id) {
+    public List<OrderedItem> getOrderedItemsByOrderId(Long id) {
             return orderedItemRepository.findOrderedItemsByOrderId(id);
     }
 
-    public List<OrderedItem> foundOrderedItemsByItemId(Long id) {
+    public List<OrderedItem> getOrderedItemsByItemId(Long id) {
         return orderedItemRepository.findOrderedItemsByItemId(id);
     }
 
