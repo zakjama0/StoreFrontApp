@@ -1,9 +1,13 @@
 package com.example.capstone_project.components;
 
+<<<<<<< HEAD
 import com.example.capstone_project.models.Category;
 import com.example.capstone_project.models.Customer;
 import com.example.capstone_project.models.Item;
 import com.example.capstone_project.models.Review;
+=======
+import com.example.capstone_project.models.*;
+>>>>>>> dfc850a103592df175fd12179712a647bd10768d
 import com.example.capstone_project.repositories.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
@@ -50,7 +54,7 @@ public class DataLoader implements ApplicationRunner {
         customerRepository.save(customer5);
 
         Item item1 = new Item("Tadiwa's Cup", "", Category.HOME_AND_KITCHEN, 50, 300, "A cup");
-        Item item2 = new Item("Zak's Iron", "", Category.HOME_AND_KITCHEN, 25, 20000, "A iron");
+        Item item2 = new Item("Zak's Iron", "", Category.HOME_AND_KITCHEN, 25, 20000, "An iron");
         Item item3 = new Item("Saba's Electric Scooter", "", Category.ELECTRONICS, 10, 27900, "Saba's height adjusted electric scooter");
         Item item4 = new Item("Marvellous' Eyeliner", "", Category.BEAUTY_AND_WELLNESS, 100, 1299, "Marvellous' eyeliner");
         Item item5 = new Item("Surrounded By Idiots", "", Category.BOOKS, 1, 999, "Book that described Birindar's capstone project experience.");
@@ -65,6 +69,7 @@ public class DataLoader implements ApplicationRunner {
         itemRepository.save(item3);
         itemRepository.save(item4);
         itemRepository.save(item5);
+<<<<<<< HEAD
         itemRepository.save(item6);
         itemRepository.save(item7);
         itemRepository.save(item8);
@@ -80,3 +85,11 @@ public class DataLoader implements ApplicationRunner {
     reviewRepository.save(review2);
     reviewRepository.save(review3);
 }
+=======
+
+        NewOrderDTO newOrderDTO1 = new NewOrderDTO(OrderStatus.PENDING, 1L);
+
+    }
+
+}
+>>>>>>> dfc850a103592df175fd12179712a647bd10768d
