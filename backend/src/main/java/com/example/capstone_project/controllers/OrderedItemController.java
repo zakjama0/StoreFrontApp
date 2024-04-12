@@ -39,16 +39,16 @@ public class OrderedItemController {
 
     //    Get by orderId
     @GetMapping(value = "/order/{id}")
-    public ResponseEntity<OrderedItem> getOrderedItemsByOrderId(@PathVariable Long id){
+    public ResponseEntity<List<OrderedItem>> getOrderedItemsByOrderId(@PathVariable Long id){
         List<OrderedItem> foundOrderedItems = orderedItemService.getOrderedItemsByOrderId(id);
-        return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
+        return new ResponseEntity<>(foundOrderedItems, HttpStatus.OK);
     }
 
 //     Get by itemId
     @GetMapping(value = "/item/{id}")
-    public ResponseEntity<OrderedItem> getOrderedItemsByItemId(@PathVariable Long id){
+    public ResponseEntity<List<OrderedItem>> getOrderedItemsByItemId(@PathVariable Long id){
         List<OrderedItem> foundOrderedItemsByItem = orderedItemService.getOrderedItemsByItemId(id);
-        return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
+        return new ResponseEntity<>(foundOrderedItemsByItem, HttpStatus.OK);
     }
 
 
