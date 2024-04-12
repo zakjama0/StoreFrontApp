@@ -12,6 +12,7 @@ public class OrderedItemService {
 
     @Autowired
     OrderedItemRepository orderedItemRepository;
+
     public List<OrderedItem> findAllOrderedItems() {
         return orderedItemRepository.findAll();
     }
@@ -19,7 +20,6 @@ public class OrderedItemService {
     public Optional<OrderedItem> findOrderedItemsbyOrderId(Long id) {
             return orderedItemRepository.findById(id);
         }
-
 
     public Optional<OrderedItem> foundOrderedItemsbyItemId(Long id) {
         return orderedItemRepository.findById(id);
@@ -34,11 +34,10 @@ public class OrderedItemService {
         return null;
     }
 
-
     public Optional<OrderedItem> removeOrderedItem (Long id) {
         Optional<OrderedItem> message = orderedItemRepository.findById(id);
         orderedItemRepository.deleteById(id);
         return message;
     }
-    }
+}
 

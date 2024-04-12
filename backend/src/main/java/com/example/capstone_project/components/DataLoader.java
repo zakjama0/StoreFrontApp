@@ -1,20 +1,13 @@
 package com.example.capstone_project.components;
 
-<<<<<<< HEAD
-import com.example.capstone_project.models.Category;
-import com.example.capstone_project.models.Customer;
-import com.example.capstone_project.models.Item;
-import com.example.capstone_project.models.Review;
-=======
 import com.example.capstone_project.models.*;
->>>>>>> dfc850a103592df175fd12179712a647bd10768d
 import com.example.capstone_project.repositories.*;
+import com.example.capstone_project.services.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
-import javax.xml.crypto.Data;
 
 @Component
 public class DataLoader implements ApplicationRunner {
@@ -33,6 +26,9 @@ public class DataLoader implements ApplicationRunner {
 
     @Autowired
     ReviewRepository reviewRepository;
+
+    @Autowired
+    OrderService orderService;
 
     public DataLoader(){
 
@@ -69,27 +65,25 @@ public class DataLoader implements ApplicationRunner {
         itemRepository.save(item3);
         itemRepository.save(item4);
         itemRepository.save(item5);
-<<<<<<< HEAD
         itemRepository.save(item6);
         itemRepository.save(item7);
         itemRepository.save(item8);
         itemRepository.save(item9);
         itemRepository.save(item10);
-    }
 
-    Review review1 = new Review(4, "Amazing Wig, feels really authentic", 1, 6);
-    Review review2 = new Review(3, "Great game!", 4, 10);
-    Review review3 = new Review(5, "Looks great on the eyes", 5, 4);
+        Review review1 = new Review(4, "Great cup.", customer2, item1);
+        Review review2 = new Review(4, "Amazing Wig, feels really authentic", customer1, item6);
+        Review review3 = new Review(3, "Great game!", customer4, item10);
+        Review review4 = new Review(5, "Looks great on the eyes", customer5, item4);
 
-    reviewRepository.save(review1);
-    reviewRepository.save(review2);
-    reviewRepository.save(review3);
-}
-=======
+        reviewRepository.save(review1);
+        reviewRepository.save(review2);
+        reviewRepository.save(review3);
+        reviewRepository.save(review4);
 
         NewOrderDTO newOrderDTO1 = new NewOrderDTO(OrderStatus.PENDING, 1L);
+        Order order1 = orderService.saveOrder(newOrderDTO1);
 
     }
 
 }
->>>>>>> dfc850a103592df175fd12179712a647bd10768d

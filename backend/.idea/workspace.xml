@@ -5,13 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f37bcd00-b72a-422d-8a9a-f6a1ab6b8248" name="Changes" comment="">
-<<<<<<< HEAD
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/capstone_project/components/DataLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/capstone_project/components/DataLoader.java" afterDir="false" />
-=======
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/capstone_project/components/DataLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/capstone_project/components/DataLoader.java" afterDir="false" />
+
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/capstone_project/services/OrderedItemService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/capstone_project/services/OrderedItemService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/capstone_project/components/DataLoader.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/capstone_project/components/DataLoader.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/capstone_project/services/OrderedItemService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/capstone_project/services/OrderedItemService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/capstone_project/models/NewOrderDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/capstone_project/models/NewOrderDTO.java" afterDir="false" />
->>>>>>> dfc850a103592df175fd12179712a647bd10768d
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,7 +56,7 @@
     "Application.CapstoneProjectApplication.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "dataloader",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "/Users/marvellous/Documents/bnta_work/CAPSTONE/StoreFrontApp/backend"
   }
