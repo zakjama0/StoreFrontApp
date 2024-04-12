@@ -43,6 +43,17 @@ public class ReviewController {
         return new ResponseEntity<>(reviews, HttpStatus.OK);
     }
 
+    @GetMapping("/avgRatingByItem/{itemId}")
+    public ResponseEntity<Double> getAvgRatingByItem(@PathVariable Long itemId) {
+        Double avgRating = reviewService.getAvgRatingByItemId(itemId);
+
+        if (avgRating != null) {
+            return new ResponseEntity<>(avgRating, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
+
     @PostMapping
     public ResponseEntity<Review> addReview (@RequestBody NewReviewDTO newReviewDTO){
         Review newReview = reviewService.saveReview(newReviewDTO);

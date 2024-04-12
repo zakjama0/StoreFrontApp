@@ -73,6 +73,7 @@ public class DataLoader implements ApplicationRunner {
         itemRepository.save(item9);
         itemRepository.save(item10);
 
+
         Item item11 = new Item("Smartphone Holder", "https://m.media-amazon.com/images/I/61tyIG+b4+L._AC_UF1000,1000_QL80_.jpg", Category.ELECTRONICS, 50, 499, "Convenient holder for smartphones");
         Item item12 = new Item("Elegant Necktie", "https://www.brucleshop.com/11150-large_default/elegant-necktie-in-jacquard-silk-bronze-pattern.jpg", Category.FASHION, 100, 799, "Stylish necktie for formal occasions");
         Item item13 = new Item("Yoga Mat", "https://m.media-amazon.com/images/I/71TDyKXF27L.jpg", Category.BEAUTY_AND_WELLNESS, 30, 999, "High-quality mat for yoga enthusiasts");
@@ -98,12 +99,14 @@ public class DataLoader implements ApplicationRunner {
         Review review1 = new Review(4, "Great cup.", customer2, item1);
         Review review2 = new Review(4, "Amazing Wig, feels really authentic", customer1, item6);
         Review review3 = new Review(3, "Great game!", customer4, item10);
-        Review review4 = new Review(5, "Looks great on the eyes", customer5, item4);
+        Review review4 = new Review(5, "Looks great on the eyes", customer4, item1);
+        Review review5 = new Review(5, "Looks great on the eyes", customer5, item1);
 
         reviewRepository.save(review1);
         reviewRepository.save(review2);
         reviewRepository.save(review3);
         reviewRepository.save(review4);
+        reviewRepository.save(review5);
 
         NewOrderDTO newOrderDTO1 = new NewOrderDTO(OrderStatus.PENDING, 1L);
         Order order1 = orderService.saveOrder(newOrderDTO1);
