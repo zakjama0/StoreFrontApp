@@ -18,9 +18,11 @@ public class Order {
     @Column
     private String address;
 
+    @JsonIgnoreProperties ({"order"})
     @OneToMany(mappedBy = "order")
     private List<OrderedItem> orderedItems;
 
+    @JsonIgnoreProperties ({"orders"})
     @ManyToOne
     @JoinColumn(name = "customer_id")
     private Customer customer;
