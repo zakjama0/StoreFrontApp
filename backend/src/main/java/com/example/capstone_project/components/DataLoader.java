@@ -68,6 +68,7 @@ public class DataLoader implements ApplicationRunner {
         Item item9 = new Item("Zakaria's Leather Jacket", "https://hidepark.co.uk/cdn/shop/products/Tate-Black-Front.jpg?v=1657043284", Category.FASHION, 1, 799, "Ready for NY fashion week.");
         Item item10 = new Item("EA Sport FC 25", "https://www.fifplay.com/img/public/fc-25.jpg", Category.VIDEO_GAMES, 1, 3999, "No different from the past year.");
         Item item11 = new Item("Yabbi's Standing Desk", "https://cdn.shopify.com/s/files/1/2710/8782/files/3a3ec3dc-9b59-47ca-b129-cb75ccf1ae35_2218d3a5-a28a-4e28-a0b4-93a2fefa7a62.jpg", Category.ELECTRONICS, 1, 34900, "Just a standing desk.");
+        Item item12 = new Item("Arsenal Hat", "https://www.stadionshop.com/media/catalog/product/cache/61f82b9c716a2869aa27bf290bb56a69/1/3/13682_arsenal_zimska_kapa.png", Category.FASHION, 100, 2399, "Beautiful hat for every occasion.");
 
         itemRepository.save(item1);
         itemRepository.save(item2);
@@ -80,9 +81,9 @@ public class DataLoader implements ApplicationRunner {
         itemRepository.save(item9);
         itemRepository.save(item10);
         itemRepository.save(item11);
+        itemRepository.save(item12);
 
 
-        Item item12 = new Item("Elegant Necktie", "https://www.brucleshop.com/11150-large_default/elegant-necktie-in-jacquard-silk-bronze-pattern.jpg", Category.FASHION, 100, 799, "Stylish necktie for formal occasions");
         Item item13 = new Item("Yoga Mat", "https://m.media-amazon.com/images/I/71TDyKXF27L.jpg", Category.BEAUTY_AND_WELLNESS, 30, 999, "High-quality mat for yoga enthusiasts");
         Item item14 = new Item("Stainless Steel Water Bottle", "https://gbsnowsport.com/wp-content/uploads/2023/10/stainless-steel-water-bottle-white-17-oz-back-653795e806839.jpg", Category.HOME_AND_KITCHEN, 80, 299, "Reusable bottle for staying hydrated on the go");
         Item item15 = new Item("Bluetooth Earbuds", "https://i.ebayimg.com/images/g/URYAAOSwNjFioGv2/s-l1200.webp", Category.ELECTRONICS, 20, 1999, "Wireless earbuds for a tangle-free listening experience");
@@ -101,7 +102,7 @@ public class DataLoader implements ApplicationRunner {
         Item item28 = new Item("Denim Jeans", "https://d1b5h9psu9yexj.cloudfront.net/45085/Levi---s-Premium-511-Slim-Fit-Men---s-Jeans_20210518-160540_full.jpeg", Category.FASHION, 100, 1299, "Classic denim jeans for everyday wear");
         Item item29 = new Item("Air Purifier", "https://media.4rgos.it/i/Argos/9549517_R_Z001A?w=750&h=440&qlt=70", Category.HOME_AND_KITCHEN, 20, 4999, "Purify the air in your home with this advanced air purifier");
         Item item30 = new Item("Fitness Watch", "https://www.apple.com/newsroom/images/product/watch/standard/Apple_watch-series7_hero_09142021_big.jpg.large.jpg", Category.BEAUTY_AND_WELLNESS, 30, 2499, "Smartwatch with fitness tracking features to monitor your health");
-        itemRepository.saveAll(Arrays.asList(item12, item13, item14, item15, item16, item17, item18, item19, item20, item21, item22, item23, item24, item25, item26, item27, item28, item29, item30));
+        itemRepository.saveAll(Arrays.asList(item13, item14, item15, item16, item17, item18, item19, item20, item21, item22, item23, item24, item25, item26, item27, item28, item29, item30));
 
         Review review1 = new Review(4, "Great cup.", customer2, item1);
         Review review2 = new Review(4, "Amazing Wig, feels really authentic", customer1, item6);
