@@ -19,10 +19,12 @@ public class Review {
     @Column(name = "comment")
     private String comment;
 
+    @JsonIgnoreProperties ({"reviews"})
     @ManyToOne
     @JoinColumn(name = "customer_id")
     private Customer customer;
 
+    @JsonIgnoreProperties ({"reviews"})
     @ManyToOne
     @JoinColumn(name = "item_id")
     private Item item;
