@@ -85,4 +85,12 @@ public class Order {
     public void setOrderStatus(OrderStatus orderStatus) {
         this.orderStatus = orderStatus;
     }
+
+    public int calculateOrderCost(){
+        int totalCost = 0;
+        for(OrderedItem orderedItem : this.orderedItems){
+            totalCost += orderedItem.getItem().getUnitPrice() * orderedItem.getOrderedQuantity();
+        }
+        return totalCost;
+    }
 }
