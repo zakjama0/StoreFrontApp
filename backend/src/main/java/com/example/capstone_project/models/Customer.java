@@ -1,5 +1,7 @@
 package com.example.capstone_project.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 
 import java.util.ArrayList;
@@ -20,9 +22,11 @@ public class Customer {
     private String email;
 
     @OneToMany(mappedBy = "customer")
+    @JsonIgnore
     private List<Order> orders;
 
     @OneToMany(mappedBy = "customer")
+    @JsonIgnore
     private List<Review> reviews;
 
     public Customer(){

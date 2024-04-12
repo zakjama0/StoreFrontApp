@@ -23,7 +23,6 @@ public class Order {
 
     @ManyToOne
     @JoinColumn(name = "customer_id")
-    @JsonIgnoreProperties({"orders", "reviews"})
     private Customer customer;
 
     @Column
