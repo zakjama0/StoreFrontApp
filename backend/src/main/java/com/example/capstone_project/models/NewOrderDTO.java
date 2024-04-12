@@ -13,14 +13,18 @@ public class NewOrderDTO {
     public NewOrderDTO() {
     }
 
+    public NewOrderDTO(Long customerId) {
+        this.customerId = customerId;
+    }
+
+    public NewOrderDTO(OrderStatus orderStatus) {
+        this.orderStatus = orderStatus;
+    }
+
     public NewOrderDTO(OrderStatus orderStatus, Long customerId){
         this.orderStatus = orderStatus;
         this.customerId = customerId;
         this.orderedItems= new ArrayList<>();
-    }
-
-    public NewOrderDTO(Long customerId) {
-        this.customerId = customerId;
     }
 
     public OrderStatus getOrderStatus() {
