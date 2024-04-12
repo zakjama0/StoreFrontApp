@@ -17,20 +17,23 @@ public class OrderedItemService {
         return orderedItemRepository.findAll();
     }
 
-    public Optional<OrderedItem> findOrderedItemsbyOrderId(Long id) {
+    public Optional<OrderedItem> findOrderedItemsByOrderId(Long id) {
             return orderedItemRepository.findById(id);
         }
 
-    public Optional<OrderedItem> foundOrderedItemsbyItemId(Long id) {
+    public Optional<OrderedItem> foundOrderedItemsByItemId(Long id) {
         return orderedItemRepository.findById(id);
     }
 
     public OrderedItem updateOrderedItemById(Long id, int orderedQuantity) {
+
         OrderedItem orderedItemToUpdate = orderedItemRepository.findById(id).orElse(null);
+
         if (orderedItemToUpdate != null) {
             orderedItemToUpdate.setOrderedQuantity(orderedQuantity);
             return orderedItemRepository.save(orderedItemToUpdate);
         }
+
         return null;
     }
 

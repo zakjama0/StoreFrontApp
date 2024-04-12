@@ -57,11 +57,8 @@
     "Application.CapstoneProjectApplication.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-<<<<<<< HEAD
-    "git-widget-placeholder": "picture",
-=======
-    "git-widget-placeholder": "averagereviewquery",
->>>>>>> da37c2d86e381d7e57ed66de1a39fee57f169196
+
+    "git-widget-placeholder": "formatting",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "/Users/marvellous/Documents/bnta_work/CAPSTONE/StoreFrontApp/backend"
   }
