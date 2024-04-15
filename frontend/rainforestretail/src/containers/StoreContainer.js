@@ -69,21 +69,15 @@ const StoreContainer = () => {
         fetchOrders()
     }, [])
 
-
-
     const itemLoader = ({params}) => {
         return items.find(item => {
-            return items.id === parseInt(params.id);
+            return item.id === parseInt(params.itemId);
         });
     }
 
     const userNames = customers.map((customer)=>{
         <li>{customer.name}</li>
-    })
-
-    
-
-
+    });
 
     const retailRouter = createBrowserRouter([
         {
@@ -104,17 +98,18 @@ const StoreContainer = () => {
                      />
                 },
                 {
-                    path: `/item`,
+                    path: "/items/:itemId",
+                    loader: itemLoader,
                     element: <Item  />
                 },
-
                 {
                     path: "/register",
                     element: <Registration customers = {customers} registerUser={registerUser} />
                 }
             ]
         }
-    ])
+    ]);
+
     return ( <>
      <div className="container">
                 <userState.Provider value={{ activeUser:activeUser, setActiveUser:setActiveUser }}>

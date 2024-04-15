@@ -4,8 +4,16 @@ const LandingPageContainer = ({items}) => {
 
     return (
     <>
-        <ItemList items={items} category={"HOME_AND_KITCHEN"}/>
-        <ItemList items={items} category={"ELECTRONICS"}/>
+        <div> 
+        <ItemList items={items} category={"FASHION"} className="home_kitchen"/>
+        <ItemList items={items} category={"ELECTRONICS"} className="home_kitchen"/>  
+
+        
+        </ div>
+       
+
+        {/* className="home_kitchen" */}
+        
     </>  
     );
 }

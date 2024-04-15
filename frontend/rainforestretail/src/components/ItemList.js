@@ -6,12 +6,12 @@ const ItemList = ({items, category}) => {
     const filteredItems = items.filter(item => item.category === category);
 
     const itemComponents = filteredItems.map(item => {
-        return <Link to={`/items/${item.id}`}> <ItemThumbnail key={item.id} item={item} /> </Link>
+        return <Link to={`/items/${item.id}`} > <ItemThumbnail key={item.id} item={item} /> </Link>
     })
 
     return (
         <>
-            <ul>
+            <ul className="itemLists">
                 {itemComponents}
             </ul>
         </>
