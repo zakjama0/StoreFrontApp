@@ -19,26 +19,33 @@ const StoreContainer = () => {
     const [purchaseList, setPurchaseList] = useState([]);
     const [basketList, setBasketList] = useState([]);
     const [orderedItems, setOrderedItems] = useState ([]);
+
     const [activeUser, setActiveUser] = useState({});
     const [registerUser, setRegister] = useState({});
 
-    const fetchCustomers = async() =>{
+    const fetchCustomers = async () => {
         const response = await fetch('http://localhost:8080/customers')
         const data = await response.json()
         setCustomers(data)
     }
 
 
-    const fetchItems = async() =>{
+    const fetchItems = async () => {
         const response = await fetch('http://localhost:8080/items')
         const data = await response.json()
         setItems(data)
     }
 
-    const fetchOrders = async() =>{
-        const response = await fetch('http://localhost:8080/items')
+    const fetchOrders = async () => {
+        const response = await fetch('http://localhost:8080/orders')
         const data = await response.json()
         setOrders(data)
+    }
+
+    const fetchReviews = async () => {
+        const response = await fetch('http://localhost:8080/reviews')
+        const data = await response.json()
+        setReviews(data)
     }
 
     const postOrderedItems = async (newOrderedItem) => {
@@ -63,10 +70,29 @@ const StoreContainer = () => {
         setOrderedItems([...orderedItems, savedNewOrderedItem]);
     }
 
+    const deleteReview = async (reviewId) => {
+        const response = await fetch(`http://localhost:8080/reviews/${reviewId}`, {
+            method: "DELETE",
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify(reviewId)
+        });
+        fetchItems();
+    }
+
+    const patchReview = async (amendedReview, reviewId) => {
+        const response = await fetch(`http://localhost:8080/reviews/${reviewId}`, {
+            method: "PATCH",
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify(amendedReview)
+        });
+        fetchItems();
+    }
+
     useEffect(() =>{
-        fetchCustomers()
-        fetchItems()
-        fetchOrders()
+        fetchCustomers();
+        fetchItems();
+        fetchOrders();
+        fetchReviews();
     }, [])
 
     const itemLoader = ({params}) => {

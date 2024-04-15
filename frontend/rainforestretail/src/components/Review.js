@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 const Review = ({review, deleteReview, patchReview}) => {
 
 
@@ -22,10 +24,16 @@ const toggleButtonLabel = () => {
 
     return ( 
     <>
-    
-    
-    
-    
+    <div className="reviews">
+    <h3>{review.id}</h3>
+    <p>Customer: {review.customerId}</p>
+    <p>Rating: {review.rating}</p>
+    {expandStatus && <p>Comment: {review.comment}</p>}
+                <button onClick={toggleExpandStatus}>
+                    {toggleButtonLabel()}
+                </button>
+                <button onClick={handleDeleteButton}>Delete</button>
+            </div>
     </> );
 }
  

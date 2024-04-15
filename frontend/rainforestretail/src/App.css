@@ -3,9 +3,12 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding-left: 50px;
+  padding-right: 50px;
+  border: 10px black dotted;
  }
 
- .itemLists{
+ .items{
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -13,14 +16,39 @@
 
  }
  
- 
  .thumbnail img{
   width: 100px;
   height: 100px;
   border-radius: 5px;
 }
 
-.thumbnail img:hover{
+.itemLists {
+  width: 100%; /* Set the width of the carousel */
+  overflow: hidden; /* Hide overflowing items */
+  position: relative; /* Position relative for absolute positioning of items */
+}
+
+.scroll-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 10px;
+  cursor: pointer;
+}
+
+.prev {
+  left: 10px;
+}
+
+.next {
+  right: 10px;
+}
+
+
+
+
+
+.thumbnail img{
   transform: scale(1.05);
   transition: 0.5s;
   cursor: pointer;
