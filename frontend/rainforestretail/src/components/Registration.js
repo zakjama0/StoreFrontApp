@@ -1,8 +1,8 @@
 import { useState, useContext } from "react";
-import { Link, Outlet, useNavigate } from "react-router-dom";
-import { userState } from "../container/StoreContainer";
+import { Link, useNavigate } from "react-router-dom";
+import { userState } from "../containers/StoreContainer";
 
-const Registration = ({ customers, registerUser }) => {
+const Registration = ({ users, registerUser }) => {
     const [username, setUsername] = useState("");
     const [email, setEmail] = useState("");
     const navigate = useNavigate();

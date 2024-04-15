@@ -1,7 +1,7 @@
 import { useState, useContext } from "react";
-import { userState } from "../container/StoreContainer";
+import { userState } from "../containers/StoreContainer";
 import { Link, Outlet, useNavigate } from "react-router-dom";
-const Login = ({ customers }) => {
+const Login = ({ users }) => {
     const [loggedUsername, setLoggedUsername] = useState("")
     const context = useContext(userState)
     const { setActiveUser } = context;
