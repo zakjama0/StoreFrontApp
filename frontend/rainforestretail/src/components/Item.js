@@ -1,6 +1,7 @@
 import { useLoaderData } from 'react-router-dom';
 import ReviewList from './ReviewList';
 import ReviewForm from './ReviewForm';
+import { useState } from "react";
 
 
 const Item = ({deleteReview, patchReview}) => {
@@ -26,7 +27,11 @@ const Item = ({deleteReview, patchReview}) => {
                         <h3>Submit a review</h3>
                         <ReviewForm onSubmit={handleReviewSubmission} />
                     </div>
-                    
+                    {showAlert && (
+                        <div className='alert'>
+                            Review submitted successfully
+                        </div>
+                    )}
                 </div>
             ) :
             <></>
