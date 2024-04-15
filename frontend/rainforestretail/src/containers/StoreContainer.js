@@ -1,7 +1,10 @@
 import Navigation from "../components/Navigation";
+import Registration from "../components/Registration";
+import Login from "../components/Login"
+
 import React, { useEffect, useState } from "react";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import LandingPageContainer from "./LandingPage";
+import { createBrowserRouter, RouterProvider, Navigate } from "react-router-dom";
+import LandingPageContainer from "./LandingPageContainer";
 import Item from "../components/Item";
 
 export const userState = React.createContext();
@@ -17,6 +20,7 @@ const StoreContainer = () => {
     const [basketList, setBasketList] = useState([]);
     const [orderedItems, setOrderedItems] = useState ([]);
     const [activeUser, setActiveUser] = useState({});
+    const [registerUser, setRegister] = useState({});
 
     const fetchCustomers = async() =>{
         const response = await fetch('http://localhost:8080/customers')
@@ -59,6 +63,12 @@ const StoreContainer = () => {
         setOrderedItems([...orderedItems, savedNewOrderedItem]);
     }
 
+    useEffect(() =>{
+        fetchCustomers()
+        fetchItems()
+        fetchOrders()
+    }, [])
+
 
 
     const itemLoader = ({params}) => {
@@ -71,7 +81,7 @@ const StoreContainer = () => {
         <li>{customer.name}</li>
     })
 
-
+    
 
 
 
@@ -86,7 +96,7 @@ const StoreContainer = () => {
                 },
                 {
                     path: "/home",
-                    element: <LandingPageContainer />
+                    element: <LandingPageContainer items={items}/>
                 },
                 {
                     path: "/login",
@@ -100,7 +110,7 @@ const StoreContainer = () => {
 
                 {
                     path: "/register",
-                    element: <Registeration customers = {customers} registerUser={registerUser} />
+                    element: <Registration customers = {customers} registerUser={registerUser} />
                 }
             ]
         }
@@ -108,10 +118,14 @@ const StoreContainer = () => {
     return ( <>
      <div className="container">
                 <userState.Provider value={{ activeUser:activeUser, setActiveUser:setActiveUser }}>
-                    <RouterProvider router={} />
+                    <RouterProvider router={retailRouter} />
                 </userState.Provider>
-     </div>
 
+                <h2>Hello i am store container</h2>
+     </div>
+        <ul>
+            {userNames}
+        </ul>
     
     
     </> );

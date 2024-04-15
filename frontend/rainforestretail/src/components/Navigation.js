@@ -1,8 +1,13 @@
+import { Link,Outlet } from "react-router-dom";
+import { useContext } from "react";
+import { userState } from "../containers/StoreContainer";
 const Navigation = () => {
+    const {activeUser, setActiveUser}  = useContext(userState)
 
-
-
-
+    const refreshActiveUser = () =>{
+        setActiveUser({})
+    }
+    
     return ( <>
     <header>
             <nav>
@@ -14,13 +19,16 @@ const Navigation = () => {
                      {activeUser.id ? 
 
                      <div className="navLinks">
-                     <li><Link to="/chatrooms">Chatrooms</Link></li>
+                     <li><Link to="/items">Browse</Link></li>
+                     <li><Link to = "/orders">Your Orders </Link></li>
                      <li><Link to="/register" onClick={refreshActiveUser}>Sign Out {activeUser.username}</Link></li>
-                    
                      </div>
+
                      :
+
                      <div className="navLinks">
-                     <li><Link to="/login" >Login</Link></li>
+                     <li><Link to="/items" >Browse</Link></li>
+                     <li><Link to="/login">Log in</Link></li>
                      <li><Link to="/register">Sign Up</Link></li>
                      </div>
                      }
