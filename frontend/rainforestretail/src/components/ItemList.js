@@ -1,10 +1,13 @@
 import { Link } from "react-router-dom";
 import ItemThumbnail from "./ItemThumbnail";
 
-const ItemList = ({items}) => {
-    const itemComponents = items.map(item => {
-        return <Link > <ItemThumbnail key={item.id} item={item} /> </Link> 
-    });
+const ItemList = ({items, category}) => {
+
+    const filteredItems = items.filter(item => item.category === category);
+
+    const itemComponents = filteredItems.map(item => {
+        return <Link to={`/items/${item.id}`}> <ItemThumbnail key={item.id} item={item} /> </Link>
+    })
 
     return (
         <>
