@@ -106,9 +106,11 @@ const StoreContainer = () => {
         }
     ])
     return ( <>
-    <ul>
-        {userNames}
-    </ul>
+     <div className="container">
+                <userState.Provider value={{ activeUser:activeUser, setActiveUser:setActiveUser }}>
+                    <RouterProvider router={} />
+                </userState.Provider>
+     </div>
 
     
     
