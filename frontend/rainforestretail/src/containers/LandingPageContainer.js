@@ -4,7 +4,8 @@ const LandingPageContainer = ({items}) => {
 
     return (
     <>
-        <ItemList items={items}/>
+        <ItemList items={items} category={"HOME_AND_KITCHEN"}/>
+        <ItemList items={items} category={"ELECTRONICS"}/>
     </>  
     );
 }
