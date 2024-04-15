@@ -6,9 +6,11 @@ import ReviewForm from './ReviewForm';
 const Item = ({deleteReview, patchReview}) => {
 
     const item = useLoaderData();
+    const[showAlert, setShowAlert] = useState(false);
 
     const handleReviewSubmission = (reviewData) => {
         console.log("Submitting review:", reviewData)
+        setShowAlert(true);
     }
 
     return (
@@ -24,6 +26,7 @@ const Item = ({deleteReview, patchReview}) => {
                         <h3>Submit a review</h3>
                         <ReviewForm onSubmit={handleReviewSubmission} />
                     </div>
+                    
                 </div>
             ) :
             <></>
