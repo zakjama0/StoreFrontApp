@@ -37,6 +37,10 @@ public class Item {
     @OneToMany(mappedBy = "item")
     private List<OrderedItem> orderedItems;
 
+    @JsonIgnoreProperties({"item"})
+    @OneToMany(mappedBy = "item")
+    private List<Review> reviews;
+
     public Item (){
     }
 
@@ -48,6 +52,7 @@ public class Item {
         this.unitPrice = unitPrice;
         this.description = description;
         this.orderedItems = new ArrayList<>();
+        this.reviews = new ArrayList<>();
     }
 
     public long getId() {
@@ -116,6 +121,14 @@ public class Item {
 
     public void addToOrderedItems(int quantityToRemove){
         this.quantity -= quantityToRemove;
+    }
+
+    public List<Review> getReviews() {
+        return reviews;
+    }
+
+    public void setReviews(List<Review> reviews) {
+        this.reviews = reviews;
     }
 }
 
