@@ -71,6 +71,15 @@ const StoreContainer = () => {
         setOrderedItems([...orderedItems, savedNewOrderedItem]);
     }
 
+    const postReview = async (newReview) => {
+        const response = await fetch("http://localhost:8080/items", {
+            method: "POST",
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify(newReview)
+        });
+        fetchItems();
+    }
+
     const deleteReview = async (reviewId) => {
         const response = await fetch(`http://localhost:8080/reviews/${reviewId}`, {
             method: "DELETE",
@@ -131,7 +140,11 @@ const StoreContainer = () => {
                 {
                     path: "/items/:itemId",
                     loader: itemLoader,
-                    element: <Item  />
+                    element: <Item  
+                              postReview={postReview}
+                              deleteReview={deleteReview}
+                              patchReview={patchReview}
+                              />
                 },
                 {
                     path: "/register",

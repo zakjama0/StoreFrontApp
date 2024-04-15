@@ -4,7 +4,7 @@ import ReviewForm from './ReviewForm';
 import { useState } from "react";
 
 
-const Item = ({deleteReview, patchReview}) => {
+const Item = ({deleteReview, patchReview, postReview}) => {
 
     const item = useLoaderData();
     const[showAlert, setShowAlert] = useState(false);

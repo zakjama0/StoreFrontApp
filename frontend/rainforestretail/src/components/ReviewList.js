@@ -2,8 +2,6 @@ import Review from "./Review";
 
 const ReviewList = ({reviews, deleteReview, patchReview}) => {
 
-    console.log(reviews);
-
     const reviewComponents = reviews.map(review => {
         return <Review key={review.id}
                             review={review}
