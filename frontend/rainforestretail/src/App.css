@@ -9,6 +9,10 @@
   list-style: none;
 }
 
+body {
+  padding-top: 150px;
+}
+
 img {
   display: flex;
   height: 100px;

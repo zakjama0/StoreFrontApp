@@ -1,8 +1,10 @@
 import { useState, useContext } from "react";
 import { userState } from "../containers/StoreContainer";
 import { Link, Outlet, useNavigate } from "react-router-dom";
+
 const Login = ({ customers }) => {
     const [loggedUsername, setLoggedUsername] = useState("")
+
     const context = useContext(userState)
     const { setActiveCustomer } = context;
     const navigate = useNavigate();
@@ -11,6 +13,7 @@ const Login = ({ customers }) => {
         event.preventDefault();
         const filteredCustomer = customers.find((customer) =>
             customer.username.toLowerCase() === loggedUsername.toLowerCase(),     
+
         );
 
         if (!filteredCustomer) {
@@ -40,14 +43,14 @@ const Login = ({ customers }) => {
                         <form onSubmit={handleFormSubmit}>
                             
                             <div className="input-box">
-                            <label htmlFor="login-name">Username:</label>
+                            <label htmlFor="login-name">Name:</label>
                             <input
-                                    id="username"
-                                    name="username"
+                                    id="name"
+                                    name="name"
                                     type="text"
                                     value={loggedUsername}
                                     onInput={(e) => setLoggedUsername(e.target.value)}
-                                    placeholder="Enter username.."
+                                    placeholder="Enter name.."
                                 />
                             </div>
                             
