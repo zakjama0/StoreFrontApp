@@ -25,8 +25,7 @@ const toggleButtonLabel = () => {
     return ( 
     <>
     <div className="reviews">
-    <h3>{review.id}</h3>
-    <p>Customer: {review.customerId}</p>
+    <h3>{review.customer.name}</h3>
     <p>Rating: {review.rating}</p>
     {expandStatus && <p>Comment: {review.comment}</p>}
                 <button onClick={toggleExpandStatus}>
