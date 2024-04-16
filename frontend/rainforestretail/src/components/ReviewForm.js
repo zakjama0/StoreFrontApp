@@ -1,13 +1,13 @@
 import { useState } from "react";
 
-const ReviewForm = ({onSubmit}) => {
+const ReviewForm = ({onSubmit, postReview}) => {
 
     const [rating, setRating] = useState(0);
     const [comment, setComment] = useState('');
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        onSubmit({rating, comment});
+        postReview({rating, comment});
     }
 
 
