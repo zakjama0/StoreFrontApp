@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { userState } from "../containers/StoreContainer";
 
 const Registration = ({ users, registerUser }) => {
-    const [username, setUsername] = useState("");
+    const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const navigate = useNavigate();
     const context = useContext(userState)
@@ -13,7 +13,7 @@ const Registration = ({ users, registerUser }) => {
       event.preventDefault();
       if (handleValidation()) {
         const newUser = {
-          username,
+          name,
           email,
         }
         setActiveUser(newUser);
@@ -26,7 +26,7 @@ const Registration = ({ users, registerUser }) => {
     const handleValidation = () => {
       let validation = true;
   
-      if (users.find(user => user.username === username)) {
+      if (users.find(user => user.name === name)) {
         alert("User already exists");
         validation = false;
       }
@@ -36,7 +36,7 @@ const Registration = ({ users, registerUser }) => {
         validation = false;
       }
   
-      if (username === "" || email === "") {
+      if (name === "" || email === "") {
         alert("Please fill in all fields")
         validation = false;
       }
@@ -54,13 +54,13 @@ const Registration = ({ users, registerUser }) => {
               <form onSubmit={handleSubmit}>
               <h1> Sign Up!</h1>
                 <div className="input-box">
-                <label htmlFor="login-name">Username:</label>
+                <label htmlFor="login-name">Name:</label>
                 <input className="name"
                   type="text"
-                  name="username"
-                  placeholder="Enter username"
-                  value={username}
-                  onChange={(event) => setUsername(event.target.value)}
+                  name="name"
+                  placeholder="Enter name"
+                  value={name}
+                  onChange={(event) => setName(event.target.value)}
                 />
                 </div>
                 <div className="input-box">

@@ -2,7 +2,7 @@ import { useState, useContext } from "react";
 import { userState } from "../containers/StoreContainer";
 import { Link, Outlet, useNavigate } from "react-router-dom";
 const Login = ({ users }) => {
-    const [loggedUsername, setLoggedUsername] = useState("")
+    const [loggedName, setLoggedName] = useState("")
     const context = useContext(userState)
     const { setActiveUser } = context;
     const navigate = useNavigate();
@@ -10,7 +10,7 @@ const Login = ({ users }) => {
     const handleFormSubmit = (event) => {
         event.preventDefault();
         const filteredUser = users.find((user) =>
-            user.username.toLowerCase() === loggedUsername.toLowerCase(),     
+            user.name.toLowerCase() === loggedName.toLowerCase(),     
         );
 
         if (!filteredUser) {
@@ -40,14 +40,14 @@ const Login = ({ users }) => {
                         <form onSubmit={handleFormSubmit}>
                             
                             <div className="input-box">
-                            <label htmlFor="login-name">Username:</label>
+                            <label htmlFor="login-name">Name:</label>
                             <input
-                                    id="username"
-                                    name="username"
+                                    id="name"
+                                    name="name"
                                     type="text"
                                     value={loggedUsername}
                                     onInput={(e) => setLoggedUsername(e.target.value)}
-                                    placeholder="Enter username.."
+                                    placeholder="Enter name.."
                                 />
                             </div>
                             
