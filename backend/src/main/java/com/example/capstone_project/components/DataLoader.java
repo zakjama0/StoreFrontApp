@@ -49,7 +49,7 @@ public class DataLoader implements ApplicationRunner {
         Customer customer3 = new Customer("Zakaria", "zakaria@schrutefarms.com", "zakaria");
         Customer customer4 = new Customer("Birindar", "birindar@schrutefarms.com", "birindar");
         Customer customer5 = new Customer("Tadiwanashe", "tadiwanashe@schrutefarms.com", "tadiwanashe");
-        Customer customer6 = new Customer("Yabbi", "Yabbi@schrutefarms.com", "yabbi");
+        Customer customer6 = new Customer("Yabbi", "yabbi@schrutefarms.com", "yabbi");
 
         customerRepository.save(admin);
         customerRepository.save(customer1);
