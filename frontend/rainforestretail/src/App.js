@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import StoreContainer from './containers/StoreContainer';
 
@@ -14,16 +13,17 @@ function App() {
    <>
    
    <StoreContainer />
-   <footer>
-                <div className="footer-links">
-                    <p>© 2024 Dunder Mifflin</p>
-                    <p><a href="/privacy" onClick={() => handleFooterClick("/privacy")}>Privacy</a></p>
-                    <p><a href="/terms" onClick={() => handleFooterClick("/terms")}>T&Cs</a></p>
-                    <p><a href="/accessibility" onClick={() => handleFooterClick("/accessibility")}>Accessibility</a></p>
-                    <p><a href="/contact" onClick={() => handleFooterClick("/contact")}>Contact Form</a></p>
-                    <p><a href="/refund" onClick={() => handleFooterClick("/refund")}>Refund Policy</a></p>
-                </div>
-        </footer>
+   <footer className="footer">
+  <div className="footer-links">
+    <p>© 2024 Dunder Mifflin</p>
+    <p><a href="/privacy" onClick={(e) => handleFooterClick(e, "/privacy")}>Privacy</a></p>
+    <p><a href="/terms" onClick={(e) => handleFooterClick(e, "/terms")}>T&Cs</a></p>
+    <p><a href="/accessibility" onClick={(e) => handleFooterClick(e, "/accessibility")}>Accessibility</a></p>
+    <p><a href="/contact" onClick={(e) => handleFooterClick(e, "/contact")}>Contact Form</a></p>
+    <p><a href="/refund" onClick={(e) => handleFooterClick(e, "/refund")}>Refund Policy</a></p>
+  </div>
+</footer>
+
       
    </> 
   );

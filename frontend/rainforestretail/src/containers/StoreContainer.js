@@ -158,8 +158,6 @@ const StoreContainer = () => {
                 <userState.Provider value={{ activeUser:activeUser, setActiveUser:setActiveUser }}>
                     <RouterProvider router={retailRouter} />
                 </userState.Provider>
-
-                <h2>Hello i am store container</h2>
      </div>
         <ul>
             {userNames}

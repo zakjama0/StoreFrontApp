@@ -2,11 +2,12 @@
 .navbar {
   overflow: hidden;
   background-color: darkseagreen;
-  position: fixed; 
+  position: sticky; 
   top: 0; 
   width: 100%; 
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   list-style: none;
+  z-index: 1;
 }
 
 img {
@@ -38,16 +39,46 @@ nav ul li {
   list-style: none;
 }
 
+.handleLists{
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-end;
+}
 
- .thumbnail{
+
+.thumbnail:hover{
+  transform: scale(1.05);
+  transition: 0.5s;
+  cursor: pointer;
+    
+}
+
+.thumb:hover{
+    transform: scale(1.08);
+    transition: 2s;
+    cursor: pointer;
+      
+}
+
+
+.thumbnail {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  padding: 50px;
+  /* height: 300px; */
+  background-color: green;
+  border-radius: 10px;
   align-items: center;
-  padding-left: 50px;
-  padding-right: 50px;
-  /* border: 10px black dotted; */
- }
+  text-align: center; 
+}
+
+
+.thumbnail:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
 
  .items{
   display: flex;
@@ -65,9 +96,9 @@ nav ul li {
 }
 
 .itemLists {
-  width: 100%; /* Set the width of the carousel */
-  overflow: hidden; /* Hide overflowing items */
-  position: relative; /* Position relative for absolute positioning of items */
+  width: 100%; 
+  overflow: hidden; 
+  position: relative; 
 }
 
 .scroll-button {
@@ -85,9 +116,6 @@ nav ul li {
 .next {
   right: 10px;
 }
-
-
-
 
 
 .thumbnail img{
@@ -119,8 +147,26 @@ nav ul li a:hover {
   color: black;
 }
 
-.footer{
-  background-color: darkseagreen;
-  color: rgb(44, 80, 44);
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+.footer {
+  background-color: #333;
+  color: white;
+  padding: 20px;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: space-around; 
+}
+
+.footer p {
+  margin: 0; 
+}
+
+.footer a {
+  color: white; 
+  text-decoration: none;
+}
+
+.footer a:hover {
+  text-decoration: underline;
 }

@@ -1,32 +1,22 @@
-import ItemList from "../components/ItemList";
+import React from 'react';
+import DraggableCardSlider from '../components/DraggableCardSlider'; // Import the DraggableCardSlider component
 
-import React, { useState } from "react";
-
-const LandingPageContainer = ({items}) => {
-   
-  
-
+const LandingPageContainer = ({ items }) => {
+    // Dummy data for cards (adjust this according to your requirements)
+    const fashionItems = items.filter(item => item.category === 'FASHION');
+    const electronicsItems = items.filter(item => item.category === 'ELECTRONICS');
 
     return (
-    <>
-        <div> 
+        <>
+            <div className='handleLists'>
+                {/* Render DraggableCardSlider for Fashion category */}
+                <DraggableCardSlider items={fashionItems} category="Fashion" />
 
-
-        
-
-
-        <ItemList items={items}  category={"FASHION"} className="fashion"/>
-
-
-        <ItemList items={items} category={"ELECTRONICS"} className="home_kitchen"/>  
-
-        
-        </ div>
-       
-
-        
-    </>  
+                {/* Render DraggableCardSlider for Electronics category */}
+                <DraggableCardSlider items={electronicsItems} category="Electronics" />
+            </div>
+        </>
     );
 }
- 
+
 export default LandingPageContainer;
