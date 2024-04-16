@@ -21,8 +21,7 @@ const StoreContainer = () => {
     const [orderedItems, setOrderedItems] = useState ([]);
 
     const [activeUser, setActiveUser] = useState({});
-    const [registerUser, setRegister] = useState({});
-
+    
     const fetchCustomers = async () => {
         const response = await fetch('http://localhost:8080/customers')
         const data = await response.json()
@@ -46,6 +45,15 @@ const StoreContainer = () => {
         const response = await fetch('http://localhost:8080/reviews')
         const data = await response.json()
         setReviews(data)
+    }
+
+    const postCustomer = async (newCustomer) => {
+        const response = await fetch("http://localhost:8080/customers", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(newCustomer)
+        });
+        fetchCustomers();
     }
 
     const postOrderedItems = async (newOrderedItem) => {
@@ -147,7 +155,7 @@ const StoreContainer = () => {
                 },
                 {
                     path: "/register",
-                    element: <Registration customers = {customers} registerUser={registerUser} />
+                    element: <Registration customers = {customers} postCustomer={postCustomer} />
                 }
             ]
         }

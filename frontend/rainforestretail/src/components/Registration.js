@@ -2,7 +2,7 @@ import { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { userState } from "../containers/StoreContainer";
 
-const Registration = ({ users, registerUser }) => {
+const Registration = ({ customers, postCustomer }) => {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -19,7 +19,7 @@ const Registration = ({ users, registerUser }) => {
           password
         }
         setActiveUser(newUser);
-        registerUser(newUser);
+        postCustomer(newUser);
         navigate("/login");
         return;
       }
@@ -28,7 +28,7 @@ const Registration = ({ users, registerUser }) => {
     const handleValidation = () => {
       let validation = true;
   
-      if (users.find(user => user.email === email)) {
+      if (customers.find(customer => customer.email === email)) {
         alert("Email already exists");
         validation = false;
       }
