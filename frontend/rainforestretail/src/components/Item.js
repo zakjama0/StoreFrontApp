@@ -21,7 +21,7 @@ const Item = ({ deleteReview, patchReview, postReview }) => {
                         <img src={item.picture} />
                     </div>
 
-                    <form onSubmit={addToBasket}>
+                    <form className='add-basket' onSubmit={addToBasket}>
                         <div>
                             <label htmlFor="rating">Quantity:</label>
                             <input
@@ -37,15 +37,6 @@ const Item = ({ deleteReview, patchReview, postReview }) => {
                         <button type="submit">Add to Basket</button>
                     </form>
 
-                    <div className='review-list'>
-                        <ReviewList reviews={item.reviews} deleteReview={deleteReview} patchReview={patchReview}/>
-                    </div>
-
-                    <div className='review-form'>
-                        <h3>Submit a review</h3>
-                        <ReviewForm itemId = {item.id} postReview={postReview} />
-                    </div>
-
                     <div className='item-details'>
 
                         <div className='item-text'>
@@ -59,7 +50,7 @@ const Item = ({ deleteReview, patchReview, postReview }) => {
 
                         <div className='review-form'>
                             <h3>Submit a review</h3>
-                            <ReviewForm onSubmit={postReview} />
+                            <ReviewForm itemId = {item.id} postReview={postReview} />
                         </div>
 
                     </div>
