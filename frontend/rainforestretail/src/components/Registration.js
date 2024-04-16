@@ -5,7 +5,6 @@ import { userState } from "../containers/StoreContainer";
 
 const Registration = ({ customers, postCustomer }) => {
     const [name, setName] = useState("");
-    const [username, setUsername] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const navigate = useNavigate();
@@ -17,7 +16,7 @@ const Registration = ({ customers, postCustomer }) => {
       if (handleValidation()) {
 
         const newCustomer = {
-          username,
+          name,
           email,
           password
         }
@@ -34,7 +33,7 @@ const Registration = ({ customers, postCustomer }) => {
       let validation = true;
   
 
-      if (customers.find(customer => customer.name === username)) {
+      if (customers.find(customer => customer.name === name)) {
         alert("User already exists");
         validation = false;
       }
