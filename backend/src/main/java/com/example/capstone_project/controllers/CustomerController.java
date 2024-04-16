@@ -1,6 +1,7 @@
 package com.example.capstone_project.controllers;
 
 import com.example.capstone_project.models.CustomerDTO;
+import com.example.capstone_project.models.PasswordDTO;
 import com.example.capstone_project.services.CustomerService;
 import com.example.capstone_project.models.Customer;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,7 +35,10 @@ public class CustomerController {
     }
 
     @GetMapping(value = "/{id}")
-    public ResponseEntity<Customer> getLoginInToken(@PathVariable Long id, @RequestBody )
+    public ResponseEntity<Boolean> getLoginInToken(@PathVariable Long id, @RequestBody PasswordDTO passwordDTO){
+        Boolean token = customerService.checkPassword(id, passwordDTO);
+        return new ResponseEntity<>(token, HttpStatus.OK);
+    }
 
     @PostMapping
     public ResponseEntity<Customer> addCustomer(@RequestBody Customer customer){

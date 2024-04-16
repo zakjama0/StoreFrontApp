@@ -2,11 +2,13 @@ package com.example.capstone_project.services;
 
 import com.example.capstone_project.models.Customer;
 import com.example.capstone_project.models.CustomerDTO;
+import com.example.capstone_project.models.PasswordDTO;
 import com.example.capstone_project.repositories.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 @Service
 public class CustomerService {
@@ -39,5 +41,10 @@ public class CustomerService {
         }
 
         return customerToUpdate;
+    }
+
+    public Boolean checkPassword(Long id, PasswordDTO passwordDTO) {
+        Customer customer = customerRepository.findById(id).get();
+        return Objects.equals(customer.getPassword(), passwordDTO.getPasswordAttempt());
     }
 }
