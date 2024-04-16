@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import { userState } from "../containers/StoreContainer";
 import { Link, Outlet, useNavigate } from "react-router-dom";
 
@@ -13,7 +13,7 @@ const Login = ({ customers }) => {
     const getToken = async (customerId, passwordAttempt) => {
         const response = await fetch(`http://localhost:8080/customers/${customerId}/${passwordAttempt}`);
         const data = await response.json();
-        setLoginToken(data);
+        setLoginToken();
     }
 
     const handleFormSubmit = (event) => {
@@ -22,8 +22,6 @@ const Login = ({ customers }) => {
             return customer.email.toLowerCase() === loggedEmail.toLowerCase()
         });
 
-        console.log(filteredCustomer);
-
         if (!filteredCustomer) {
             alert("Please Sign Up")
             event.target.reset();
@@ -31,6 +29,7 @@ const Login = ({ customers }) => {
         } 
 
         getToken(filteredCustomer.id, event.target.password.value);
+        console.log(loginToken);
 
         // STAMP
 
