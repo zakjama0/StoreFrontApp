@@ -5,6 +5,7 @@ import { userState } from "../containers/StoreContainer";
 const Registration = ({ users, registerUser }) => {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
     const navigate = useNavigate();
     const context = useContext(userState)
     const { setActiveUser } = context;
@@ -15,6 +16,7 @@ const Registration = ({ users, registerUser }) => {
         const newUser = {
           name,
           email,
+          password
         }
         setActiveUser(newUser);
         registerUser(newUser);
@@ -26,17 +28,12 @@ const Registration = ({ users, registerUser }) => {
     const handleValidation = () => {
       let validation = true;
   
-      if (users.find(user => user.name === name)) {
-        alert("User already exists");
-        validation = false;
-      }
-  
       if (users.find(user => user.email === email)) {
         alert("Email already exists");
         validation = false;
       }
   
-      if (name === "" || email === "") {
+      if (name === "" || email === "" || password === "") {
         alert("Please fill in all fields")
         validation = false;
       }
@@ -71,6 +68,16 @@ const Registration = ({ users, registerUser }) => {
                   placeholder="Enter email address"
                   value={email}
                   onChange={(event) => setEmail(event.target.value)}
+                />
+                </div>
+                <div className="input-box">
+                <label htmlFor="login-email">Password:</label>
+                <input className="password"
+                  type="password"
+                  name="password"
+                  placeholder="Enter password"
+                  value={password}
+                  onChange={(event) => setPassword(event.target.value)}
                 />
                 </div>
                 <div class="register-link">
