@@ -43,13 +43,15 @@ public class DataLoader implements ApplicationRunner {
     @Override
     public void run(ApplicationArguments arguments) throws Exception {
 
-        Customer customer1 = new Customer("Marvellous", "marvellous@schrutefarms.com");
-        Customer customer2 = new Customer("Saba", "saba@schrutefarms.com");
-        Customer customer3 = new Customer("Zakaria", "zakaria@schrutefarms.com");
-        Customer customer4 = new Customer("Birindar", "birindar@schrutefarms.com");
-        Customer customer5 = new Customer("Tadiwanashe", "tadiwanashe@schrutefarms.com");
-        Customer customer6 = new Customer("Yabbi", "Yabbi@schrutefarms.com");
+        Customer admin = new Customer("Admin Harun", "admin@schrutefarms.com", "admin");
+        Customer customer1 = new Customer("Marvellous", "marvellous@schrutefarms.com", "marvellous");
+        Customer customer2 = new Customer("Saba", "saba@schrutefarms.com", "saba");
+        Customer customer3 = new Customer("Zakaria", "zakaria@schrutefarms.com", "zakaria");
+        Customer customer4 = new Customer("Birindar", "birindar@schrutefarms.com", "birindar");
+        Customer customer5 = new Customer("Tadiwanashe", "tadiwanashe@schrutefarms.com", "tadiwanashe");
+        Customer customer6 = new Customer("Yabbi", "Yabbi@schrutefarms.com", "yabbi");
 
+        customerRepository.save(admin);
         customerRepository.save(customer1);
         customerRepository.save(customer2);
         customerRepository.save(customer3);
@@ -104,23 +106,7 @@ public class DataLoader implements ApplicationRunner {
         Item item30 = new Item("Fitness Watch", "https://www.apple.com/newsroom/images/product/watch/standard/Apple_watch-series7_hero_09142021_big.jpg.large.jpg", Category.BEAUTY_AND_WELLNESS, 30, 2499, "Smartwatch with fitness tracking features to monitor your health");
         itemRepository.saveAll(Arrays.asList(item13, item14, item15, item16, item17, item18, item19, item20, item21, item22, item23, item24, item25, item26, item27, item28, item29, item30));
 
-        Item item31 = new Item("Arsenal Hat", "https://www.stadionshop.com/media/catalog/product/cache/61f82b9c716a2869aa27bf290bb56a69/1/3/13682_arsenal_zimska_kapa.png", Category.FASHION, 100, 2399, "Beautiful hat for every occasion.");
-        Item item32 = new Item("Arsenal Hat", "https://www.stadionshop.com/media/catalog/product/cache/61f82b9c716a2869aa27bf290bb56a69/1/3/13682_arsenal_zimska_kapa.png", Category.FASHION, 100, 2399, "Beautiful hat for every occasion.");
-        Item item33 = new Item("Arsenal Hat", "https://www.stadionshop.com/media/catalog/product/cache/61f82b9c716a2869aa27bf290bb56a69/1/3/13682_arsenal_zimska_kapa.png", Category.FASHION, 100, 2399, "Beautiful hat for every occasion.");
-        Item item34 = new Item("Arsenal Hat", "https://www.stadionshop.com/media/catalog/product/cache/61f82b9c716a2869aa27bf290bb56a69/1/3/13682_arsenal_zimska_kapa.png", Category.FASHION, 100, 2399, "Beautiful hat for every occasion.");
-        Item item35 = new Item("Arsenal Hat", "https://www.stadionshop.com/media/catalog/product/cache/61f82b9c716a2869aa27bf290bb56a69/1/3/13682_arsenal_zimska_kapa.png", Category.FASHION, 100, 2399, "Beautiful hat for every occasion.");
-        Item item36 = new Item("Arsenal Hat", "https://www.stadionshop.com/media/catalog/product/cache/61f82b9c716a2869aa27bf290bb56a69/1/3/13682_arsenal_zimska_kapa.png", Category.FASHION, 100, 2399, "Beautiful hat for every occasion.");
-        Item item37 = new Item("Arsenal Hat", "https://www.stadionshop.com/media/catalog/product/cache/61f82b9c716a2869aa27bf290bb56a69/1/3/13682_arsenal_zimska_kapa.png", Category.FASHION, 100, 2399, "Beautiful hat for every occasion.");
-        Item item38 = new Item("Arsenal Hat", "https://www.stadionshop.com/media/catalog/product/cache/61f82b9c716a2869aa27bf290bb56a69/1/3/13682_arsenal_zimska_kapa.png", Category.FASHION, 100, 2399, "Beautiful hat for every occasion.");
-        Item item39 = new Item("Arsenal Hat", "https://www.stadionshop.com/media/catalog/product/cache/61f82b9c716a2869aa27bf290bb56a69/1/3/13682_arsenal_zimska_kapa.png", Category.FASHION, 100, 2399, "Beautiful hat for every occasion.");
-        Item item40 = new Item("Arsenal Hat", "https://www.stadionshop.com/media/catalog/product/cache/61f82b9c716a2869aa27bf290bb56a69/1/3/13682_arsenal_zimska_kapa.png", Category.FASHION, 100, 2399, "Beautiful hat for every occasion.");
-        Item item41 = new Item("Arsenal Hat", "https://www.stadionshop.com/media/catalog/product/cache/61f82b9c716a2869aa27bf290bb56a69/1/3/13682_arsenal_zimska_kapa.png", Category.FASHION, 100, 2399, "Beautiful hat for every occasion.");
-        Item item42 = new Item("Arsenal Hat", "https://www.stadionshop.com/media/catalog/product/cache/61f82b9c716a2869aa27bf290bb56a69/1/3/13682_arsenal_zimska_kapa.png", Category.FASHION, 100, 2399, "Beautiful hat for every occasion.");
-        Item item43 = new Item("Arsenal Hat", "https://www.stadionshop.com/media/catalog/product/cache/61f82b9c716a2869aa27bf290bb56a69/1/3/13682_arsenal_zimska_kapa.png", Category.FASHION, 100, 2399, "Beautiful hat for every occasion.");
-
-
-
-
+        
         Review review1 = new Review(4, "Great cup.", customer2, item1);
         Review review2 = new Review(4, "Amazing Wig, feels really authentic", customer1, item6);
         Review review3 = new Review(3, "Great game!", customer4, item10);

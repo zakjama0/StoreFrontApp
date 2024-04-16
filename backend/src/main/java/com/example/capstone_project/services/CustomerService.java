@@ -23,7 +23,7 @@ public class CustomerService {
     }
 
     public Customer saveCustomer(Customer customer){
-        Customer newCustomer = new Customer(customer.getName(), customer.getEmail());
+        Customer newCustomer = new Customer(customer.getName(), customer.getEmail(), customer.getPassword());
         return customerRepository.save(newCustomer);
     }
 
@@ -34,6 +34,7 @@ public class CustomerService {
         if(customerToUpdate.isPresent()) {
             customerToUpdate.get().setName(customerDTO.getName());
             customerToUpdate.get().setEmail(customerDTO.getEmail());
+            customerToUpdate.get().setPassword(customerDTO.getPassword());
             customerRepository.save(customerToUpdate.get());
         }
 
