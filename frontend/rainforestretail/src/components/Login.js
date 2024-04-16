@@ -9,8 +9,6 @@ const Login = ({ customers }) => {
     const { setActiveCustomer } = context;
     const navigate = useNavigate();
 
-    
-
     const handleFormSubmit = (event) => {
         event.preventDefault();
         const filteredCustomer = customers.find((customer) => {
@@ -27,11 +25,11 @@ const Login = ({ customers }) => {
 
         // STAMP
 
-        if (filteredCustomer.password !== event.target.password.value) {
-            alert("Incorrect login details");
-            event.target.reset();
-            return;
-        }
+        // if (filteredCustomer.password !== event.target.password.value) {
+        //     alert("Incorrect login details");
+        //     event.target.reset();
+        //     return;
+        // }
 
         setActiveCustomer(filteredCustomer);
         event.target.reset();
@@ -58,7 +56,7 @@ const Login = ({ customers }) => {
                                 />
                             </div>
                             
-                            <div className="input-box">
+                            {/* <div className="input-box">
                             <label htmlfor="login-email">Password:</label>
                                 <input
                                     id="password"
@@ -66,7 +64,7 @@ const Login = ({ customers }) => {
                                     type="password"
                                     placeholder="Enter password.."
                                 />
-                            </div>
+                            </div> */}
                             <div className="register-link">
                                 <p> Dont have an account? <Link to="/register" className="register">Register</Link></p>
                             </div>
