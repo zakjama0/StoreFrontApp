@@ -21,6 +21,9 @@ public class Customer {
     @Column
     private String email;
 
+    @Column
+    private String password;
+
     @OneToMany(mappedBy = "customer")
     @JsonIgnore
     private List<Order> orders;
@@ -32,9 +35,10 @@ public class Customer {
     public Customer(){
     }
 
-    public Customer(String name, String email) {
+    public Customer(String name, String email, String password) {
         this.name = name;
         this.email = email;
+        this.password = password;
         this.orders = new ArrayList<>();
         this.reviews = new ArrayList<>();
     }
@@ -61,6 +65,14 @@ public class Customer {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public List<Order> getOrders() {
