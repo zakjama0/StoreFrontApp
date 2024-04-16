@@ -120,6 +120,10 @@ const StoreContainer = () => {
         });
     }
 
+    const addToBasket = (newOrderedItem) => {
+        setBasketList([...basketList, newOrderedItem]);
+    }
+
     const userNames = customers.map((customer)=>{
         <li>{customer.name}</li>
     });
@@ -148,6 +152,7 @@ const StoreContainer = () => {
                               postReview={postReview}
                               deleteReview={deleteReview}
                               patchReview={patchReview}
+                              addToBasket={addToBasket}
                               />
                 },
                 {
@@ -156,9 +161,7 @@ const StoreContainer = () => {
                 },
                 {
                     path: "/register",
-
                     element: <Registration customers = {customers} postCustomer={postCustomer} />
-
                 }
             ]
         }

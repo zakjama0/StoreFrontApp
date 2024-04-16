@@ -4,12 +4,15 @@ import ReviewList from './ReviewList';
 import ReviewForm from './ReviewForm';
 import { useLoaderData } from 'react-router-dom';
 
-const Item = ({ deleteReview, patchReview, postReview }) => { 
+const Item = ({ deleteReview, patchReview, postReview, addtoBasket }) => { 
     const item = useLoaderData();
     const [quantity, setQuantity] = useState(0);
 
-    const addToBasket = () =>{
-
+    const handleSubmit = () =>{
+        addtoBasket({
+            itemId: item.id,
+            orderQuantity: quantity
+        });
     }
     
     return (
@@ -21,7 +24,7 @@ const Item = ({ deleteReview, patchReview, postReview }) => {
                         <img src={item.picture} />
                     </div>
 
-                    <form onSubmit={addToBasket}>
+                    <form onSubmit={handleSubmit}>
                         <div>
                             <label htmlFor="rating">Quantity:</label>
                             <input
@@ -41,11 +44,6 @@ const Item = ({ deleteReview, patchReview, postReview }) => {
                         <ReviewList reviews={item.reviews} deleteReview={deleteReview} patchReview={patchReview}/>
                     </div>
 
-                    <div className='review-form'>
-                        <h3>Submit a review</h3>
-                        <ReviewForm itemId = {item.id} postReview={postReview} />
-                    </div>
-
                     <div className='item-details'>
 
                         <div className='item-text'>
@@ -59,7 +57,7 @@ const Item = ({ deleteReview, patchReview, postReview }) => {
 
                         <div className='review-form'>
                             <h3>Submit a review</h3>
-                            <ReviewForm onSubmit={postReview} />
+                            <ReviewForm postReview={postReview} />
                         </div>
 
                     </div>
