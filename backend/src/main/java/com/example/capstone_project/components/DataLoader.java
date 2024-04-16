@@ -106,7 +106,7 @@ public class DataLoader implements ApplicationRunner {
         Item item30 = new Item("Fitness Watch", "https://www.apple.com/newsroom/images/product/watch/standard/Apple_watch-series7_hero_09142021_big.jpg.large.jpg", Category.BEAUTY_AND_WELLNESS, 30, 2499, "Smartwatch with fitness tracking features to monitor your health");
         itemRepository.saveAll(Arrays.asList(item13, item14, item15, item16, item17, item18, item19, item20, item21, item22, item23, item24, item25, item26, item27, item28, item29, item30));
 
-        
+
         Review review1 = new Review(4, "Great cup.", customer2, item1);
         Review review2 = new Review(4, "Amazing Wig, feels really authentic", customer1, item6);
         Review review3 = new Review(3, "Great game!", customer4, item10);
