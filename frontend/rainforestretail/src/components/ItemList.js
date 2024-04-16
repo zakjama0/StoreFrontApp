@@ -5,11 +5,11 @@ import ItemThumbnail from "./ItemThumbnail";
 const ItemList = ({ items, category }) => {
   const filteredItems = category ? items.filter((item) => item.category === category) : items;
 
-  const itemComponents = filteredItems.map(item => (
+  const itemComponents = filteredItems.map(item => {
     <Link to={`/items/${item.id}`} key={item.id}>
       <ItemThumbnail item={item} />
     </Link>
-  ));
+});
 
   return (
     <div>
