@@ -5,33 +5,29 @@ import ReviewForm from './ReviewForm';
 import { useLoaderData } from 'react-router-dom';
 
 const Item = ({ deleteReview, patchReview, postReview }) => { 
-    
     const item = useLoaderData();
+    console.log(item);
     
     return (
         <>
             {item ? (
-                <div>
-                   
-                
-
+                <div className='item-container'>
                     <div className='item-image'>
-                    <img src = {item.picture} />
+                        <img src={item.picture} />
                     </div>
-                    <div className='item-text'>
-                    <h2>{item.name}</h2>
-                    <p>{item.description}</p>
+                    <div className='item-details'>
+                        <div className='item-text'>
+                            <h2>{item.name}</h2>
+                            <p>{item.description}</p>
+                        </div>
+                        <div className='review-list'>
+                            <ReviewList reviews={item.reviews} deleteReview={deleteReview} patchReview={patchReview} />
+                        </div>
+                        <div className='review-form'>
+                            <h3>Submit a review</h3>
+                            <ReviewForm onSubmit={postReview} />
+                        </div>
                     </div>
-                    <div className='review-list'>
-                        <ReviewList reviews={item.reviews} deleteReview={deleteReview} patchReview={patchReview}/>
-                    </div>
-
-                    
-                    <div className='review-form'>
-                        <h3>Submit a review</h3>
-                        <ReviewForm onSubmit={postReview} />
-                    </div>
-
                 </div>
             ) : (
                 <></>
