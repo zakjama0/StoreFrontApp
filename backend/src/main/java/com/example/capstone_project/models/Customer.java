@@ -22,6 +22,7 @@ public class Customer {
     private String email;
 
     @Column
+    @JsonIgnore
     private String password;
 
     @OneToMany(mappedBy = "customer")
