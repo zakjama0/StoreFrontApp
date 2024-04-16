@@ -33,6 +33,9 @@ public class CustomerController {
         return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
     }
 
+    @GetMapping(value = "/{id}")
+    public ResponseEntity<Customer> getLoginInToken(@PathVariable Long id, @RequestBody )
+
     @PostMapping
     public ResponseEntity<Customer> addCustomer(@RequestBody Customer customer){
         Customer newCustomer = customerService.saveCustomer(customer);

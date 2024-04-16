@@ -133,5 +133,6 @@ public class DataLoader implements ApplicationRunner {
         Order order4 = orderService.saveOrder(newOrderDTO4);
         Order order5 = orderService.saveOrder(newOrderDTO5);
         Order order6 = orderService.saveOrder(newOrderDTO6);
+        Order order7 = orderService.saveOrder(newOrderDTO7);
     }
 }
