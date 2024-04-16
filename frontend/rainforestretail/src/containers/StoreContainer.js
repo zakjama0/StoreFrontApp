@@ -20,8 +20,8 @@ const StoreContainer = () => {
     const [basketList, setBasketList] = useState([]);
     const [orderedItems, setOrderedItems] = useState ([]);
 
-    const [activeUser, setActiveUser] = useState({});
-    const [registerUser, setRegister] = useState({});
+    const [activeCustomer, setActiveCustomer] = useState({});
+    const [registerCustomer, setRegisterCustomer] = useState({});
 
     const fetchCustomers = async () => {
         const response = await fetch('http://localhost:8080/customers')
@@ -147,7 +147,7 @@ const StoreContainer = () => {
                 },
                 {
                     path: "/register",
-                    element: <Registration customers = {customers} registerUser={registerUser} />
+                    element: <Registration customers = {customers} registerCustomer={registerCustomer} />
                 }
             ]
         }
@@ -155,7 +155,7 @@ const StoreContainer = () => {
 
     return ( <>
      <div className="container">
-                <userState.Provider value={{ activeUser:activeUser, setActiveUser:setActiveUser }}>
+                <userState.Provider value={{ activeCustomer:activeCustomer, setActiveCustomer:setActiveCustomer}}>
                     <RouterProvider router={retailRouter} />
                 </userState.Provider>
 
