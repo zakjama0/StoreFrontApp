@@ -1,7 +1,6 @@
 import Navigation from "../components/Navigation";
 import Registration from "../components/Registration";
 import Login from "../components/Login"
-
 import React, { useEffect, useState } from "react";
 import { createBrowserRouter, RouterProvider, Navigate } from "react-router-dom";
 import LandingPageContainer from "./LandingPageContainer";
