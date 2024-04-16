@@ -3,7 +3,8 @@ import './App.css';
 import StoreContainer from './containers/StoreContainer';
 
 
-function handleFooterClick() {
+function handleFooterClick(event) {
+  event.preventDefault();
   alert("GOOOOOD MORNING VIETNAM");
 }
 

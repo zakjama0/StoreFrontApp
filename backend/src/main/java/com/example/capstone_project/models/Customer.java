@@ -26,7 +26,7 @@ public class Customer {
     private List<Order> orders;
 
     @OneToMany(mappedBy = "customer")
-    @JsonIgnore
+    @JsonIgnoreProperties({"item"})
     private List<Review> reviews;
 
     public Customer(){

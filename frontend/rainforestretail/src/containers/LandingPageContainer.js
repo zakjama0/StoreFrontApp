@@ -1,10 +1,30 @@
 import ItemList from "../components/ItemList";
 
+import React, { useState } from "react";
+
 const LandingPageContainer = ({items}) => {
+   
+  
+
 
     return (
     <>
-        <ItemList items={items}/>
+        <div> 
+
+
+        
+
+
+        <ItemList items={items}  category={"FASHION"} className="fashion"/>
+
+
+        <ItemList items={items} category={"ELECTRONICS"} className="home_kitchen"/>  
+
+        
+        </ div>
+       
+
+        
     </>  
     );
 }

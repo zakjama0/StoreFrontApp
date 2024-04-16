@@ -5,6 +5,7 @@ import React, { useEffect, useState } from "react";
 import { createBrowserRouter, RouterProvider, Navigate } from "react-router-dom";
 import LandingPageContainer from "./LandingPageContainer";
 import Item from "../components/Item";
+import BrowseItemsContainer from "./BrowseItemsContainer";
 
 export const userState = React.createContext();
 
@@ -18,26 +19,33 @@ const StoreContainer = () => {
     const [purchaseList, setPurchaseList] = useState([]);
     const [basketList, setBasketList] = useState([]);
     const [orderedItems, setOrderedItems] = useState ([]);
+
     const [activeUser, setActiveUser] = useState({});
     const [registerUser, setRegister] = useState({});
 
-    const fetchCustomers = async() =>{
+    const fetchCustomers = async () => {
         const response = await fetch('http://localhost:8080/customers')
         const data = await response.json()
         setCustomers(data)
     }
 
 
-    const fetchItems = async() =>{
+    const fetchItems = async () => {
         const response = await fetch('http://localhost:8080/items')
         const data = await response.json()
         setItems(data)
     }
 
-    const fetchOrders = async() =>{
-        const response = await fetch('http://localhost:8080/items')
+    const fetchOrders = async () => {
+        const response = await fetch('http://localhost:8080/orders')
         const data = await response.json()
         setOrders(data)
+    }
+
+    const fetchReviews = async () => {
+        const response = await fetch('http://localhost:8080/reviews')
+        const data = await response.json()
+        setReviews(data)
     }
 
     const postOrderedItems = async (newOrderedItem) => {
@@ -62,27 +70,49 @@ const StoreContainer = () => {
         setOrderedItems([...orderedItems, savedNewOrderedItem]);
     }
 
+    const postReview = async (newReview) => {
+        const response = await fetch("http://localhost:8080/items", {
+            method: "POST",
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify(newReview)
+        });
+        fetchItems();
+    }
+
+    const deleteReview = async (reviewId) => {
+        const response = await fetch(`http://localhost:8080/reviews/${reviewId}`, {
+            method: "DELETE",
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify(reviewId)
+        });
+        fetchItems();
+    }
+
+    const patchReview = async (amendedReview, reviewId) => {
+        const response = await fetch(`http://localhost:8080/reviews/${reviewId}`, {
+            method: "PATCH",
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify(amendedReview)
+        });
+        fetchItems();
+    }
+
     useEffect(() =>{
-        fetchCustomers()
-        fetchItems()
-        fetchOrders()
+        fetchCustomers();
+        fetchItems();
+        fetchOrders();
+        fetchReviews();
     }, [])
-
-
 
     const itemLoader = ({params}) => {
         return items.find(item => {
-            return items.id === parseInt(params.id);
+            return item.id === parseInt(params.itemId);
         });
     }
 
     const userNames = customers.map((customer)=>{
         <li>{customer.name}</li>
-    })
-
-    
-
-
+    });
 
     const retailRouter = createBrowserRouter([
         {
@@ -98,22 +128,31 @@ const StoreContainer = () => {
                     element: <LandingPageContainer items={items}/>
                 },
                 {
+                    path: "/items",
+                    element: <BrowseItemsContainer items={items}/>
+                },
+                {
                     path: "/login",
                     element: <Login customers = {customers}
                      />
                 },
                 {
-                    path: `/item`,
-                    element: <Item  />
+                    path: "/items/:itemId",
+                    loader: itemLoader,
+                    element: <Item  
+                              postReview={postReview}
+                              deleteReview={deleteReview}
+                              patchReview={patchReview}
+                              />
                 },
-
                 {
                     path: "/register",
                     element: <Registration customers = {customers} registerUser={registerUser} />
                 }
             ]
         }
-    ])
+    ]);
+
     return ( <>
      <div className="container">
                 <userState.Provider value={{ activeUser:activeUser, setActiveUser:setActiveUser }}>

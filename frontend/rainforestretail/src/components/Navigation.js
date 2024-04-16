@@ -2,9 +2,10 @@ import { Link, Outlet } from "react-router-dom";
 import { useContext } from "react";
 import { userState } from "../containers/StoreContainer";
 const Navigation = () => {
-    const { activeUser, setActiveUser } = useContext(userState)
 
-    const refreshActiveUser = () => {
+    const {activeUser, setActiveUser}  = useContext(userState)
+    const refreshActiveUser = () =>{
+
         setActiveUser({})
     }
 
