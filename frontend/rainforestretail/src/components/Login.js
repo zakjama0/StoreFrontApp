@@ -3,19 +3,21 @@ import { userState } from "../containers/StoreContainer";
 import { Link, Outlet, useNavigate } from "react-router-dom";
 
 const Login = ({ customers }) => {
-    const [loggedUsername, setLoggedUsername] = useState("");
 
+    const [loggedEmail, setLoggedEmail] = useState("");
     const context = useContext(userState);
-    console.log(context);
     const { setActiveCustomer } = context;
     const navigate = useNavigate();
 
+    
+
     const handleFormSubmit = (event) => {
         event.preventDefault();
-        const filteredCustomer = customers.find((customer) =>
-            customer.username.toLowerCase() === loggedUsername.toLowerCase(),     
+        const filteredCustomer = customers.find((customer) => {
+            return customer.email.toLowerCase() === loggedEmail.toLowerCase()
+        });
 
-        );
+        console.log(filteredCustomer);
 
         if (!filteredCustomer) {
             alert("Please Sign Up")
@@ -23,7 +25,9 @@ const Login = ({ customers }) => {
             return;
         } 
 
-        if (filteredCustomer.email !== event.target.email.value.toLowerCase()) {
+        // STAMP
+
+        if (filteredCustomer.password !== event.target.password.value) {
             alert("Incorrect login details");
             event.target.reset();
             return;
@@ -42,42 +46,35 @@ const Login = ({ customers }) => {
                 <div className="wrapper">
                     <div className="wrap">
                         <form onSubmit={handleFormSubmit}>
-                            
                             <div className="input-box">
-                            <label htmlFor="login-name">Name:</label>
+                            <label htmlFor="login-name">Email:</label>
                             <input
-                                    id="name"
-                                    name="name"
-                                    type="text"
-                                    value={loggedUsername}
-                                    onInput={(e) => setLoggedUsername(e.target.value)}
-                                    placeholder="Enter name.."
-                                />
-                            </div>
-                            
-                            <div className="input-box">
-                            <label htmlfor="login-email">Email:</label>
-                                <input
                                     id="email"
                                     name="email"
-                                    type="email"
+                                    type="text"
+                                    value={loggedEmail}
+                                    onInput={(e) => setLoggedEmail(e.target.value)}
                                     placeholder="Enter email.."
                                 />
                             </div>
-                            <div className="remember-forgot">
-                                <label for="">
-                                    <input type="checkbox" name="" id=""/> Remember Me</label>
+                            
+                            <div className="input-box">
+                            <label htmlfor="login-email">Password:</label>
+                                <input
+                                    id="password"
+                                    name="password"
+                                    type="password"
+                                    placeholder="Enter password.."
+                                />
                             </div>
                             <div className="register-link">
                                 <p> Dont have an account? <Link to="/register" className="register">Register</Link></p>
                             </div>
-                            
                             <input className="btn" type="submit" value="Login" />
                         </form>
                     </div>
                 </div>
             </div>
-            
                 <Outlet />
             </div>
         </>
