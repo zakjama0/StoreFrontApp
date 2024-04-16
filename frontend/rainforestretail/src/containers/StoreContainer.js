@@ -142,11 +142,6 @@ const StoreContainer = () => {
                     element: <BrowseItemsContainer items={items}/>
                 },
                 {
-                    path: "/login",
-                    element: <Login customers = {customers}
-                     />
-                },
-                {
                     path: "/items/:itemId",
                     loader: itemLoader,
                     element: <Item  
@@ -154,6 +149,10 @@ const StoreContainer = () => {
                               deleteReview={deleteReview}
                               patchReview={patchReview}
                               />
+                },
+                {
+                    path: "/login",
+                    element: <Login customers = {customers} />
                 },
                 {
                     path: "/register",
