@@ -2,24 +2,28 @@ import { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { userState } from "../containers/StoreContainer";
 
+
 const Registration = ({ customers, postCustomer }) => {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const navigate = useNavigate();
     const context = useContext(userState)
-    const { setActiveUser } = context;
+    const { setActiveCustomer } = context;
    
     const handleSubmit = (event) => {
       event.preventDefault();
       if (handleValidation()) {
-        const newUser = {
-          name,
+
+        const newCustomer = {
+          username,
           email,
           password
         }
-        setActiveUser(newUser);
-        postCustomer(newUser);
+
+        setActiveCustomer(newCustomer);
+        postCustomer(newCustomer);
+
         navigate("/login");
         return;
       }
@@ -28,6 +32,12 @@ const Registration = ({ customers, postCustomer }) => {
     const handleValidation = () => {
       let validation = true;
   
+
+      if (customers.find(customer => customer.name === username)) {
+        alert("User already exists");
+        validation = false;
+      }
+
       if (customers.find(customer => customer.email === email)) {
         alert("Email already exists");
         validation = false;

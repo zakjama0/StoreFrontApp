@@ -1,31 +1,34 @@
 import { useState, useContext } from "react";
 import { userState } from "../containers/StoreContainer";
 import { Link, Outlet, useNavigate } from "react-router-dom";
-const Login = ({ users }) => {
-    const [loggedName, setLoggedName] = useState("")
+
+const Login = ({ customers }) => {
+    const [loggedUsername, setLoggedUsername] = useState("")
+
     const context = useContext(userState)
-    const { setActiveUser } = context;
+    const { setActiveCustomer } = context;
     const navigate = useNavigate();
 
     const handleFormSubmit = (event) => {
         event.preventDefault();
-        const filteredUser = users.find((user) =>
-            user.name.toLowerCase() === loggedName.toLowerCase(),     
+        const filteredCustomer = customers.find((customer) =>
+            customer.username.toLowerCase() === loggedUsername.toLowerCase(),     
+
         );
 
-        if (!filteredUser) {
+        if (!filteredCustomer) {
             alert("Please Sign Up")
             event.target.reset();
             return;
         } 
 
-        if (filteredUser.email !== event.target.email.value.toLowerCase()) {
+        if (filteredCustomer.email !== event.target.email.value.toLowerCase()) {
             alert("Incorrect login details");
             event.target.reset();
             return;
         }
 
-        setActiveUser(filteredUser);
+        setActiveCustomer(filteredCustomer);
         event.target.reset();
         navigate("/home");
     }
@@ -52,7 +55,7 @@ const Login = ({ users }) => {
                             </div>
                             
                             <div className="input-box">
-                            <label htmlFor="login-email">Email:</label>
+                            <label htmlfor="login-email">Email:</label>
                                 <input
                                     id="email"
                                     name="email"
@@ -60,11 +63,11 @@ const Login = ({ users }) => {
                                     placeholder="Enter email.."
                                 />
                             </div>
-                            <div class="remember-forgot">
+                            <div className="remember-forgot">
                                 <label for="">
                                     <input type="checkbox" name="" id=""/> Remember Me</label>
                             </div>
-                            <div class="register-link">
+                            <div className="register-link">
                                 <p> Dont have an account? <Link to="/register" className="register">Register</Link></p>
                             </div>
                             

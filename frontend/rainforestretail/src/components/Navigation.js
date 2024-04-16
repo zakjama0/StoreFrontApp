@@ -3,10 +3,10 @@ import { useContext } from "react";
 import { userState } from "../containers/StoreContainer";
 const Navigation = () => {
 
-    const {activeUser, setActiveUser}  = useContext(userState)
-    const refreshActiveUser = () =>{
+    const {activeCustomer, setActiveCustomer}  = useContext(userState)
+    const refreshActiveCustomer = () =>{
 
-        setActiveUser({})
+        setActiveCustomer({})
     }
 
     return (<>
@@ -18,12 +18,12 @@ const Navigation = () => {
                         <li><Link to="/"> <img src="" /> </Link></li>
                     </ul>
 
-                    {activeUser.id ?
+                    {activeCustomer.id ?
 
                         <div className="navLinks">
                             <li><Link to="/items">Browse</Link></li>
                             <li><Link to="/orders">Your Orders </Link></li>
-                            <li><Link to="/register" onClick={refreshActiveUser}>Sign Out {activeUser.username}</Link></li>
+                            <li><Link to="/register" onClick={refreshActiveCustomer}>Sign Out {activeCustomer.username}</Link></li>
                         </div>
 
                         :
