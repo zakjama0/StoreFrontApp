@@ -3,9 +3,10 @@ import { userState } from "../containers/StoreContainer";
 import { Link, Outlet, useNavigate } from "react-router-dom";
 
 const Login = ({ customers }) => {
-    const [loggedUsername, setLoggedUsername] = useState("")
+    const [loggedUsername, setLoggedUsername] = useState("");
 
-    const context = useContext(userState)
+    const context = useContext(userState);
+    console.log(context);
     const { setActiveCustomer } = context;
     const navigate = useNavigate();
 
