@@ -5,6 +5,7 @@ import { userState } from "../containers/StoreContainer";
 
 const Registration = ({ customers, postCustomer }) => {
     const [name, setName] = useState("");
+    const [username, setUsername] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const navigate = useNavigate();
