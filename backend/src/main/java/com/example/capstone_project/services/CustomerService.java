@@ -43,8 +43,8 @@ public class CustomerService {
         return customerToUpdate;
     }
 
-    public Boolean checkPassword(Long id, PasswordDTO passwordDTO) {
+    public Boolean checkPassword(Long id, String passwordAttempt) {
         Customer customer = customerRepository.findById(id).get();
-        return Objects.equals(customer.getPassword(), passwordDTO.getPasswordAttempt());
+        return Objects.equals(customer.getPassword(), passwordAttempt);
     }
 }

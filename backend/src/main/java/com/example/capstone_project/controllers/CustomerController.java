@@ -34,9 +34,9 @@ public class CustomerController {
         return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
     }
 
-    @GetMapping(value = "/login/{id}")
-    public ResponseEntity<Boolean> getLoginInToken(@PathVariable Long id, @RequestBody PasswordDTO passwordDTO){
-        Boolean token = customerService.checkPassword(id, passwordDTO);
+    @GetMapping(value = "/{id}/{passwordAttempt}")
+    public ResponseEntity<Boolean> getLoginInToken(@PathVariable Long id, @PathVariable String passwordAttempt){
+        Boolean token = customerService.checkPassword(id, passwordAttempt);
         return new ResponseEntity<>(token, HttpStatus.OK);
     }
 

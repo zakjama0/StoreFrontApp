@@ -25,9 +25,9 @@ const StoreContainer = () => {
     const [registerCustomer, setRegisterCustomer] = useState({});
 
     const fetchCustomers = async () => {
-        const response = await fetch('http://localhost:8080/customers')
-        const data = await response.json()
-        setCustomers(data)
+        const response = await fetch('http://localhost:8080/customers');
+        const data = await response.json();
+        setCustomers(data);
     }
 
 

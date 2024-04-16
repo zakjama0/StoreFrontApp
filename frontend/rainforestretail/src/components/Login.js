@@ -5,9 +5,16 @@ import { Link, Outlet, useNavigate } from "react-router-dom";
 const Login = ({ customers }) => {
 
     const [loggedEmail, setLoggedEmail] = useState("");
+    const [loginToken, setLoginToken] = useState(false);
     const context = useContext(userState);
     const { setActiveCustomer } = context;
     const navigate = useNavigate();
+
+    const getToken = async (customerId, passwordAttempt) => {
+        const response = await fetch(`http://localhost:8080/customers/${customerId}/${passwordAttempt}`);
+        const data = await response.json();
+        setLoginToken(data);
+    }
 
     const handleFormSubmit = (event) => {
         event.preventDefault();
@@ -23,13 +30,15 @@ const Login = ({ customers }) => {
             return;
         } 
 
+        getToken(filteredCustomer.id, event.target.password.value);
+
         // STAMP
 
-        // if (filteredCustomer.password !== event.target.password.value) {
-        //     alert("Incorrect login details");
-        //     event.target.reset();
-        //     return;
-        // }
+        if (!loginToken) {
+            alert("Incorrect login details");
+            event.target.reset();
+            return;
+        }
 
         setActiveCustomer(filteredCustomer);
         event.target.reset();
@@ -56,7 +65,7 @@ const Login = ({ customers }) => {
                                 />
                             </div>
                             
-                            {/* <div className="input-box">
+                            <div className="input-box">
                             <label htmlfor="login-email">Password:</label>
                                 <input
                                     id="password"
@@ -64,7 +73,7 @@ const Login = ({ customers }) => {
                                     type="password"
                                     placeholder="Enter password.."
                                 />
-                            </div> */}
+                            </div>
                             <div className="register-link">
                                 <p> Dont have an account? <Link to="/register" className="register">Register</Link></p>
                             </div>
