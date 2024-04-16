@@ -29,7 +29,7 @@ const Item = ({ deleteReview, patchReview, postReview }) => {
                     
                     <div className='review-form'>
                         <h3>Submit a review</h3>
-                        <ReviewForm postReview={postReview} />
+                        <ReviewForm itemId = {item.id} postReview={postReview} />
                     </div>
 
                 </div>

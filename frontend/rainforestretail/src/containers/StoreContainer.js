@@ -81,7 +81,7 @@ const StoreContainer = () => {
     }
 
     const postReview = async (newReview) => {
-        const response = await fetch("http://localhost:8080/items", {
+        const response = await fetch("http://localhost:8080/reviews", {
             method: "POST",
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify(newReview)

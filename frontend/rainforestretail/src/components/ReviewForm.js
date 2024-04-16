@@ -1,14 +1,22 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { userState } from "../containers/StoreContainer";
 
-const ReviewForm = ({onSubmit, postReview}) => {
-
+const ReviewForm = ({itemId, postReview}) => {
+   
     const [rating, setRating] = useState(0);
     const [comment, setComment] = useState('');
+    const {activeCustomer, setActiveCustomer}  = useContext(userState);
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        postReview({rating, comment});
-    }
+      
+        postReview({
+          itemId: itemId,
+          customerId: activeCustomer.id,
+          rating: rating,
+          comment: comment
+        });
+      };
 
 
     return (
