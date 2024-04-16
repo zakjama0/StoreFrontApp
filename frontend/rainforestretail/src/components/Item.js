@@ -15,8 +15,8 @@ const Item = ({ deleteReview, patchReview, postReview }) => {
     return (
         <>
             {item ? (
-                <div>
                 <div className='item-container'>
+
                     <div className='item-image'>
                         <img src={item.picture} />
                     </div>
@@ -36,6 +36,7 @@ const Item = ({ deleteReview, patchReview, postReview }) => {
                         </div>
                         <button type="submit">Add to Basket</button>
                     </form>
+
                     <div className='review-list'>
                         <ReviewList reviews={item.reviews} deleteReview={deleteReview} patchReview={patchReview}/>
                     </div>
@@ -44,23 +45,28 @@ const Item = ({ deleteReview, patchReview, postReview }) => {
                         <h3>Submit a review</h3>
                         <ReviewForm postReview={postReview} />
                     </div>
+
                     <div className='item-details'>
+
                         <div className='item-text'>
                             <h2>{item.name}</h2>
                             <p>{item.description}</p>
                         </div>
+
                         <div className='review-list'>
                             <ReviewList reviews={item.reviews} deleteReview={deleteReview} patchReview={patchReview} />
                         </div>
+
                         <div className='review-form'>
                             <h3>Submit a review</h3>
                             <ReviewForm onSubmit={postReview} />
                         </div>
+
                     </div>
+
                 </div>
-            ) : (
-                <></>
-            )}
+            ) : (<></>)
+            }
         </>
     );
 }
