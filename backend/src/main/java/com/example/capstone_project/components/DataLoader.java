@@ -43,6 +43,7 @@ public class DataLoader implements ApplicationRunner {
     @Override
     public void run(ApplicationArguments arguments) throws Exception {
 
+        Customer admin = new Customer("Admin Harun", "admin@schrutefarms.com", "admin");
         Customer customer1 = new Customer("Marvellous", "marvellous@schrutefarms.com", "marvellous");
         Customer customer2 = new Customer("Saba", "saba@schrutefarms.com", "saba");
         Customer customer3 = new Customer("Zakaria", "zakaria@schrutefarms.com", "zakaria");
@@ -50,6 +51,7 @@ public class DataLoader implements ApplicationRunner {
         Customer customer5 = new Customer("Tadiwanashe", "tadiwanashe@schrutefarms.com", "tadiwanashe");
         Customer customer6 = new Customer("Yabbi", "Yabbi@schrutefarms.com", "yabbi");
 
+        customerRepository.save(admin);
         customerRepository.save(customer1);
         customerRepository.save(customer2);
         customerRepository.save(customer3);
