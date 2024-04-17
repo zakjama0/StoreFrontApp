@@ -40,8 +40,9 @@ public class Order {
         this.orderStatus = orderStatus;
     }
 
-    public Order(OrderStatus orderStatus, Customer customer) {
+    public Order(OrderStatus orderStatus, Customer customer, String address) {
         this.orderStatus = orderStatus;
+        this.address = address;
         this.customer = customer;
         this.orderedItems = new ArrayList<>();
     }
