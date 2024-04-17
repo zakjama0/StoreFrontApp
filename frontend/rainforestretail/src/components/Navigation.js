@@ -1,6 +1,7 @@
 import { Link, Outlet } from "react-router-dom";
 import { useContext } from "react";
 import { userState } from "../containers/StoreContainer";
+import Logo from "../images/image-8-removebg-preview.png"
 
 const Navigation = () => {
 
@@ -16,7 +17,7 @@ const Navigation = () => {
                 <nav>
 
                     <ul className="home">
-                        <li><Link to="/"> <img src="" /> </Link></li>
+                        <li><Link to="/"> <img src={Logo} className="logo" /> </Link></li>
                     </ul>
 
                     {activeCustomer.id ?
@@ -24,6 +25,7 @@ const Navigation = () => {
                         <div className="navLinks">
                             <li><Link to="/items">Browse</Link></li>
                             <li><Link to="/orders">Your Orders </Link></li>
+                            <li><Link to="/basket">Basket </Link></li>
                             <li><Link to="/register" onClick={refreshActiveCustomer}>Sign Out {activeCustomer.name}</Link></li>
                         </div>
 

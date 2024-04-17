@@ -12,7 +12,7 @@ const Item = ({ deleteReview, patchReview, postReview, addToBasket }) => {
         event.preventDefault();
 
         addToBasket({
-            itemId: item.id,
+            item: item,
             orderQuantity: quantity
         });
     }
