@@ -8,7 +8,9 @@ const Item = ({ deleteReview, patchReview, postReview, addToBasket }) => {
     const item = useLoaderData();
     const [quantity, setQuantity] = useState(0);
 
-    const handleSubmit = () =>{
+    const handleSubmit = (event) =>{
+        event.preventDefault();
+        
         addToBasket({
             itemId: item.id,
             orderQuantity: quantity
