@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import DraggableCardSlider from './DraggableCardSlider'; 
+import DraggableCardSlider from './DraggableItems'; 
 import ReviewList from './ReviewList';
 import ReviewForm from './ReviewForm';
 import { useLoaderData } from 'react-router-dom';
+import Popup from 'reactjs-popup';
 
 const Item = ({ deleteReview, patchReview, postReview, addToBasket }) => { 
     const item = useLoaderData();
@@ -32,17 +33,12 @@ const Item = ({ deleteReview, patchReview, postReview, addToBasket }) => {
                             <h2>{item.name}</h2>
                             <p>{item.description}</p>
                         </div>
-
+                        <h1>Reviews:</h1>
                         <div className='review-list'>
                             <ReviewList reviews={item.reviews} deleteReview={deleteReview} patchReview={patchReview} />
                         </div>
 
-                        <div className='review-form'>
-                            <h3>Submit a review</h3>
-                            <ReviewForm itemId = {item.id} postReview={postReview} />
-                        </div>
-
-                        <form className='add-basket' onSubmit={handleSubmit}>
+                        <form className='add-basket'  onSubmit={handleSubmit}>
                             <div>
                                 <label htmlFor="rating">Quantity:</label>
                                 <input
@@ -55,9 +51,28 @@ const Item = ({ deleteReview, patchReview, postReview, addToBasket }) => {
                                 required
                                 />
                             </div>
-                            <button type="submit">Add to Basket</button>
+                            <button type="submit" className='btn'>Add to Basket</button>
                         </form>
-
+                <Popup trigger=
+                    {<button className='btn'> Create a review </button>} 
+                    modal nested>
+                    {
+                    close => (
+                        <div className='modal'>
+                            <div className='review-form'>
+                            <h3>Submit a review</h3>
+                            <ReviewForm itemId = {item.id} postReview={postReview} />
+                            </div>
+                            <div>
+                                <button className="btn" onClick=
+                                    {() => close()}>
+                                        Close Review
+                                </button>
+                            </div>
+                        </div>
+                    )
+                }
+                </Popup>
                     </div>
 
                 </div>

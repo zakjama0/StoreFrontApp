@@ -32,7 +32,7 @@ const toggleButtonLabel = () => {
                     {toggleButtonLabel()}
                 </button>
                 <button onClick={handleDeleteButton}>Delete</button>
-            </div>
+    </div>
     </> );
 }
  

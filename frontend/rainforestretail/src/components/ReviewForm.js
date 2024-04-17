@@ -38,11 +38,12 @@ const ReviewForm = ({itemId, postReview}) => {
         <textarea
             id="comment"
             value={comment}
+            rows="4" cols="50"
             onChange={(event) => setComment(event.target.value)}
             required
         />
     </div>
-    <button type="submit">Submit Review</button>
+    <button type="submit" className="btn">Submit Review</button>
 </form>
 );
 };

@@ -12,7 +12,8 @@ const ReviewList = ({ reviews, deleteReview, patchReview }) => {
 
 
     return (
-        <div className="review-list">
+        <div className="review-componentlist">
+        
             <ul>
                 {reviewComponents}
             </ul>
