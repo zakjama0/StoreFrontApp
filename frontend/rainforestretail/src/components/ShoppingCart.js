@@ -8,7 +8,7 @@ const ShoppingCart = ({ basketList, completeOrder }) => {
 
     const handleClick = (event) => {
         event.preventDefault();
-        completeOrder(basketList, activeCustomer.customerId);
+        completeOrder(basketList, activeCustomer.id);
     }
     
     return (

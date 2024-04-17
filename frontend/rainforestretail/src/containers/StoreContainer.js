@@ -146,11 +146,12 @@ const StoreContainer = () => {
             body: JSON.stringify({customerId: customerId})
         });
         const newOrderData = await newOrderResponse.json();
+        console.log(newOrderData);
 
         basketItems.forEach(async basketItem => {
             const orderedItem = {
                 itemId: basketItem.item.id,
-                orderId: currentOrder.id,
+                orderId: newOrderData.id,
                 orderQuantity: basketItem.orderQuantity
             };
             
