@@ -16,7 +16,7 @@ const Navigation = () => {
                 <nav>
 
                     <ul className="home">
-                        <li><Link to="/"> <img src="" /> </Link></li>
+                        <li><Link to="/"> <img src='../src/images/image-8.png' /> </Link></li>
                     </ul>
 
                     {activeCustomer.id ?
