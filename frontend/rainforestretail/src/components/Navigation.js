@@ -30,7 +30,7 @@ const Navigation = () => {
                         :
 
                         <div className="navLinks">
-                            <li><Link to="/items" >Browse</Link></li>
+                            <li><Link to="/browse">Browse</Link></li>
                             <li><Link to="/login">Log in</Link></li>
                             <li><Link to="/register">Sign Up</Link></li>
                         </div>

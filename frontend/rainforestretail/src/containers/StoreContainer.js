@@ -5,11 +5,9 @@ import React, { useEffect, useState } from "react";
 import { createBrowserRouter, RouterProvider, Navigate } from "react-router-dom";
 import LandingPageContainer from "./LandingPageContainer";
 import Item from "../components/Item";
-import BrowseItemsContainer from "./BrowseItemsContainer";
+import BrowseItemsContainer from "../components/BrowseItemsContainer";
 
 export const userState = React.createContext();
-
-
 
 const StoreContainer = () => {
     const [customers, setCustomers] = useState([]);
@@ -20,7 +18,6 @@ const StoreContainer = () => {
     const [basketList, setBasketList] = useState([]);
     const [orderedItems, setOrderedItems] = useState ([]);
 
-
     const [activeCustomer, setActiveCustomer] = useState({});
     const [registerCustomer, setRegisterCustomer] = useState({});
 
@@ -29,7 +26,6 @@ const StoreContainer = () => {
         const data = await response.json()
         setCustomers(data)
     }
-
 
     const fetchItems = async () => {
         const response = await fetch('http://localhost:8080/items')
@@ -59,7 +55,6 @@ const StoreContainer = () => {
     }
 
     const postOrderedItems = async (newOrderedItem) => {
-
         const response = await fetch("http://localhost:8080/ordered-items", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
@@ -70,7 +65,6 @@ const StoreContainer = () => {
     }
 
     const patchOrderedItems = async (newOrderedItem) => {
-
         const response = await fetch("http://localhost:8080/ordered-items", {
             method: "PATCH",
             headers: { "Content-Type": "application/json" },
@@ -142,10 +136,6 @@ const StoreContainer = () => {
                     element: <LandingPageContainer items={items}/>
                 },
                 {
-                    path: "/items",
-                    element: <BrowseItemsContainer items={items}/>
-                },
-                {
                     path: "/items/:itemId",
                     loader: itemLoader,
                     element: <Item  
@@ -162,23 +152,25 @@ const StoreContainer = () => {
                 {
                     path: "/register",
                     element: <Registration customers = {customers} postCustomer={postCustomer} />
+                },
+                {
+                    path: "/browse",
+                    element: <BrowseItemsContainer items={items} />,
                 }
             ]
         }
     ]);
 
-    return ( <>
-     <div className="container">
-                <userState.Provider value={{ activeCustomer:activeCustomer, setActiveCustomer:setActiveCustomer}}>
-                    <RouterProvider router={retailRouter} />
-                </userState.Provider>
-     </div>
-        <ul>
-            {userNames}
-        </ul>
-    
-    
-    </> );
+    return ( 
+        <div className="container">
+            <userState.Provider value={{ activeCustomer:activeCustomer, setActiveCustomer:setActiveCustomer}}>
+                <RouterProvider router={retailRouter} />
+            </userState.Provider>
+            <ul>
+                {userNames}
+            </ul>
+        </div>
+    );
 }
  
 export default StoreContainer;
