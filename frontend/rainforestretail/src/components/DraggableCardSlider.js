@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import ItemThumbnail from './ItemThumbnail';
 import './DraggableCardSlider.css';
 
-const DraggableCardSlider = ({ items }) => {
+const DraggableCardSlider = ({ items, category }) => {
   const sliderRef = useRef(null);
   const [scrollLeft, setScrollLeft] = useState(0);
 
@@ -17,21 +17,14 @@ const DraggableCardSlider = ({ items }) => {
     setScrollLeft(newScrollLeft);
   };
 
-  // const getCategory = (items,event)=>{
 
-  //  
-  // }
-
-
-
-//
   return (
     <>
     <div className="slider-container">
      
       <div className="button-container">
         <button className="slide-button left" onClick={() => handleSlide('left')}> <i class="fa-solid fa-arrow-left"></i></button>
-        <h1>Category: </h1>
+        <h1>Category: {category}</h1>
         <div className="slider" ref={sliderRef}>
         {items.map((item, index) => (
           <Link to={`/items/${item.id}`} key={index}>
