@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import ItemThumbnail from "../components/ItemThumbnail";
 
+
 const BrowseItemsContainer = ({ items }) => {
     const categories = Array.from(new Set(items.map(item => item.category)));
     const [selectedCategory, setSelectedCategory] = useState('All');
@@ -47,28 +48,45 @@ const BrowseItemsContainer = ({ items }) => {
 
     return (
         <div>
-            <select value={selectedCategory} onChange={handleCategoryChange}>
+            <select 
+                className="filter-select"
+                value={selectedCategory} 
+                onChange={handleCategoryChange}
+            >
                 <option value="All">All Categories</option>
                 {categories.map(category => (
                     <option key={category} value={category}>{category}</option>
                 ))}
             </select>
 
-            <input type="number" placeholder="Min Price" value={minPrice} onChange={handleMinPriceChange} />
-            <input type="number" placeholder="Max Price" value={maxPrice} onChange={handleMaxPriceChange} />
-
-            <select value={sortByPrice} onChange={handleSortByPriceChange}>
-                <option value="">Sort by Price</option>
-                <option value="asc">Price: Low to High</option>
-                <option value="desc">Price: High to Low</option>
+            <input 
+                className="filter-input"
+                type="text" 
+                placeholder="Min Price" 
+                value={minPrice} 
+                onChange={handleMinPriceChange}
+            />
+            <input 
+                className="filter-input"
+                type="text" 
+                placeholder="Max Price" 
+                value={maxPrice} 
+                onChange={handleMaxPriceChange}
+            />
+            <select 
+                className="filter-dropdown"
+                value={sortByPrice} 
+                onChange={handleSortByPriceChange}
+            >
+                <option value="">Sort By Price</option>
+                <option value="asc">Low to High</option>
+                <option value="desc">High to Low</option>
             </select>
 
             <ul>
                 {filteredItems.map(item => (
                     <li key={item.id}>
-                        <Link to={`/items/${item.id}`}>
-                            <ItemThumbnail item={item} />
-                        </Link>
+                        <Link to={`/items/${item.id}`}><ItemThumbnail item={item} /></Link>
                     </li>
                 ))}
             </ul>
