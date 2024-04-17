@@ -4,12 +4,12 @@ import ReviewList from './ReviewList';
 import ReviewForm from './ReviewForm';
 import { useLoaderData } from 'react-router-dom';
 
-const Item = ({ deleteReview, patchReview, postReview, addtoBasket }) => { 
+const Item = ({ deleteReview, patchReview, postReview, addToBasket }) => { 
     const item = useLoaderData();
     const [quantity, setQuantity] = useState(0);
 
     const handleSubmit = () =>{
-        addtoBasket({
+        addToBasket({
             itemId: item.id,
             orderQuantity: quantity
         });
