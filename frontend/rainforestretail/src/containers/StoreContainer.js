@@ -5,7 +5,7 @@ import React, { useEffect, useState } from "react";
 import { createBrowserRouter, RouterProvider, Navigate } from "react-router-dom";
 import LandingPageContainer from "./LandingPageContainer";
 import Item from "../components/Item";
-import BrowseItemsContainer from "../components/BrowseItemsContainer";
+import BrowseItemsContainer from "./BrowseItemsContainer";
 import ShoppingCart from "../components/ShoppingCart";
 
 export const userState = React.createContext();
