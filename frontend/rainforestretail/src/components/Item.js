@@ -31,6 +31,8 @@ const Item = ({ deleteReview, patchReview, postReview, addToBasket }) => {
                         <div className='item-text'>
                             <h2>{item.name}</h2>
                             <p>{item.description}</p>
+                            <p>Price: £{(item.unitPrice / 100).toFixed(2)}</p>
+
                         </div>
 
                         <div className='review-list'>

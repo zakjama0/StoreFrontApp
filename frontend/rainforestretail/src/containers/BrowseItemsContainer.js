@@ -3,23 +3,50 @@ import { Link } from 'react-router-dom';
 import ItemThumbnail from "../components/ItemThumbnail";
 
 const BrowseItemsContainer = ({ items }) => {
-    
     const categories = Array.from(new Set(items.map(item => item.category)));
-
-   
     const [selectedCategory, setSelectedCategory] = useState('All');
+    const [minPrice, setMinPrice] = useState('');
+    const [maxPrice, setMaxPrice] = useState('');
+    const [sortByPrice, setSortByPrice] = useState('');
 
-    
     const handleCategoryChange = (event) => {
         setSelectedCategory(event.target.value);
     };
 
-   
-    const filteredItems = selectedCategory === 'All' ? items : items.filter(item => item.category === selectedCategory);
+    const handleMinPriceChange = (event) => {
+        setMinPrice(event.target.value);
+    };
+
+    const handleMaxPriceChange = (event) => {
+        setMaxPrice(event.target.value);
+    };
+
+    const handleSortByPriceChange = (event) => {
+        setSortByPrice(event.target.value);
+    };
+
+    const filteredItems = items.filter(item => {
+        if (selectedCategory !== 'All' && item.category !== selectedCategory) {
+            return false;
+        }
+        if (minPrice && parseInt(item.unitPrice) < parseInt(minPrice)) {
+            return false;
+        }
+        if (maxPrice && parseInt(item.unitPrice) > parseInt(maxPrice)) {
+            return false;
+        }
+        return true;
+    }).sort((a, b) => {
+        if (sortByPrice === 'asc') {
+            return parseInt(a.unitPrice) - parseInt(b.unitPrice);
+        } else if (sortByPrice === 'desc') {
+            return parseInt(b.unitPrice) - parseInt(a.unitPrice);
+        }
+        return 0;
+    });
 
     return (
         <div>
-           
             <select value={selectedCategory} onChange={handleCategoryChange}>
                 <option value="All">All Categories</option>
                 {categories.map(category => (
@@ -27,12 +54,21 @@ const BrowseItemsContainer = ({ items }) => {
                 ))}
             </select>
 
-            
+            <input type="number" placeholder="Min Price" value={minPrice} onChange={handleMinPriceChange} />
+            <input type="number" placeholder="Max Price" value={maxPrice} onChange={handleMaxPriceChange} />
+
+            <select value={sortByPrice} onChange={handleSortByPriceChange}>
+                <option value="">Sort by Price</option>
+                <option value="asc">Price: Low to High</option>
+                <option value="desc">Price: High to Low</option>
+            </select>
+
             <ul>
                 {filteredItems.map(item => (
                     <li key={item.id}>
-                       
-                        <Link to={`/items/${item.id}`}><ItemThumbnail item={item} /></Link>
+                        <Link to={`/items/${item.id}`}>
+                            <ItemThumbnail item={item} />
+                        </Link>
                     </li>
                 ))}
             </ul>
