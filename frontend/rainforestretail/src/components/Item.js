@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import DraggableCardSlider from './DraggableItems'; 
+import DraggableCardSlider from './DraggableCardSlider'; 
 import ReviewList from './ReviewList';
 import ReviewForm from './ReviewForm';
 import { useLoaderData } from 'react-router-dom';
