@@ -6,6 +6,7 @@ import { createBrowserRouter, RouterProvider, Navigate } from "react-router-dom"
 import LandingPageContainer from "./LandingPageContainer";
 import Item from "../components/Item";
 import BrowseItemsContainer from "../components/BrowseItemsContainer";
+import ShoppingCart from "../components/ShoppingCart";
 
 export const userState = React.createContext();
 
@@ -156,6 +157,10 @@ const StoreContainer = () => {
                 {
                     path: "/browse",
                     element: <BrowseItemsContainer items={items} />,
+                },
+                {
+                    path: "/basket",
+                    element: <ShoppingCart basketList={basketList}/>
                 }
             ]
         }
