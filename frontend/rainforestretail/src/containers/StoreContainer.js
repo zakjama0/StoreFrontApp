@@ -17,33 +17,40 @@ const StoreContainer = () => {
     const [reviews, setReviews] = useState([]);
     const [purchaseList, setPurchaseList] = useState([]);
     const [basketList, setBasketList] = useState([]);
-    const [orderedItems, setOrderedItems] = useState ([]);
+    const [orderedItems, setOrderedItems] = useState([]);
+    const [currentOrder, setCurrentOrder] = useState({});
 
     const [activeCustomer, setActiveCustomer] = useState({});
     const [registerCustomer, setRegisterCustomer] = useState({});
 
     const fetchCustomers = async () => {
-        const response = await fetch('http://localhost:8080/customers')
-        const data = await response.json()
-        setCustomers(data)
+        const response = await fetch('http://localhost:8080/customers');
+        const data = await response.json();
+        setCustomers(data);
     }
 
     const fetchItems = async () => {
-        const response = await fetch('http://localhost:8080/items')
-        const data = await response.json()
-        setItems(data)
+        const response = await fetch('http://localhost:8080/items');
+        const data = await response.json();
+        setItems(data);
     }
 
     const fetchOrders = async () => {
-        const response = await fetch('http://localhost:8080/orders')
-        const data = await response.json()
-        setOrders(data)
+        const response = await fetch('http://localhost:8080/orders');
+        const data = await response.json();
+        setOrders(data);
     }
 
     const fetchReviews = async () => {
-        const response = await fetch('http://localhost:8080/reviews')
-        const data = await response.json()
-        setReviews(data)
+        const response = await fetch('http://localhost:8080/reviews');
+        const data = await response.json();
+        setReviews(data);
+    }
+
+    const fetchOrderedItems = async () => {
+        const response = await fetch('http://localhost:8080/ordered-items');
+        const data = await response.json();
+        setOrderedItems(data);
     }
 
     const postCustomer = async (newCustomer) => {
@@ -55,6 +62,17 @@ const StoreContainer = () => {
         fetchCustomers();
     }
 
+    const postOrder = async (newOrder) => {
+        const response = await fetch("http://localhost:8080/orders", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(newOrder)
+        });
+        const data = await response.json();
+        setCurrentOrder(data);
+        fetchOrders();
+    }
+
     const postOrderedItems = async (newOrderedItem) => {
         const response = await fetch("http://localhost:8080/ordered-items", {
             method: "POST",
@@ -62,7 +80,7 @@ const StoreContainer = () => {
             body: JSON.stringify(newOrderedItem)
         })
         const savedNewOrderedItem = await response.json();
-        setOrderedItems([...orderedItems, savedNewOrderedItem]);
+        fetchOrderedItems();
     }
 
     const patchOrderedItems = async (newOrderedItem) => {
@@ -72,7 +90,7 @@ const StoreContainer = () => {
             body: JSON.stringify(newOrderedItem)
         })
         const savedNewOrderedItem = await response.json();
-        setOrderedItems([...orderedItems, savedNewOrderedItem]);
+        fetchOrderedItems();
     }
 
     const postReview = async (newReview) => {
@@ -107,6 +125,7 @@ const StoreContainer = () => {
         fetchItems();
         fetchOrders();
         fetchReviews();
+        fetchOrderedItems();
     }, [])
 
     const itemLoader = ({params}) => {
@@ -117,6 +136,30 @@ const StoreContainer = () => {
 
     const addToBasket = (newOrderedItem) => {
         setBasketList([...basketList, newOrderedItem]);
+    }
+
+    const completeOrder = async (basketItems, customerId) => {
+       
+        const newOrderResponse = await fetch("http://localhost:8080/orders", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({customerId: customerId})
+        });
+        const newOrderData = await newOrderResponse.json();
+
+        basketItems.forEach(async basketItem => {
+            const orderedItem = {
+                itemId: basketItem.item.id,
+                orderId: currentOrder.id,
+                orderQuantity: basketItem.orderQuantity
+            };
+            
+            const response = await fetch("http://localhost:8080/ordered-items", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(orderedItem)
+            })
+        });
     }
 
     const userNames = customers.map((customer)=>{
@@ -160,7 +203,7 @@ const StoreContainer = () => {
                 },
                 {
                     path: "/basket",
-                    element: <ShoppingCart basketList={basketList}/>
+                    element: <ShoppingCart basketList={basketList} completeOrder={completeOrder}/>
                 }
             ]
         }
