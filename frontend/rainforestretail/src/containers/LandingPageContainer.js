@@ -9,7 +9,6 @@ const LandingPageContainer = ({ items }) => {
     return (
         <>
             <div className='handleLists'>
-                
                 <DraggableCardSlider items={fashionItems} category="Fashion" />
 
                 {/* Render DraggableCardSlider for Electronics category */}

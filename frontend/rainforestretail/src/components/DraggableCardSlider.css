@@ -7,15 +7,15 @@
   border: none;
   font-size: 24px; 
   padding: 10px; 
-  padding-top: 120px;
-  color: #333; 
+  padding-top: 250px;
+  color: white; 
   cursor: pointer;
   transition: color 0.3s ease; 
 }
 
 
 .slide-button:hover {
-  color: #555; 
+  color: rgb(255, 217, 0); 
 }
 
 .left {
@@ -31,13 +31,15 @@
   position: relative;
   min-height:50px;
   width: 100%;
-  /* padding-bottom: 30px; */
-  overflow: hidden;
+ 
+  margin-bottom: 20px;
+
 }
 
 .slider {
   display: flex;
   overflow-x: auto;
+  /* border: 10px black dashed; */
   scroll-snap-type: x mandatory;
   scrollbar-width: none; 
   -ms-overflow-style: none; 
@@ -54,9 +56,11 @@
   justify-content: center;
   align-items: center;
   padding: 30px ;
+  /* padding-bottom: -20px; */
+  /* border: 10px black dashed; */
   width: 300px; 
   height: auto;
-  /* margin-right: 20px; */
+  margin-right: 20px;
   /* margin-bottom: 50px; */
   border-radius: 10px; 
   scroll-snap-align: start;
