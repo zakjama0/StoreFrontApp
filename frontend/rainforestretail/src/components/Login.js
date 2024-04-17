@@ -40,10 +40,10 @@ const Login = ({ customers }) => {
         <>
             <div className="login">
             <div className="main-login">
-            <h1>Welcome back! Please login</h1>
                 <div className="wrapper">
                     <div className="wrap">
                         <form onSubmit={handleFormSubmit}>
+                        <h2>Welcome back! Please login</h2>
                             <div className="input-box">
                             <label htmlFor="login-name">Email:</label>
                             <input
