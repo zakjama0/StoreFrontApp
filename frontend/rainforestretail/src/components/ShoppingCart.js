@@ -18,7 +18,6 @@ const ShoppingCart = ({ basketList, completeOrder }) => {
                 <h2>Order: </h2>
                 <OrderList basketList={basketList} />
                 <form onSubmit={handleSubmit}>
-                    
                     <div>
                         <label htmlFor="address">Address:</label>
                         <textarea

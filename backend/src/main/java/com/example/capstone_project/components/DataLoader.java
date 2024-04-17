@@ -119,13 +119,13 @@ public class DataLoader implements ApplicationRunner {
         reviewRepository.save(review4);
         reviewRepository.save(review5);
 
-        NewOrderDTO newOrderDTO1 = new NewOrderDTO(OrderStatus.PENDING, 1L, "");
-        NewOrderDTO newOrderDTO2 = new NewOrderDTO(OrderStatus.PENDING, 1L, "");
-        NewOrderDTO newOrderDTO3 = new NewOrderDTO(OrderStatus.PENDING, 2L, "");
-        NewOrderDTO newOrderDTO4 = new NewOrderDTO(OrderStatus.PENDING, 3L, "");
-        NewOrderDTO newOrderDTO5 = new NewOrderDTO(OrderStatus.PENDING, 4L, "");
-        NewOrderDTO newOrderDTO6 = new NewOrderDTO(OrderStatus.PENDING, 5L, "");
-        NewOrderDTO newOrderDTO7 = new NewOrderDTO(OrderStatus.PENDING, 6L, "");
+        NewOrderDTO newOrderDTO1 = new NewOrderDTO(1L, "");
+        NewOrderDTO newOrderDTO2 = new NewOrderDTO(1L, "");
+        NewOrderDTO newOrderDTO3 = new NewOrderDTO(2L, "");
+        NewOrderDTO newOrderDTO4 = new NewOrderDTO(3L, "");
+        NewOrderDTO newOrderDTO5 = new NewOrderDTO(4L, "");
+        NewOrderDTO newOrderDTO6 = new NewOrderDTO(5L, "");
+        NewOrderDTO newOrderDTO7 = new NewOrderDTO(6L, "");
 
         Order order1 = orderService.saveOrder(newOrderDTO1);
         Order order2 = orderService.saveOrder(newOrderDTO2);
@@ -133,5 +133,6 @@ public class DataLoader implements ApplicationRunner {
         Order order4 = orderService.saveOrder(newOrderDTO4);
         Order order5 = orderService.saveOrder(newOrderDTO5);
         Order order6 = orderService.saveOrder(newOrderDTO6);
+        Order order7 = orderService.saveOrder(newOrderDTO7);
     }
 }

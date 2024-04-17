@@ -33,18 +33,18 @@ public class Order {
     public Order(){
     }
 
-    public Order(String address, List<OrderedItem> orderedItems, Customer customer, OrderStatus orderStatus) {
-        this.address = address;
-        this.orderedItems = orderedItems;
-        this.customer = customer;
-        this.orderStatus = orderStatus;
-    }
-
     public Order(OrderStatus orderStatus, Customer customer, String address) {
         this.orderStatus = orderStatus;
         this.address = address;
         this.customer = customer;
         this.orderedItems = new ArrayList<>();
+    }
+
+    public Order(String address, List<OrderedItem> orderedItems, Customer customer, OrderStatus orderStatus) {
+        this.address = address;
+        this.orderedItems = orderedItems;
+        this.customer = customer;
+        this.orderStatus = orderStatus;
     }
 
     public long getId() {

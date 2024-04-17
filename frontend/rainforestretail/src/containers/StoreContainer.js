@@ -140,11 +140,14 @@ const StoreContainer = () => {
 
     const completeOrder = async (basketItems, customerId, address) => {
        
+        const newOrder = {customerId: customerId, address: address};
+
         const newOrderResponse = await fetch("http://localhost:8080/orders", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({customerId: customerId, address: address})
+            body: JSON.stringify(newOrder)
         });
+
         const newOrderData = await newOrderResponse.json();
         console.log(newOrderData);
 
