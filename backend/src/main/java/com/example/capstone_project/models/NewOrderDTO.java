@@ -1,38 +1,17 @@
 package com.example.capstone_project.models;
 
-import java.util.ArrayList;
-
 public class NewOrderDTO {
-
-    private OrderStatus orderStatus;
 
     private Long customerId;
 
-    private ArrayList<OrderedItem> orderedItems;
+    private String address;
 
     public NewOrderDTO() {
     }
 
-    public NewOrderDTO(Long customerId) {
+    public NewOrderDTO(Long customerId, String address) {
         this.customerId = customerId;
-    }
-
-    public NewOrderDTO(OrderStatus orderStatus) {
-        this.orderStatus = orderStatus;
-    }
-
-    public NewOrderDTO(OrderStatus orderStatus, Long customerId){
-        this.orderStatus = orderStatus;
-        this.customerId = customerId;
-        this.orderedItems= new ArrayList<>();
-    }
-
-    public OrderStatus getOrderStatus() {
-        return orderStatus;
-    }
-
-    public void setOrderStatus(OrderStatus orderStatus) {
-        this.orderStatus = orderStatus;
+        this.address = address;
     }
 
     public Long getCustomerId() {
@@ -43,11 +22,11 @@ public class NewOrderDTO {
         this.customerId = customerId;
     }
 
-    public ArrayList<OrderedItem> getOrderedItems() {
-        return orderedItems;
+    public String getAddress() {
+        return address;
     }
 
-    public void setOrderedItems(ArrayList<OrderedItem> orderedItems) {
-        this.orderedItems = orderedItems;
+    public void setAddress(String address) {
+        this.address = address;
     }
 }

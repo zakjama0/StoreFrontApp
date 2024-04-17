@@ -32,13 +32,13 @@ public class OrderService {
         return orderRepository.findOrdersByCustomerId(id);
     }
 
-    public Order updateOrderStatus(NewOrderDTO newOrderDTO, Long id) {
-        Order orderToUpdate = orderRepository.findById(id).get();
-        OrderStatus orderStatusToUpdate = newOrderDTO.getOrderStatus();
-        orderToUpdate.setOrderStatus(orderStatusToUpdate);
-        orderRepository.save(orderToUpdate);
-        return orderToUpdate;
-    }
+//    public Order updateOrderStatus(NewOrderDTO newOrderDTO, Long id) {
+//        Order orderToUpdate = orderRepository.findById(id).get();
+//        OrderStatus orderStatusToUpdate = newOrderDTO.getOrderStatus();
+//        orderToUpdate.setOrderStatus(orderStatusToUpdate);
+//        orderRepository.save(orderToUpdate);
+//        return orderToUpdate;
+//    }
 
     public Order saveOrder(NewOrderDTO newOrderDTO) {
 
@@ -47,7 +47,7 @@ public class OrderService {
             return null;
         }
 
-        Order order = new Order(OrderStatus.PENDING, customer.get());
+        Order order = new Order(OrderStatus.IN_PROGRESS, customer.get(), newOrderDTO.getAddress());
         orderRepository.save(order);
         return order;
     }
