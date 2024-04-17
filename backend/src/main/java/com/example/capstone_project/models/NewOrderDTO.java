@@ -8,23 +8,23 @@ public class NewOrderDTO {
 
     private Long customerId;
 
+    private String address;
+
     private ArrayList<OrderedItem> orderedItems;
 
     public NewOrderDTO() {
     }
 
-    public NewOrderDTO(Long customerId) {
+    public NewOrderDTO(Long customerId, String address) {
         this.customerId = customerId;
+        this.address = address;
     }
 
-    public NewOrderDTO(OrderStatus orderStatus) {
-        this.orderStatus = orderStatus;
-    }
-
-    public NewOrderDTO(OrderStatus orderStatus, Long customerId){
+    public NewOrderDTO(OrderStatus orderStatus, Long customerId, String address){
         this.orderStatus = orderStatus;
         this.customerId = customerId;
-        this.orderedItems= new ArrayList<>();
+        this.orderedItems = new ArrayList<>();
+        this.address = address;
     }
 
     public OrderStatus getOrderStatus() {
@@ -49,5 +49,13 @@ public class NewOrderDTO {
 
     public void setOrderedItems(ArrayList<OrderedItem> orderedItems) {
         this.orderedItems = orderedItems;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 }
