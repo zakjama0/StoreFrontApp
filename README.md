@@ -10,6 +10,43 @@ One-to-many relationship between customers and orders.
 One-to-many relationship between customers and reviews.
 
 
+## List of Api Routes
+# Orders
+GET all
+Get by orderId
+GET by customerId
+GET costbyorderid
+POST an order
+PATCH an order
+
+# Items
+GET all
+GET by orderId
+
+# OrderedItems
+Get all
+Get by orderId
+Get by itemId
+POST an ordered item
+PATCH an orderedItem
+DELETE an orderedItem
+
+# Customers
+Get all
+GET by customerId
+POST a customer
+PATCH a customer
+
+# Reviews
+GET all
+Get byReviewId 
+GET by itemId
+Get by customerId
+GET avgRatingByItemId
+POST a review
+PATCH a review
+DELETE a review
+
 ## MVP
 - Create a landing page for a storefront.
 - Display items on the page.
