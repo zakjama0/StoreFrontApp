@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import ItemThumbnail from "../components/ItemThumbnail";
 
 const BrowseItemsContainer = ({ items }) => {
     
@@ -31,7 +32,7 @@ const BrowseItemsContainer = ({ items }) => {
                 {filteredItems.map(item => (
                     <li key={item.id}>
                        
-                        <Link to={`/items/${item.id}`}>{item.name}</Link>
+                        <Link to={`/items/${item.id}`}><ItemThumbnail item={item} /></Link>
                     </li>
                 ))}
             </ul>

@@ -31,7 +31,7 @@ const DraggableCardSlider = ({ items }) => {
      
       <div className="button-container">
         <button className="slide-button left" onClick={() => handleSlide('left')}> <i class="fa-solid fa-arrow-left"></i></button>
-        <h1>Category: {items[0].category.charAt(0) + items[0].category.slice(1).toLowerCase()} </h1>
+        <h1>Category: </h1>
         <div className="slider" ref={sliderRef}>
         {items.map((item, index) => (
           <Link to={`/items/${item.id}`} key={index}>
