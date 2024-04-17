@@ -10,7 +10,7 @@ const Item = ({ deleteReview, patchReview, postReview, addToBasket }) => {
 
     const handleSubmit = (event) =>{
         event.preventDefault();
-        
+
         addToBasket({
             itemId: item.id,
             orderQuantity: quantity
@@ -25,22 +25,6 @@ const Item = ({ deleteReview, patchReview, postReview, addToBasket }) => {
                     <div className='item-image'>
                         <img src={item.picture} />
                     </div>
-
-                    <form className='add-basket' onSubmit={handleSubmit}>
-                        <div>
-                            <label htmlFor="rating">Quantity:</label>
-                            <input
-                            type="number"
-                            id="rating"
-                            value={quantity}
-                            onChange= {(event)=> setQuantity(parseInt(event.target.value))}
-                            min={0}
-                            max={5}
-                            required
-                            />
-                        </div>
-                        <button type="submit">Add to Basket</button>
-                    </form>
 
                     <div className='item-details'>
 
@@ -57,6 +41,22 @@ const Item = ({ deleteReview, patchReview, postReview, addToBasket }) => {
                             <h3>Submit a review</h3>
                             <ReviewForm itemId = {item.id} postReview={postReview} />
                         </div>
+
+                        <form className='add-basket' onSubmit={handleSubmit}>
+                            <div>
+                                <label htmlFor="rating">Quantity:</label>
+                                <input
+                                type="number"
+                                id="rating"
+                                value={quantity}
+                                onChange= {(event)=> setQuantity(parseInt(event.target.value))}
+                                min={0}
+                                max={5}
+                                required
+                                />
+                            </div>
+                            <button type="submit">Add to Basket</button>
+                        </form>
 
                     </div>
 
