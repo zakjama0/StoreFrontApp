@@ -1,11 +1,9 @@
-const OrderList = () => {
-    return ( <>
-    
-    
-    
-    
-    
-    </> );
+const OrderList = ({ basketList }) => {
+    return (
+        <>
+        
+        </>
+    );
 }
- 
+
 export default OrderList;
