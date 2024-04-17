@@ -47,7 +47,7 @@ public class OrderService {
             return null;
         }
 
-        Order order = new Order(OrderStatus.PENDING, customer.get(), newOrderDTO.getAddress());
+        Order order = new Order(OrderStatus.IN_PROGRESS, customer.get(), newOrderDTO.getAddress());
         orderRepository.save(order);
         return order;
     }
