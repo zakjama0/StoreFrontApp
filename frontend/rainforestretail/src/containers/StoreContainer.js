@@ -6,7 +6,7 @@ import { createBrowserRouter, RouterProvider, Navigate } from "react-router-dom"
 import LandingPageContainer from "./LandingPageContainer";
 import Item from "../components/Item";
 import BrowseItemsContainer from "./BrowseItemsContainer";
-import ShoppingCart from "../components/ShoppingCart";
+import ShoppingCart from "./ShoppingCartContainer";
 import OrderList from "../components/OrderList";
 import YourOrder from "../components/YourOrder";
 
