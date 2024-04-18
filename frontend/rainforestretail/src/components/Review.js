@@ -28,7 +28,7 @@ const toggleButtonLabel = () => {
     <h3>{review.customer.name}</h3>
     <p>Rating: {review.rating}</p>
     {expandStatus && <p>Comment: {review.comment}</p>}
-                <button onClick={toggleExpandStatus}>
+                <button  onClick={toggleExpandStatus}>
                     {toggleButtonLabel()}
                 </button>
                 <button onClick={handleDeleteButton}>Delete</button>

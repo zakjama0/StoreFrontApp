@@ -26,6 +26,21 @@ const Item = ({ deleteReview, patchReview, postReview, addToBasket }) => {
 
                     <div className='item-image'>
                         <img src={item.picture} />
+                        <form className='add-basket'  onSubmit={handleSubmit}>
+                            <div>
+                                <label htmlFor="rating">Quantity:</label>
+                                <input
+                                type="number"
+                                id="rating"
+                                value={quantity}
+                                onChange= {(event)=> setQuantity(parseInt(event.target.value))}
+                                min={1}
+                                required
+                                />
+                            </div>
+                            <button type="submit" className='basketbtn'>Add to Basket</button>
+                        </form>
+
 
                         {
                             item.reviews.length === 0 ?
@@ -51,6 +66,7 @@ const Item = ({ deleteReview, patchReview, postReview, addToBasket }) => {
                                  }
                         }
               
+
                     </div>
 
                     <div className='item-details'>
@@ -61,8 +77,9 @@ const Item = ({ deleteReview, patchReview, postReview, addToBasket }) => {
                             <p>Price: £{(item.unitPrice / 100).toFixed(2)}</p>
 
                         </div>
+            
                     <Popup trigger=
-                    {<button className='btn'> Create a review </button>} 
+                    {<button className='create-btn'> Create a review </button>} 
                     modal nested>
                     {
                     close => (
@@ -71,8 +88,8 @@ const Item = ({ deleteReview, patchReview, postReview, addToBasket }) => {
                             <h3>Submit a review</h3>
                             <ReviewForm itemId = {item.id} postReview={postReview} />
                             </div>
-                            <div>
-                                <button className="btn" onClick=
+                            <div className='close-button'>
+                                <button className="close-btn" onClick=
                                     {() => close()}>
                                         Close Review
                                 </button>
