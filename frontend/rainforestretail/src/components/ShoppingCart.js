@@ -4,7 +4,7 @@ import { useContext, useState } from "react";
 
 const ShoppingCart = ({ basketList, completeOrder }) => {
 
-    const { activeCustomer, setActiveCustomer } = useContext(userState);
+    const { activeCustomer } = useContext(userState);
     const [address, setAddress] = useState("");
 
     const handleSubmit = (event) => {
