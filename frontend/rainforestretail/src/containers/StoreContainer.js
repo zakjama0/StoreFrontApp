@@ -163,8 +163,12 @@ const StoreContainer = () => {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(orderedItem)
-            })
+            });
         });
+
+        fetchItems();
+        fetchOrders();
+        fetchOrderedItems();
     }
 
     const userNames = customers.map((customer)=>{
