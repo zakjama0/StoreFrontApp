@@ -34,6 +34,7 @@ const Item = ({ deleteReview, patchReview, postReview, addToBasket }) => {
                                 value={quantity}
                                 onChange= {(event)=> setQuantity(parseInt(event.target.value))}
                                 min={1}
+                                max={item.quantity}
                                 required
                                 />
                             </div>
