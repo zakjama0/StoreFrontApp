@@ -15,7 +15,7 @@ const LandingPageContainer = ({ items }) => {
             <div className='handleLists'>
                 <DraggableCardSlider items={fashionItems} category="Fashion" />
             </div>
-
+            
             <Slideshow />
 
             <div className='handleLists'>

@@ -757,6 +757,7 @@ margin: 10px;
 
 .order-container{
   margin-left: 20px;
+  height: 100vh;
 }
 
 .order-container button{
