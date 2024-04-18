@@ -37,7 +37,7 @@ const Item = ({ deleteReview, patchReview, postReview, addToBasket }) => {
                                 required
                                 />
                             </div>
-                            <button type="submit" className='btn'>Add to Basket</button>
+                            <button type="submit" className='basketbtn'>Add to Basket</button>
                         </form>
                     </div>
 
