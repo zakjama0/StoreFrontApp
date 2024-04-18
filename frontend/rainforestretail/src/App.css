@@ -491,6 +491,28 @@ img {
   font-weight: 600;
  }
 
+ .basketList ul{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-rows: repeat(3);
+  overflow: scroll;
+  height: auto;
+  grid-gap: 30px;
+  list-style: none;
+  padding: 20px;
+ }
+ .basketList .thumbnail{
+  height: 250px;
+  width: 300px;
+  border: 3px green solid;
+  box-shadow: 0 16px 16px black;
+}
+.basketList .thumbnail:hover{
+  transform: scale(1.03);
+    transition: 1s;
+    cursor: pointer;
+}
+
 /* --------------------------------------------------------------------------------------------------------------------- */
 
 /* Login */
