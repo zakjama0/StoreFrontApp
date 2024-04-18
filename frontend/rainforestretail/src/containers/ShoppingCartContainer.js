@@ -22,25 +22,35 @@ const ShoppingCartContainer = ({ basketList, completeOrder, removeFromBasket }) 
 
     return (
         <>
-            <div>
-                <h2>Order: </h2>
-                <OrderList basketList={basketList} removeFromBasket={removeFromBasket} />
-                <form onSubmit={handleSubmit}>
-                    <div>
-                        <label htmlFor="address">Address:</label>
-                        <textarea
-                            id="address"
-                            value={address}
-                            onChange={(event) => setAddress(event.target.value)}
-                            required
-                        />
-                    </div>
-                    <button type="submit">Complete Order</button>
-                </form>
+            {  basketList.length === 0 ? 
+            <div className="cartContainer">
+                    <h1 className="emptyCart">Explore our page and add items to your basket!</h1>
             </div>
-            <div>
-                <h1>Total Cost: £{(totalCost / 100).toFixed(2)}</h1>
-            </div>
+            
+             :
+             
+             <div className="cartContainer"> 
+             <div>
+             <h2>Order: </h2>
+             <OrderList basketList={basketList} removeFromBasket={removeFromBasket} />
+             <form onSubmit={handleSubmit}>
+                 <div>
+                     <label htmlFor="address">Address:</label>
+                     <textarea
+                         id="address"
+                         value={address}
+                         onChange={(event) => setAddress(event.target.value)}
+                         required
+                     />
+                 </div>
+                 <button type="submit">Complete Order</button>
+             </form>
+         </div>
+         <div>
+             <h1>Total Cost: £{(totalCost / 100).toFixed(2)}</h1>
+         </div> 
+        </div> 
+             }
         </>
     );
 }

@@ -26,7 +26,7 @@ const Item = ({ deleteReview, patchReview, postReview, addToBasket }) => {
 
                     <div className='item-image'>
                         <img src={item.picture} />
-                        <form className='add-basket'  onSubmit={handleSubmit}>
+                        {/* <form className='add-basket'  onSubmit={handleSubmit}>
                             <div>
                                 <label htmlFor="rating">Quantity:</label>
                                 <input
@@ -39,7 +39,7 @@ const Item = ({ deleteReview, patchReview, postReview, addToBasket }) => {
                                 />
                             </div>
                             <button type="submit" className='basketbtn'>Add to Basket</button>
-                        </form>
+                        </form> */}
 
 
                         {item.quantity > 0 ?
@@ -97,23 +97,7 @@ const Item = ({ deleteReview, patchReview, postReview, addToBasket }) => {
 
                         {
                             item.reviews.length === 0 ?
-                            <div>
                             <h1> Be the first to review! </h1>
-                            <form className='add-basket'  onSubmit={handleSubmit}>
-                                <div>
-                                    <label htmlFor="rating">Quantity:</label>
-                                    <input
-                                    type="number"
-                                    id="rating"
-                                    value={quantity}
-                                    onChange= {(event)=> setQuantity(parseInt(event.target.value))}
-                                    min={1}
-                                    required
-                                    />
-                                </div>
-                                 <button type="submit" className='btn'>Add to Basket</button>
-                             </form>
-                            </div>
                             :
                             <div>
                                 <h1>Reviews:</h1>                      
