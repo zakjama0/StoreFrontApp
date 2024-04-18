@@ -26,22 +26,6 @@ const Item = ({ deleteReview, editReview, postReview, addToBasket }) => {
 
                     <div className='item-image'>
                         <img src={item.picture} />
-                        {/* <form className='add-basket'  onSubmit={handleSubmit}>
-                            <div>
-                                <label htmlFor="rating">Quantity:</label>
-                                <input
-                                type="number"
-                                id="rating"
-                                value={quantity}
-                                onChange= {(event)=> setQuantity(parseInt(event.target.value))}
-                                min={1}
-                                required
-                                />
-                            </div>
-                            <button type="submit" className='basketbtn'>Add to Basket</button>
-                        </form> */}
-
-
                         {item.quantity > 0 ?
                                       <form className='add-basket'  onSubmit={handleSubmit}>
                                           <div>
