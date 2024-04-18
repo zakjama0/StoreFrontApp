@@ -12,58 +12,78 @@
 8. [Licences](#licences)
 
 
-## Summary
+## Project Description
+The aim of this project is to create a seamless user experience for customers of RainforestRetail to solve challenges faced by the fronthouse operation of the company. The main features of the frontend are being able to browse through items, create an order, view your order history, and post reviews as an active customer on the website. The main features of the backend facilitate the functionality of the front end as well as stores customer records. This was created for the C13 capstone project at [Bright Network Technology Academy](https://techacademy.brightnetwork.co.uk/).
 
+### Tech Stack
+- Java
+- SpringBoot
+- PostgreSQL Database
+- JavaScript
+- HTML
+- CSS
+- React
+
+### SpringBoot Configuration:
+- Maven Project
+- Spring Boot: Ver. 3.2.3
+- Spring Boot Dev Tools
+- Spring Web
+- PostgreSQL Driver
+- Spring Data JPA
+
+### React Libraries Used:
+- react-router-dom
+- reactjs-popup
 
 ## Relevant Documentation
-Business case:
-Risk register:
+Link to our business case and our risk register: https://github.com/zakjama0/StoreFrontApp/tree/main/hr
 
 
 ## Functionality
-One-to-many relationhsip between ordered items and items.
-One-to-many relationship between items and reviews.
-One-to-many relationship between ordered items and orders.
-One-to-many relationship between customers and orders.
-One-to-many relationship between customers and reviews.
+- One-to-many relationhsip between ordered items and items.
+- One-to-many relationship between items and reviews.
+- One-to-many relationship between ordered items and orders.
+- One-to-many relationship between customers and orders.
+- One-to-many relationship between customers and reviews.
 
 
-## List of Api Routes
+## List of API Routes
 ### Orders
-GET all
-Get by orderId
-GET by customerId
-GET costbyorderid
-POST an order
-PATCH an order
+- GET all
+- Get by orderId
+- GET by customerId
+- GET costbyorderid
+- POST an order
+- PATCH an order
 
 ### Items
-GET all
-GET by orderId
+- GET all
+- GET by orderId
 
 ### OrderedItems
-Get all
-Get by orderId
-Get by itemId
-POST an ordered item
-PATCH an orderedItem
-DELETE an orderedItem
+- Get all
+- Get by orderId
+- Get by itemId
+- POST an ordered item
+- PATCH an orderedItem
+- DELETE an orderedItem
 
 ### Customers
-Get all
-GET by customerId
-POST a customer
-PATCH a customer
+- Get all
+- GET by customerId
+- POST a customer
+- PATCH a customer
 
 ### Reviews
-GET all
-Get byReviewId 
-GET by itemId
-Get by customerId
-GET avgRatingByItemId
-POST a review
-PATCH a review
-DELETE a review
+- GET all
+- Get byReviewId 
+- GET by itemId
+- Get by customerId
+- GET avgRatingByItemId
+- POST a review
+- PATCH a review
+- DELETE a review
 
 ## MVP
 - Create a landing page for a storefront.
@@ -85,10 +105,32 @@ DELETE a review
 - Including different product categories.
 
 ## Diagrams
+## Class Diagrams
+![classdiagrams](https://github.com/zakjama0/StoreFrontApp/assets/156658708/e15b4eb8-7e91-4ce5-a4f7-44e04d2ac510)
+
+## Entity Relationship Diagrams
+![entityrelationship](https://github.com/zakjama0/StoreFrontApp/assets/156658708/57e5ddeb-894e-4f69-aed7-cb037adc2141)
 
 ## Wireframe
+![wireframe](https://github.com/zakjama0/StoreFrontApp/assets/156658708/6c1acb6a-f429-4419-b0f2-727d594854f3)
+
+## Component Diagram
+![component](https://github.com/zakjama0/StoreFrontApp/assets/156658708/31c74c84-7d84-45b6-8054-08c1e80f67f4)
 
 ## Installation Instructions
+### Backend
+- In the terminal, navigate to the directory you want to copy the repository into. \
+- Run the command git clone git@github.com:zakjama0/StoreFrontApp.git
+- Run the command git pull to ensure you have the latest version.
+- Open the project in the preferred IDE such as IntelliJ.
+- In the terminal, create the database called inventory_db by running the command createdb capstone_storefront_db.
+- Run the BackendProject file.
+
+### Frontend
+- Open the frontend project in the preferred code editor such as VS Code.
+- In the terminal install react by entering ```npm i react-router-dom```.
+- In the terminal install react by entering ```npm i reactjs-popup```.
+- Once installed, you can run ```npm start``` in the terminal to open the react application in the browser.
 
 ## Usage
 
