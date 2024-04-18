@@ -1,22 +1,30 @@
-import OrderList from "./OrderList";
-import { userState } from "../containers/StoreContainer";
+import OrderList from "../components/OrderList";
+import { userState } from "./StoreContainer";
 import { useContext, useState } from "react";
 
-const ShoppingCart = ({ basketList, completeOrder }) => {
+const ShoppingCartContainer = ({ basketList, completeOrder, removeFromBasket }) => {
 
-    const { activeCustomer, setActiveCustomer } = useContext(userState);
+    const { activeCustomer } = useContext(userState);
     const [address, setAddress] = useState("");
 
     const handleSubmit = (event) => {
         event.preventDefault();
         completeOrder(basketList, activeCustomer.id, address);
+        alert("Order Complete. Thank you for Shopping at Rainforest Retail!");
     }
+
+    const totalCost = basketList.reduce((currentCost, basketListItem) => {
+        return currentCost + (basketListItem.item.unitPrice * basketListItem.orderQuantity);
+    }, 0);
+
+    console.log(totalCost);
+    // hello this is me
 
     return (
         <>
             <div>
                 <h2>Order: </h2>
-                <OrderList basketList={basketList} />
+                <OrderList basketList={basketList} removeFromBasket={removeFromBasket} />
                 <form onSubmit={handleSubmit}>
                     <div>
                         <label htmlFor="address">Address:</label>
@@ -30,8 +38,11 @@ const ShoppingCart = ({ basketList, completeOrder }) => {
                     <button type="submit">Complete Order</button>
                 </form>
             </div>
+            <div>
+                <h1>Total Cost: £{(totalCost / 100).toFixed(2)}</h1>
+            </div>
         </>
     );
 }
 
-export default ShoppingCart;
+export default ShoppingCartContainer;
