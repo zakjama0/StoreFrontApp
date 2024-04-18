@@ -178,6 +178,11 @@ const StoreContainer = () => {
         <li>{customer.name}</li>
     });
 
+    const removeFromBasket = (itemId) => {
+        const updatedBasketList = basketList.filter(item => item.item.id !== itemId);
+        setBasketList([...updatedBasketList]);
+    };
+
     const retailRouter = createBrowserRouter([
         {
             path: "/",
@@ -215,7 +220,7 @@ const StoreContainer = () => {
                 },
                 {
                     path: "/basket",
-                    element: <ShoppingCart basketList={basketList} completeOrder={completeOrder}/>
+                    element: <ShoppingCart basketList={basketList} completeOrder={completeOrder} removeFromBasket={removeFromBasket}/>
                 },
                 {
                     path: "/orders",
@@ -224,6 +229,8 @@ const StoreContainer = () => {
             ]
         }
     ]);
+
+
 
     return ( 
         <div className="container">
