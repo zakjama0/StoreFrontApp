@@ -25,7 +25,21 @@ const Item = ({ deleteReview, patchReview, postReview, addToBasket }) => {
 
                     <div className='item-image'>
                         <img src={item.picture} />
-                        
+                        <form className='add-basket'  onSubmit={handleSubmit}>
+                            <div>
+                                <label htmlFor="rating">Quantity:</label>
+                                <input
+                                type="number"
+                                id="rating"
+                                value={quantity}
+                                onChange= {(event)=> setQuantity(parseInt(event.target.value))}
+                                min={0}
+                                max={5}
+                                required
+                                />
+                            </div>
+                            <button type="submit" className='btn'>Add to Basket</button>
+                        </form>
                     </div>
 
                     <div className='item-details'>
@@ -61,21 +75,7 @@ const Item = ({ deleteReview, patchReview, postReview, addToBasket }) => {
                             <ReviewList reviews={item.reviews} deleteReview={deleteReview} patchReview={patchReview} />
                         </div>
 
-                        <form className='add-basket'  onSubmit={handleSubmit}>
-                            <div>
-                                <label htmlFor="rating">Quantity:</label>
-                                <input
-                                type="number"
-                                id="rating"
-                                value={quantity}
-                                onChange= {(event)=> setQuantity(parseInt(event.target.value))}
-                                min={0}
-                                max={5}
-                                required
-                                />
-                            </div>
-                            <button type="submit" className='btn'>Add to Basket</button>
-                        </form>
+                        
                 
                     </div>
 
