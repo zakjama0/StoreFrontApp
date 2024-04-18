@@ -840,6 +840,7 @@ margin: 10px;
 
 .cartContainer{
   height: 100vh;
+  margin-left: 30px;
 }
 .btn {
    width: 100%;
