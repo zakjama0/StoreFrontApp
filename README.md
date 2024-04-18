@@ -104,11 +104,11 @@ Find below our contributing guidelines. By following these guidelines, you'll he
 **7. Review and Feedback:** We will review your pull request and provide feedback.
 
 ## Credits and Acknowledgements
-Tadiwanashe Dzvoti - Github: https://github.com/TDD66
-Zakaria Jama - Github: https://github.com/zakjama0
-Saba Kia - Github: https://github.com/sabaki4
-Birindar Kaur Bahia - Github: https://github.com/BirindarK
-Marvellous Akib- Github: https://github.com/Marv3llous
+- Birindar Kaur Bahia - Github: https://github.com/BirindarK
+- Marvellous Akib- Github: https://github.com/Marv3llous
+- Saba Kia - Github: https://github.com/sabaki4
+- Tadiwanashe Dzvoti - Github: https://github.com/TDD66
+- Zakaria Jama - Github: https://github.com/zakjama0
 
 ## Licences
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
