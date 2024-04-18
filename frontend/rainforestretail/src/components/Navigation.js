@@ -12,7 +12,6 @@ const Navigation = () => {
     }
 
     return (<>
-        <header>
             <div className="navbar">
                 <nav>
 
@@ -41,9 +40,7 @@ const Navigation = () => {
                 </nav>
             </div>
             <Outlet />
-        </header>
-
-    </>);
+            </>);
 }
 
 export default Navigation;

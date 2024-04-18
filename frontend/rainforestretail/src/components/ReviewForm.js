@@ -5,7 +5,7 @@ const ReviewForm = ({itemId, postReview}) => {
    
     const [rating, setRating] = useState(0);
     const [comment, setComment] = useState('');
-    const {activeCustomer, setActiveCustomer}  = useContext(userState);
+    const {activeCustomer}  = useContext(userState);
 
     const handleSubmit = (event) => {
         event.preventDefault();
