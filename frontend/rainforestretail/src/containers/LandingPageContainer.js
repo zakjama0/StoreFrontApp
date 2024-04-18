@@ -6,6 +6,7 @@ const LandingPageContainer = ({ items }) => {
     // Dummy data for cards (adjust this according to your requirements)
     const fashionItems = items.filter(item => item.category === 'FASHION');
     const electronicsItems = items.filter(item => item.category === 'ELECTRONICS');
+    const beautyAndWellnessItems = items.filter(item => item.category === 'BEAUTY_AND_WELLNESS');
 
     return (
         <>
