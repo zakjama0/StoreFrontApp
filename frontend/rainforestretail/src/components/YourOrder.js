@@ -8,7 +8,7 @@ const YourOrder = ({ orders }) => {
     const filteredOrders = orders.filter(order => order.customer.id === activeCustomer.id);
 
     return (
-        <div>
+        <div className="your-orders">
             <h1>Your orders:</h1>
             {filteredOrders.length > 0 ? (
                 filteredOrders.map(order => (
@@ -22,7 +22,6 @@ const YourOrder = ({ orders }) => {
                             ))}
                         </ul>
                         <p>Address: {order.address}</p>
-                        <p>Total Order Cost: £</p>
                     </div>
                 ))
             ) : (
