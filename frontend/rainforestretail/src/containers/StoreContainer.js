@@ -9,6 +9,7 @@ import BrowseItemsContainer from "./BrowseItemsContainer";
 import ShoppingCart from "./ShoppingCartContainer";
 import OrderList from "../components/OrderList";
 import YourOrder from "./YourOrderContainer";
+import { logDOM } from "@testing-library/react";
 
 export const userState = React.createContext();
 
@@ -143,6 +144,7 @@ const StoreContainer = () => {
     const completeOrder = async (basketItems, customerId, address, totalCost) => {
        
         const newOrder = {customerId: customerId, address: address, totalCost: totalCost};
+        console.log(newOrder);
 
         const newOrderResponse = await fetch("http://localhost:8080/orders", {
             method: "POST",
@@ -151,7 +153,6 @@ const StoreContainer = () => {
         });
 
         const newOrderData = await newOrderResponse.json();
-        console.log(newOrderData);
 
         basketItems.forEach(async basketItem => {
             const orderedItem = {
