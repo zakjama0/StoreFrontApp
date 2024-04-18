@@ -49,8 +49,9 @@ const Item = ({ deleteReview, patchReview, postReview, addToBasket }) => {
                             <p>Price: £{(item.unitPrice / 100).toFixed(2)}</p>
 
                         </div>
+            
                     <Popup trigger=
-                    {<button className='btn'> Create a review </button>} 
+                    {<button className='create-btn'> Create a review </button>} 
                     modal nested>
                     {
                     close => (
@@ -59,8 +60,8 @@ const Item = ({ deleteReview, patchReview, postReview, addToBasket }) => {
                             <h3>Submit a review</h3>
                             <ReviewForm itemId = {item.id} postReview={postReview} />
                             </div>
-                            <div>
-                                <button className="btn" onClick=
+                            <div className='close-button'>
+                                <button className="close-btn" onClick=
                                     {() => close()}>
                                         Close Review
                                 </button>

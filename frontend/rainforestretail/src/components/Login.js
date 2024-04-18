@@ -68,7 +68,9 @@ const Login = ({ customers }) => {
                             <div className="register-link">
                                 <p> Dont have an account? <Link to="/register" className="register">Register</Link></p>
                             </div>
-                            <input className="btn" type="submit" value="Login" />
+                            <div className="login-button">
+                            <input className="login-btn" type="submit" value="Login" />
+                            </div>
                         </form>
                     </div>
                 </div>

@@ -43,7 +43,7 @@ const ReviewForm = ({itemId, postReview}) => {
             required
         />
     </div>
-    <button type="submit" className="btn">Submit Review</button>
+    <button type="submit" className="review-btn">Submit Review</button>
 </form>
 );
 };

@@ -93,8 +93,9 @@ const Registration = ({ customers, postCustomer }) => {
                 <div class="register-link">
                      <p> Already have an account? <Link to="/login" className="register">Log in!</Link></p>
                  </div>
-               
-                <input className="btn" type="submit" value="Sign Up" />
+                <div className="register-button">
+                <input className="register-btn" type="submit" value="Sign Up" />
+                </div>
           </form>
               </div>
           </div>  
