@@ -119,13 +119,13 @@ public class DataLoader implements ApplicationRunner {
         reviewRepository.save(review4);
         reviewRepository.save(review5);
 
-        NewOrderDTO newOrderDTO1 = new NewOrderDTO(1L, "");
-        NewOrderDTO newOrderDTO2 = new NewOrderDTO(1L, "");
-        NewOrderDTO newOrderDTO3 = new NewOrderDTO(2L, "");
-        NewOrderDTO newOrderDTO4 = new NewOrderDTO(3L, "");
-        NewOrderDTO newOrderDTO5 = new NewOrderDTO(4L, "");
-        NewOrderDTO newOrderDTO6 = new NewOrderDTO(5L, "");
-        NewOrderDTO newOrderDTO7 = new NewOrderDTO(6L, "");
+        NewOrderDTO newOrderDTO1 = new NewOrderDTO(1L, "", 0);
+        NewOrderDTO newOrderDTO2 = new NewOrderDTO(1L, "", 0);
+        NewOrderDTO newOrderDTO3 = new NewOrderDTO(2L, "", 0);
+        NewOrderDTO newOrderDTO4 = new NewOrderDTO(3L, "", 0);
+        NewOrderDTO newOrderDTO5 = new NewOrderDTO(4L, "", 0);
+        NewOrderDTO newOrderDTO6 = new NewOrderDTO(5L, "", 0);
+        NewOrderDTO newOrderDTO7 = new NewOrderDTO(6L, "", 0);
 
         Order order1 = orderService.saveOrder(newOrderDTO1);
         Order order2 = orderService.saveOrder(newOrderDTO2);

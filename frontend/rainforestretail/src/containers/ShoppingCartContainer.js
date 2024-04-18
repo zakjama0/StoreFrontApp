@@ -7,15 +7,15 @@ const ShoppingCartContainer = ({ basketList, completeOrder }) => {
     const { activeCustomer } = useContext(userState);
     const [address, setAddress] = useState("");
 
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        completeOrder(basketList, activeCustomer.id, address);
-        alert("Order Complete. Thank you for Shopping at Rainforest Retail!");
-    }
-
     const totalCost = basketList.reduce((currentCost, basketListItem) => {
         return currentCost + (basketListItem.item.unitPrice * basketListItem.orderQuantity);
     }, 0);
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        completeOrder(basketList, activeCustomer.id, address, totalCost);
+        alert("Order Complete. Thank you for Shopping at Rainforest Retail!");
+    }
 
     console.log(totalCost);
 

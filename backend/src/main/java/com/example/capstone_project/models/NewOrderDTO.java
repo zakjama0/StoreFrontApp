@@ -6,12 +6,15 @@ public class NewOrderDTO {
 
     private String address;
 
+    private int totalCost;
+
     public NewOrderDTO() {
     }
 
-    public NewOrderDTO(Long customerId, String address) {
+    public NewOrderDTO(Long customerId, String address, int totalCost) {
         this.customerId = customerId;
         this.address = address;
+        this.totalCost = totalCost;
     }
 
     public Long getCustomerId() {
@@ -28,5 +31,13 @@ public class NewOrderDTO {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public int getTotalCost() {
+        return totalCost;
+    }
+
+    public void setTotalCost(int totalCost) {
+        this.totalCost = totalCost;
     }
 }

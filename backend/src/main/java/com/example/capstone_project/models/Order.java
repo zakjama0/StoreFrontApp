@@ -30,21 +30,25 @@ public class Order {
     @Column
     private OrderStatus orderStatus;
 
+    @Column
+    private int totalCost;
+
     public Order(){
     }
 
-    public Order(OrderStatus orderStatus, Customer customer, String address) {
+    public Order(OrderStatus orderStatus, Customer customer, String address, int totalCost) {
         this.orderStatus = orderStatus;
         this.address = address;
         this.customer = customer;
         this.orderedItems = new ArrayList<>();
     }
 
-    public Order(String address, List<OrderedItem> orderedItems, Customer customer, OrderStatus orderStatus) {
+    public Order(String address, List<OrderedItem> orderedItems, Customer customer, OrderStatus orderStatus, int totalCost) {
         this.address = address;
         this.orderedItems = orderedItems;
         this.customer = customer;
         this.orderStatus = orderStatus;
+        this.totalCost = totalCost;
     }
 
     public long getId() {
@@ -85,6 +89,14 @@ public class Order {
 
     public void setOrderStatus(OrderStatus orderStatus) {
         this.orderStatus = orderStatus;
+    }
+
+    public int getTotalCost() {
+        return totalCost;
+    }
+
+    public void setTotalCost(int totalCost) {
+        this.totalCost = totalCost;
     }
 
     public int calculateOrderCost(){
