@@ -47,7 +47,7 @@ const BrowseItemsContainer = ({ items}) => {
     });
 
     return (
-        <div>
+        <div className='BrowseItem'>
             <select 
                 className="filter-select"
                 value={selectedCategory} 

@@ -238,10 +238,11 @@ const StoreContainer = () => {
             <userState.Provider value={{ activeCustomer:activeCustomer, setActiveCustomer:setActiveCustomer}}>
                 <RouterProvider router={retailRouter} />
             </userState.Provider>
-            <ul>
+            {/* <ul>
                 {userNames}
-            </ul>
+            </ul> */}
         </div>
+        
     );
 }
  
