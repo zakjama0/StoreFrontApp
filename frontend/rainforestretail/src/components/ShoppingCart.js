@@ -2,7 +2,7 @@ import OrderList from "./OrderList";
 import { userState } from "../containers/StoreContainer";
 import { useContext, useState } from "react";
 
-const ShoppingCart = ({ basketList, completeOrder }) => {
+const ShoppingCart = ({ basketList, completeOrder, removeFromBasket }) => {
 
     const { activeCustomer } = useContext(userState);
     const [address, setAddress] = useState("");
@@ -17,7 +17,7 @@ const ShoppingCart = ({ basketList, completeOrder }) => {
         <>
             <div>
                 <h2>Order: </h2>
-                <OrderList basketList={basketList} />
+                <OrderList basketList={basketList} removeFromBasket={removeFromBasket} />
                 <form onSubmit={handleSubmit}>
                     <div>
                         <label htmlFor="address">Address:</label>
