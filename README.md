@@ -13,15 +13,28 @@
 
 
 ## Summary
-The current business model of Rainforest Retail began with a paper catalogue featuring an order form for customers to mail back to headquarters. As the catalogue expanded, a website was developed to reduce paper usage, allowing customers to download order forms and either mail them or email them back.
+The aim of this project is to create a seamless user experience for customers of RainforestRetail to solve challenges faced by the fronthouse operation of the company. The main features of the frontend are being able to browse through items, create an order, view your order history, and post reviews as an active customer on the website. The main features of the backend facilitate the functionality of the front end as well as stores customer records. This was created for the C13 capstone project at [Bright Network Technology Academy](https://techacademy.brightnetwork.co.uk/).
 
-Upon receiving orders, manual processing is required to check stock availability and process payments using customer-provided card details. Inventory is tracked through an outdated MS Access database, necessitating manual updates for stock changes. If items are out of stock, customers are informed before order processing. Customer information, including contact details and payment information, is stored in a single database.
+### Tech Stack
+- Java
+- SpringBoot
+- PostgreSQL Database
+- JavaScript
+- HTML
+- CSS
+- React
 
-All stock is housed in a central warehouse, and order details are manually transmitted from headquarters for packaging and delivery. Delivery routes are predetermined, often resulting in inefficient truck loading and delayed deliveries if space is unavailable.
+### SpringBoot Configuration:
+- Maven Project
+- Spring Boot: Ver. 3.2.3
+- Spring Boot Dev Tools
+- Spring Web
+- PostgreSQL Driver
+- Spring Data JPA
 
-Employee records are maintained in paper format at headquarters, with separate diaries tracking holidays, assignments, and appraisal dates. Finance relies on these records for payroll purposes.
-
-Challenges include poor user experience compared to competitors' online systems, lengthy waits for order processing and dispatch due to manual handling, and the complete reliance on manual customer record management.
+### React Libraries Used:
+- react-router-dom
+- reactjs-popup
 
 ## Relevant Documentation
 Business case:
@@ -29,49 +42,49 @@ Risk register:
 
 
 ## Functionality
-One-to-many relationhsip between ordered items and items.
-One-to-many relationship between items and reviews.
-One-to-many relationship between ordered items and orders.
-One-to-many relationship between customers and orders.
-One-to-many relationship between customers and reviews.
+- One-to-many relationhsip between ordered items and items.
+- One-to-many relationship between items and reviews.
+- One-to-many relationship between ordered items and orders.
+- One-to-many relationship between customers and orders.
+- One-to-many relationship between customers and reviews.
 
 
 ## List of Api Routes
 ### Orders
-GET all
-Get by orderId
-GET by customerId
-GET costbyorderid
-POST an order
-PATCH an order
+- GET all
+- Get by orderId
+- GET by customerId
+- GET costbyorderid
+- POST an order
+- PATCH an order
 
 ### Items
-GET all
-GET by orderId
+- GET all
+- GET by orderId
 
 ### OrderedItems
-Get all
-Get by orderId
-Get by itemId
-POST an ordered item
-PATCH an orderedItem
-DELETE an orderedItem
+- Get all
+- Get by orderId
+- Get by itemId
+- POST an ordered item
+- PATCH an orderedItem
+- DELETE an orderedItem
 
 ### Customers
-Get all
-GET by customerId
-POST a customer
-PATCH a customer
+- Get all
+- GET by customerId
+- POST a customer
+- PATCH a customer
 
 ### Reviews
-GET all
-Get byReviewId 
-GET by itemId
-Get by customerId
-GET avgRatingByItemId
-POST a review
-PATCH a review
-DELETE a review
+- GET all
+- Get byReviewId 
+- GET by itemId
+- Get by customerId
+- GET avgRatingByItemId
+- POST a review
+- PATCH a review
+- DELETE a review
 
 ## MVP
 - Create a landing page for a storefront.
