@@ -8,6 +8,7 @@ import Item from "../components/Item";
 import BrowseItemsContainer from "./BrowseItemsContainer";
 import ShoppingCart from "../components/ShoppingCart";
 import OrderList from "../components/OrderList";
+import YourOrder from "../components/YourOrder";
 
 export const userState = React.createContext();
 
@@ -212,7 +213,7 @@ const StoreContainer = () => {
                 },
                 {
                     path: "/orders",
-                    element: <h1>MAKE PAGE</h1>
+                    element: <YourOrder orders={orders}/>
                 }
             ]
         }
