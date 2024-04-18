@@ -8,7 +8,7 @@ import Item from "../components/Item";
 import BrowseItemsContainer from "./BrowseItemsContainer";
 import ShoppingCart from "./ShoppingCartContainer";
 import OrderList from "../components/OrderList";
-import YourOrder from "../components/YourOrder";
+import YourOrder from "./YourOrderContainer";
 
 export const userState = React.createContext();
 

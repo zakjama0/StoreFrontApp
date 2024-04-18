@@ -1,11 +1,30 @@
-import React, { useContext } from 'react';
-import { userState } from '../containers/StoreContainer';
+import React, { useContext, useEffect, useState } from 'react';
+import { userState } from './StoreContainer';
 
 const YourOrder = ({ orders }) => {
+
     const { activeCustomer } = useContext(userState);
 
-
     const filteredOrders = orders.filter(order => order.customer.id === activeCustomer.id);
+
+    const [orderCosts, setOrderCosts] = useState({});
+
+    const getOrderCost = async (order) => {
+        const response = await fetch(`http://localhost:8080/orders/order-cost/${order.id}`);
+        const data = await response.json();
+        return data;
+    }
+    
+    useEffect(() => {
+        const fetchOrderCosts = async () => {
+            const orderCostPromises = filteredOrders.map(getOrderCost);
+            const orderCosts = await Promise.all(orderCostPromises);
+            setOrderCosts(orderCosts);
+        }
+        fetchOrderCosts();
+    }, []);
+
+    console.log(orderCosts);
 
     return (
         <div>
@@ -22,7 +41,7 @@ const YourOrder = ({ orders }) => {
                             ))}
                         </ul>
                         <p>Address: {order.address}</p>
-                        <p>Total Order Cost: £</p>
+                        <p>Total Order Cost: £{orderCosts[order.id - 1]}</p>
                     </div>
                 ))
             ) : (
