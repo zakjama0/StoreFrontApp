@@ -2,11 +2,7 @@ import OrderList from "../components/OrderList";
 import { userState } from "./StoreContainer";
 import { useContext, useState } from "react";
 
-<<<<<<< HEAD:frontend/rainforestretail/src/components/ShoppingCart.js
-const ShoppingCart = ({ basketList, completeOrder, removeFromBasket }) => {
-=======
-const ShoppingCartContainer = ({ basketList, completeOrder }) => {
->>>>>>> 67f3a1fd106100549639194863b26279cac36fbc:frontend/rainforestretail/src/containers/ShoppingCartContainer.js
+const ShoppingCartContainer = ({ basketList, completeOrder, removeFromBasket }) => {
 
     const { activeCustomer } = useContext(userState);
     const [address, setAddress] = useState("");
@@ -22,6 +18,7 @@ const ShoppingCartContainer = ({ basketList, completeOrder }) => {
     }, 0);
 
     console.log(totalCost);
+    // hello this is me
 
     return (
         <>
