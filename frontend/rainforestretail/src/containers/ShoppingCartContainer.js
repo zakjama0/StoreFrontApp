@@ -21,11 +21,11 @@ const ShoppingCartContainer = ({ basketList, completeOrder, removeFromBasket }) 
 
     return (
         <>
-            <div>
+            <div className="order-container">
                 <h2>Order: </h2>
                 <OrderList basketList={basketList} removeFromBasket={removeFromBasket} />
                 <form onSubmit={handleSubmit}>
-                    <div>
+                    <div className="order-address">
                         <label htmlFor="address">Address:</label>
                         <textarea
                             id="address"
@@ -34,17 +34,17 @@ const ShoppingCartContainer = ({ basketList, completeOrder, removeFromBasket }) 
                             required
                         />
                     </div>
-                    <div>
+                    <div className="order-discount">
                         <label htmlFor="Discount Code">Discount Code:</label>
                         <textarea
-                            id="Discount Code"
+                            id="discount-code"
                         />
                     </div>
                     <button type="submit">Complete Order</button>
                 </form>
-            </div>
-            <div>
+                <div className = "total-cost">
                 <h1>Total Cost: £{(totalCost / 100).toFixed(2)}</h1>
+                </div>
             </div>
         </>
     );
