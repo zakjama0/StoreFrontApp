@@ -1,6 +1,6 @@
 import React from 'react';
 import DraggableCardSlider from '../components/DraggableCardSlider'; // Import the DraggableCardSlider component
-import Slideshow from '../components/SlideShow';
+import Slideshow from '../components/Slideshow';
 
 const LandingPageContainer = ({ items }) => {
     // Dummy data for cards (adjust this according to your requirements)

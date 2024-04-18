@@ -1,9 +1,12 @@
 import { useEffect, useState } from "react";
-
+import scooter from "../images/scooter.png";
+import gamingConsole from "../images/gaming_console.png";
+import footballFans from "../images/football_fans.png";
+import cup from "../images/hello_kitty_mug.png";
 
 const Slideshow = () => {
     const [currentSlide, setCurrentSlide] = useState(0);
-    const slides = [Shawshank, Matrix, Titanic, Batman];
+    const slides = [scooter, gamingConsole, footballFans, cup];
     const totalSlides = slides.length;
 
     useEffect(() => {
