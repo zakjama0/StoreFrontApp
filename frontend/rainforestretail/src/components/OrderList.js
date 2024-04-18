@@ -20,6 +20,7 @@ const OrderList = ({ basketList, removeFromBasket }) => {
                 {basketComponents} 
                 </ul>
                 </div>
+        </>
     
     );
 }

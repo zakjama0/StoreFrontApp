@@ -27,11 +27,7 @@ const Item = ({ deleteReview, patchReview, postReview, addToBasket }) => {
                     <div className='item-image'>
                         <img src={item.picture} />
 
-                        {
-                            item.reviews.length === 0 ?
-                            <></>
-                            :
-                                {item.quantity > 0 ?
+                        {item.quantity > 0 ?
                                       <form className='add-basket'  onSubmit={handleSubmit}>
                                           <div>
                                               <label htmlFor="rating">Quantity:</label>
@@ -48,8 +44,7 @@ const Item = ({ deleteReview, patchReview, postReview, addToBasket }) => {
                                           <button type="submit" className='btn'>Add to Basket</button>
                                       </form> :
                                   <h1>SOLD OUT</h1>
-                                 }
-                        }
+                          }
               
                     </div>
 
