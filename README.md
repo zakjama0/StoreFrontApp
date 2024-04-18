@@ -13,7 +13,15 @@
 
 
 ## Summary
+The current business model of Rainforest Retail began with a paper catalogue featuring an order form for customers to mail back to headquarters. As the catalogue expanded, a website was developed to reduce paper usage, allowing customers to download order forms and either mail them or email them back.
 
+Upon receiving orders, manual processing is required to check stock availability and process payments using customer-provided card details. Inventory is tracked through an outdated MS Access database, necessitating manual updates for stock changes. If items are out of stock, customers are informed before order processing. Customer information, including contact details and payment information, is stored in a single database.
+
+All stock is housed in a central warehouse, and order details are manually transmitted from headquarters for packaging and delivery. Delivery routes are predetermined, often resulting in inefficient truck loading and delayed deliveries if space is unavailable.
+
+Employee records are maintained in paper format at headquarters, with separate diaries tracking holidays, assignments, and appraisal dates. Finance relies on these records for payroll purposes.
+
+Challenges include poor user experience compared to competitors' online systems, lengthy waits for order processing and dispatch due to manual handling, and the complete reliance on manual customer record management.
 
 ## Relevant Documentation
 Business case:
@@ -89,6 +97,19 @@ DELETE a review
 ## Wireframe
 
 ## Installation Instructions
+### Backend
+- In the terminal, navigate to the directory you want to copy the repository into. \
+- Run the command git clone git@github.com:zakjama0/StoreFrontApp.git
+- Run the command git pull to ensure you have the latest version.
+- Open the project in the preferred IDE such as IntelliJ.
+- In the terminal, create the database called inventory_db by running the command createdb capstone_storefront_db.
+- Run the BackendProject file.
+
+### Frontend
+- Open the frontend project in the preferred code editor such as VS Code.
+- In the terminal install react by entering ```npm i react-router-dom```.
+- In the terminal install react by entering ```npm i reactjs-popup```.
+- Once installed, you can run ```npm start``` in the terminal to open the react application in the browser.
 
 ## Usage
 
