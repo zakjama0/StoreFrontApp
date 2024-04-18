@@ -9,11 +9,11 @@ const ItemList = ({ items, category }) => {
     <Link to={`/items/${item.id}`} key={item.id} className="itemLink">
       <ItemThumbnail item={item} />
     </Link>
-});
+  });
 
   return (
     <div>
-      
+
       <div className="itemLists">
         <div className="items">
           {itemComponents}
