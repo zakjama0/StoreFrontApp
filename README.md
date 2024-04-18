@@ -37,8 +37,7 @@ The aim of this project is to create a seamless user experience for customers of
 - reactjs-popup
 
 ## Relevant Documentation
-Business case:
-Risk register:
+Link to our business case and our risk register: https://github.com/zakjama0/StoreFrontApp/tree/main/hr
 
 
 ## Functionality
