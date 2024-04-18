@@ -23,7 +23,7 @@ const Navigation = () => {
                     {activeCustomer.id ?
 
                         <div className="navLinks">
-                            <li><Link to="/items">Browse</Link></li>
+                            <li><Link to="/browse">Browse</Link></li>
                             <li><Link to="/orders">Your Orders </Link></li>
                             <li><Link to="/basket">Basket </Link></li>
                             <li><Link to="/register" onClick={refreshActiveCustomer}>Sign Out {activeCustomer.name}</Link></li>
