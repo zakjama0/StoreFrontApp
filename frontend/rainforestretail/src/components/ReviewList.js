@@ -1,12 +1,12 @@
 import Review from "./Review";
 
-const ReviewList = ({ reviews, deleteReview, patchReview }) => {
+const ReviewList = ({ reviews, deleteReview, editReview }) => {
     const reviewComponents = reviews.map(review => (
         <Review
             key={review.id}
             review={review}
             deleteReview={deleteReview}
-            patchReview={patchReview}
+            editReview={editReview}
         />
     ));
 
