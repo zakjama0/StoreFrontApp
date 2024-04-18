@@ -11,7 +11,7 @@ One-to-many relationship between customers and reviews.
 
 
 ## List of Api Routes
-# Orders
+### Orders
 GET all
 Get by orderId
 GET by customerId
@@ -19,11 +19,11 @@ GET costbyorderid
 POST an order
 PATCH an order
 
-# Items
+### Items
 GET all
 GET by orderId
 
-# OrderedItems
+### OrderedItems
 Get all
 Get by orderId
 Get by itemId
@@ -31,13 +31,13 @@ POST an ordered item
 PATCH an orderedItem
 DELETE an orderedItem
 
-# Customers
+### Customers
 Get all
 GET by customerId
 POST a customer
 PATCH a customer
 
-# Reviews
+### Reviews
 GET all
 Get byReviewId 
 GET by itemId
