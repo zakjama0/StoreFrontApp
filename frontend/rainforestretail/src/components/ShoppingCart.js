@@ -4,12 +4,13 @@ import { useContext, useState } from "react";
 
 const ShoppingCart = ({ basketList, completeOrder }) => {
 
-    const { activeCustomer, setActiveCustomer } = useContext(userState);
+    const { activeCustomer } = useContext(userState);
     const [address, setAddress] = useState("");
 
     const handleSubmit = (event) => {
         event.preventDefault();
         completeOrder(basketList, activeCustomer.id, address);
+        alert ("Order Complete. Thank you for Shopping at Rainforest Retail!");
     }
 
     return (

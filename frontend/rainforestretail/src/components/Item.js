@@ -16,6 +16,7 @@ const Item = ({ deleteReview, patchReview, postReview, addToBasket }) => {
             item: item,
             orderQuantity: quantity
         });
+        alert ("Item has been added to basket.");
     }
     
     return (

@@ -169,7 +169,9 @@ const StoreContainer = () => {
         fetchItems();
         fetchOrders();
         fetchOrderedItems();
+        setBasketList([]);
     }
+
 
     const userNames = customers.map((customer)=>{
         <li>{customer.name}</li>
