@@ -89,7 +89,7 @@ public class DataLoader implements ApplicationRunner {
         Item item13 = new Item("Yoga Mat", "https://m.media-amazon.com/images/I/71TDyKXF27L.jpg", Category.BEAUTY_AND_WELLNESS, 30, 999, "High-quality mat for yoga enthusiasts");
         Item item14 = new Item("Stainless Steel Water Bottle", "https://gbsnowsport.com/wp-content/uploads/2023/10/stainless-steel-water-bottle-white-17-oz-back-653795e806839.jpg", Category.HOME_AND_KITCHEN, 80, 299, "Reusable bottle for staying hydrated on the go");
         Item item15 = new Item("Bluetooth Earbuds", "https://i.ebayimg.com/images/g/URYAAOSwNjFioGv2/s-l1200.webp", Category.ELECTRONICS, 20, 1999, "Wireless earbuds for a tangle-free listening experience");
-        Item item16 = new Item("Tadiwas T-Shirt", "https://static.vecteezy.com/system/resources/previews/008/847/318/non_2x/isolated-black-t-shirt-front-free-png.png", Category.FASHION, 150, 499, "Trendy t-shirt with unique graphic prints");
+        Item item16 = new Item("Tadiwa's T-Shirt", "https://static.vecteezy.com/system/resources/previews/008/847/318/non_2x/isolated-black-t-shirt-front-free-png.png", Category.FASHION, 150, 499, "Trendy t-shirt with unique graphic prints");
         Item item17 = new Item("Cookware Set", "https://www.prestige.co.uk/cdn/shop/products/76709_1024x.jpg?v=1599816239", Category.HOME_AND_KITCHEN, 10, 4999, "Complete set of cookware for your kitchen");
         Item item18 = new Item("Aromatherapy Diffuser", "https://m.media-amazon.com/images/I/51QK85-OE+L.jpg", Category.BEAUTY_AND_WELLNESS, 40, 1299, "Device for creating a relaxing atmosphere with essential oils");
         Item item19 = new Item("Bluetooth Speaker", "https://cdn11.bigcommerce.com/s-bacysnzeb8/images/stencil/960w/products/1305/5496/dc81b743e0d918c88a23c0680f13e47fd27c4da2__06815.1707320172.jpg", Category.ELECTRONICS, 30, 2999, "Portable speaker for enjoying music anywhere");
@@ -110,8 +110,8 @@ public class DataLoader implements ApplicationRunner {
         Review review1 = new Review(4, "Great cup.", customer2, item1);
         Review review2 = new Review(4, "Amazing Wig, feels really authentic", customer1, item6);
         Review review3 = new Review(3, "Great game!", customer4, item10);
-        Review review4 = new Review(5, "Looks great on the eyes", customer4, item1);
-        Review review5 = new Review(5, "Looks great on the eyes", customer5, item1);
+        Review review4 = new Review(5, "Lasted me 50 years!", customer4, item1);
+        Review review5 = new Review(5, "I can't believe I finally found the cup of my dreams. My inner child has been healed now 🥹", customer5, item1);
 
         reviewRepository.save(review1);
         reviewRepository.save(review2);

@@ -5,7 +5,7 @@ import ReviewForm from './ReviewForm';
 import { useLoaderData } from 'react-router-dom';
 import Popup from 'reactjs-popup';
 
-const Item = ({ deleteReview, patchReview, postReview, addToBasket }) => { 
+const Item = ({ deleteReview, editReview, postReview, addToBasket }) => { 
     const item = useLoaderData();
     const [quantity, setQuantity] = useState(0);
 
@@ -102,7 +102,7 @@ const Item = ({ deleteReview, patchReview, postReview, addToBasket }) => {
                             <div>
                                 <h1>Reviews:</h1>                      
                                 <div className='review-list'>
-                                    <ReviewList reviews={item.reviews} deleteReview={deleteReview} patchReview={patchReview} />
+                                    <ReviewList reviews={item.reviews} deleteReview={deleteReview} editReview={editReview} />
                                 </div>
 
                              </div>

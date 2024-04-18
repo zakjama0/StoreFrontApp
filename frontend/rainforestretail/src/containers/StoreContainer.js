@@ -2,7 +2,7 @@ import Navigation from "../components/Navigation";
 import Registration from "../components/Registration";
 import Login from "../components/Login"
 import React, { useEffect, useState } from "react";
-import { createBrowserRouter, RouterProvider, Navigate } from "react-router-dom";
+import { createBrowserRouter, RouterProvider, Navigate, Outlet } from "react-router-dom";
 import LandingPageContainer from "./LandingPageContainer";
 import Item from "../components/Item";
 import BrowseItemsContainer from "./BrowseItemsContainer";
@@ -104,20 +104,21 @@ const StoreContainer = () => {
         fetchItems();
     }
 
-    const deleteReview = async (reviewId) => {
-        const response = await fetch(`http://localhost:8080/reviews/${reviewId}`, {
-            method: "DELETE",
-            headers: {"Content-Type": "application/json"},
-            body: JSON.stringify(reviewId)
-        });
-        fetchItems();
-    }
-
     const patchReview = async (amendedReview, reviewId) => {
         const response = await fetch(`http://localhost:8080/reviews/${reviewId}`, {
             method: "PATCH",
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify(amendedReview)
+        });
+        fetchReviews();
+        fetchItems();
+    }
+
+    const deleteReview = async (reviewId) => {
+        const response = await fetch(`http://localhost:8080/reviews/${reviewId}`, {
+            method: "DELETE",
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify(reviewId)
         });
         fetchItems();
     }
@@ -202,7 +203,7 @@ const StoreContainer = () => {
                     element: <Item  
                               postReview={postReview}
                               deleteReview={deleteReview}
-                              patchReview={patchReview}
+                              editReview={patchReview}
                               addToBasket={addToBasket}
                               />
                 },

@@ -368,6 +368,38 @@ img {
   text-align: center;
 }
 
+.reviews-form input{ 
+    font-size: 16px;
+    padding: 5px;
+    margin-right: 10px;
+    background: white;
+    border: none;
+    outline: none;
+    border: 2px solid #286d3f;
+    border-radius: 12px;
+    font-size: 16px;
+    color: #01ae8c;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.review-comment textarea#comment {
+  font-size: 16px;
+  padding: 5px;
+  margin-right: 10px;
+  background: white;
+  border: none;
+  outline: none;
+  border: 2px solid #286d3f;
+  border-radius: 12px;
+  font-size: 16px;
+  color: #01ae8c;
+  font-weight: bold;
+  margin-bottom: 10px;
+  
+}
+
 .review-btn {
   width: 150px;
   height: 45px;
@@ -469,6 +501,41 @@ img {
   color: darkgreen;
   font-weight: 600;
  }
+
+ .basketList ul{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-rows: repeat(3);
+  overflow: scroll;
+  height: auto;
+  grid-gap: 30px;
+  list-style: none;
+  padding: 20px;
+ }
+ .basketList .thumbnail{
+  height: 250px;
+  width: 300px;
+  border: 3px green solid;
+  box-shadow: 0 16px 16px black;
+}
+.basketList .thumbnail:hover{
+  transform: scale(1.03);
+    transition: 1s;
+    cursor: pointer;
+}
+
+
+.basketList ul{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-rows: repeat(3);
+  overflow: scroll;
+  height: auto;
+  grid-gap: 30px;
+  list-style: none;
+  padding: 20px;
+}
+
 
 /* --------------------------------------------------------------------------------------------------------------------- */
 
@@ -617,6 +684,9 @@ img {
   color: #fff;
 }
 
+.yourOrders {
+margin: 10px;
+}
 
 /* --------------------------------------------------------------------------------------------------------------------- */
 
@@ -678,37 +748,86 @@ img {
 }
 
 /* --------------------------------------------------------------------------------------------------------------------- */
+/* Orders */
+
 
 .emptyCart{
   text-align: center;
 }
 
-
-.basketList ul{
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  grid-template-rows: repeat(3);
-  overflow: scroll;
-  height: auto;
-  grid-gap: 30px;
-  list-style: none;
-  padding: 20px;
-
-
- }
- .basketList .thumbnail{
-  height: 250px;
-  width: 300px;
-  /* margin-bottom: 500px; */
-  border: 3px green solid;
-  box-shadow: 0 16px 16px black;
+.order-container{
+  margin-left: 20px;
 }
-.basketList .thumbnail:hover{
-  transform: scale(1.03);
-    transition: 1s;
-    cursor: pointer;
-  
+
+.order-container button{
+  width: 200px;
+  height: 45px;
+  margin-top: 15px ;
+  margin-left: 100px;
+  background: #fff;
+  border: none;
+  outline: none;
+  border-radius: 40px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  font-size: 16px;
+  color: #029944;
+  font-weight: 600;
 }
+
+.order-address{
+  display: flex;
+}
+
+.order-address textarea#address{
+  font-size: 16px;
+  padding: 5px;
+  margin-right: 10px;
+  background: white;
+  border: none;
+  outline: none;
+  border: 2px solid #286d3f;
+  border-radius: 12px;
+  font-size: 16px;
+  color: #01ae8c;
+  font-weight: bold;
+  margin-bottom: 10px;
+  height: 100px;
+  width: 250px;
+}
+
+.order-discount{
+  display: flex;
+}
+
+.order-discount textarea#discount-code{
+  font-size: 16px;
+  padding: 5px;
+  margin-right: 10px;
+  background: white;
+  border: none;
+  outline: none;
+  border: 2px solid #286d3f;
+  border-radius: 12px;
+  font-size: 16px;
+  color: #01ae8c;
+  font-weight: bold;
+  margin-bottom: 10px;
+  height: 10px;
+  width: 150px;
+}
+
+.total-cost{
+  margin: 10px;
+}
+
+.your-orders{
+  margin-left: 30px;
+}
+
+
+/* --------------------------------------------------------------------------------------------------------------------- */
+
 
 .handleLists{
   height: 70vh;
@@ -756,4 +875,9 @@ img {
 
 .next {
   right: 10px;
+}
+
+.order-container.payment {
+  width: 500px;
+  height: 500px;
 }
