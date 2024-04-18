@@ -12,7 +12,7 @@
 8. [Licences](#licences)
 
 
-## Summary
+## Project Description
 The aim of this project is to create a seamless user experience for customers of RainforestRetail to solve challenges faced by the fronthouse operation of the company. The main features of the frontend are being able to browse through items, create an order, view your order history, and post reviews as an active customer on the website. The main features of the backend facilitate the functionality of the front end as well as stores customer records. This was created for the C13 capstone project at [Bright Network Technology Academy](https://techacademy.brightnetwork.co.uk/).
 
 ### Tech Stack
@@ -49,7 +49,7 @@ Risk register:
 - One-to-many relationship between customers and reviews.
 
 
-## List of Api Routes
+## List of API Routes
 ### Orders
 - GET all
 - Get by orderId
@@ -106,8 +106,17 @@ Risk register:
 - Including different product categories.
 
 ## Diagrams
+## Class Diagrams
+![classdiagrams](https://github.com/zakjama0/StoreFrontApp/assets/156658708/e15b4eb8-7e91-4ce5-a4f7-44e04d2ac510)
+
+## Entity Relationship Diagrams
+![entityrelationship](https://github.com/zakjama0/StoreFrontApp/assets/156658708/57e5ddeb-894e-4f69-aed7-cb037adc2141)
 
 ## Wireframe
+![wireframe](https://github.com/zakjama0/StoreFrontApp/assets/156658708/6c1acb6a-f429-4419-b0f2-727d594854f3)
+
+## Component Diagram
+![component](https://github.com/zakjama0/StoreFrontApp/assets/156658708/31c74c84-7d84-45b6-8054-08c1e80f67f4)
 
 ## Installation Instructions
 ### Backend
