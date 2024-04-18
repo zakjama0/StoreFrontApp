@@ -6,8 +6,9 @@ import { createBrowserRouter, RouterProvider, Navigate } from "react-router-dom"
 import LandingPageContainer from "./LandingPageContainer";
 import Item from "../components/Item";
 import BrowseItemsContainer from "./BrowseItemsContainer";
-import ShoppingCart from "../components/ShoppingCart";
+import ShoppingCart from "./ShoppingCartContainer";
 import OrderList from "../components/OrderList";
+import YourOrder from "../components/YourOrder";
 
 export const userState = React.createContext();
 
@@ -163,13 +164,24 @@ const StoreContainer = () => {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(orderedItem)
-            })
+            });
         });
+
+        fetchItems();
+        fetchOrders();
+        fetchOrderedItems();
+        setBasketList([]);
     }
+
 
     const userNames = customers.map((customer)=>{
         <li>{customer.name}</li>
     });
+
+    const removeFromBasket = (itemId) => {
+        const updatedBasketList = basketList.filter(item => item.item.id !== itemId);
+        setBasketList([...updatedBasketList]);
+    };
 
     const retailRouter = createBrowserRouter([
         {
@@ -208,15 +220,17 @@ const StoreContainer = () => {
                 },
                 {
                     path: "/basket",
-                    element: <ShoppingCart basketList={basketList} completeOrder={completeOrder}/>
+                    element: <ShoppingCart basketList={basketList} completeOrder={completeOrder} removeFromBasket={removeFromBasket}/>
                 },
                 {
                     path: "/orders",
-                    element: <h1>MAKE PAGE</h1>
+                    element: <YourOrder orders={orders}/>
                 }
             ]
         }
     ]);
+
+
 
     return ( 
         <div className="container">
