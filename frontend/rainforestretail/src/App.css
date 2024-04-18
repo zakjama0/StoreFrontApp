@@ -357,6 +357,38 @@ img {
   text-align: center;
 }
 
+.reviews-form input{ 
+    font-size: 16px;
+    padding: 5px;
+    margin-right: 10px;
+    background: white;
+    border: none;
+    outline: none;
+    border: 2px solid #286d3f;
+    border-radius: 12px;
+    font-size: 16px;
+    color: #01ae8c;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.review-comment textarea#comment {
+  font-size: 16px;
+  padding: 5px;
+  margin-right: 10px;
+  background: white;
+  border: none;
+  outline: none;
+  border: 2px solid #286d3f;
+  border-radius: 12px;
+  font-size: 16px;
+  color: #01ae8c;
+  font-weight: bold;
+  margin-bottom: 10px;
+  
+}
+
 .review-btn {
   width: 150px;
   height: 45px;

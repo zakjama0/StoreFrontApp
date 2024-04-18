@@ -21,7 +21,7 @@ const ReviewForm = ({itemId, postReview}) => {
 
     return (
     <form onSubmit={handleSubmit}>
-        <div>
+        <div className = "reviews-form">
             <label htmlFor="rating">Rating:</label>
             <input
             type="number"
@@ -33,7 +33,7 @@ const ReviewForm = ({itemId, postReview}) => {
             required
         />
     </div>
-    <div>
+    <div className="review-comment">
         <label htmlFor="comment">Comment:</label>
         <textarea
             id="comment"
