@@ -41,7 +41,7 @@ const Login = ({ customers }) => {
             <div className="login">
             <div className="main-login">
                 <div className="wrapper">
-                    <div className="wrap">
+                    <div className="loggedin">
                         <form onSubmit={handleFormSubmit}>
                         <h2>Welcome back! Please login</h2>
                             <div className="input-box">

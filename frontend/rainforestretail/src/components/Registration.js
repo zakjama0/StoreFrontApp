@@ -57,7 +57,7 @@ const Registration = ({ customers, postCustomer }) => {
          <div className="main-login">
           <h2></h2>
           <div className="wrapper">
-              <div className="wrap">
+              <div className="registration">
               <form onSubmit={handleSubmit}>
               <h1> Sign Up!</h1>
                 <div className="input-box">

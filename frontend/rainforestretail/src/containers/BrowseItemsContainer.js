@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import ItemThumbnail from "../components/ItemThumbnail";
 
 
-const BrowseItemsContainer = ({ items }) => {
+const BrowseItemsContainer = ({ items}) => {
     const categories = Array.from(new Set(items.map(item => item.category)));
     const [selectedCategory, setSelectedCategory] = useState('All');
     const [minPrice, setMinPrice] = useState('');
@@ -83,7 +83,7 @@ const BrowseItemsContainer = ({ items }) => {
                 <option value="desc">High to Low</option>
             </select>
 
-            <ul>
+            <ul className = "browse-items">
                 {filteredItems.map(item => (
                     <li key={item.id}>
                         <Link to={`/items/${item.id}`}><ItemThumbnail item={item} /></Link>
