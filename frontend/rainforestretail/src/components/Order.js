@@ -2,8 +2,11 @@
 const Order = ({item, orderQuantity}) => {
     return (
         <>
-            <h3>{item.name}</h3>
+            <div className="thumbnail">
+            <img src = {item.picture} />
+            <h4> {item.name}</h4>
             <p>Quantity: {orderQuantity}</p>
+        </div>
         </>
     );
 }
