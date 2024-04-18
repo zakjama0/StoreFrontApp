@@ -18,7 +18,6 @@ const ShoppingCartContainer = ({ basketList, completeOrder, removeFromBasket }) 
     }, 0);
 
     console.log(totalCost);
-    // hello this is me
 
     return (
         <>
@@ -33,6 +32,12 @@ const ShoppingCartContainer = ({ basketList, completeOrder, removeFromBasket }) 
                             value={address}
                             onChange={(event) => setAddress(event.target.value)}
                             required
+                        />
+                    </div>
+                    <div>
+                        <label htmlFor="Discount Code">Discount Code:</label>
+                        <textarea
+                            id="Discount Code"
                         />
                     </div>
                     <button type="submit">Complete Order</button>
