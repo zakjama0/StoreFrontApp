@@ -470,6 +470,7 @@ img {
   color: white;
   border-radius: 10px;
   padding: 20px 20px;
+  margin-bottom: 70px;
 }
 
 .add-basket input{
@@ -757,6 +758,7 @@ margin: 10px;
 
 .order-container{
   margin-left: 20px;
+  height: 100vh;
 }
 
 .order-container button{
