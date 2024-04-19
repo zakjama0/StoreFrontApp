@@ -171,7 +171,6 @@ DELETE a review
 - In the terminal install react by entering ```npm i reactjs-popup```.
 - Once installed, you can run ```npm start``` in the terminal to open the react application in the browser.
 
-## Usage
 
 ## Contributing Instructions
 
