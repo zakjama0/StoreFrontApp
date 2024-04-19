@@ -16,6 +16,7 @@ const ReviewForm = ({ itemId, postReview }) => {
             rating: rating,
             comment: comment
         });
+        alert("Review has been added.");
     };
 
 
