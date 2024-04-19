@@ -41,15 +41,15 @@ const Item = ({ deleteReview, editReview, postReview, addToBasket }) => {
                                 </div>
                                 <button type="submit" className='btn'>Add to Basket</button>
                             </form> :
-                            <h1>SOLD OUT</h1>
+                            <h1 className='sold-out'>SOLD OUT</h1>
                         }
                     </div>
                     <div className='item-details'>
 
                         <div className='item-text'>
-                            <h2>{item.name}</h2>
-                            <p>{item.description}</p>
-                            <p>Price: £{(item.unitPrice / 100).toFixed(2)}</p>
+                            <h1>{item.name}</h1>
+                            <h3>{item.description}</h3>
+                            <h2>Price: £{(item.unitPrice / 100).toFixed(2)}</h2>
 
                         </div>
                         <Popup trigger=
